@@ -1,0 +1,40 @@
+2021-01-03 10:00:57,821:[DEBUG]My first info log using default logger! mystr1
+2021-01-03 10:00:57,821:[INFO]test typeany data = TEID = 256
+2021-01-03 10:00:57,821:[INFO]test typeany data = 1
+2021-01-03 10:00:57,821:[INFO]Simple Type free!TID 256
+2021-01-03 10:00:57,821:[INFO]Logged if condition is true2i = 2i = 2
+2021-01-03 10:00:57,821:[DEBUG]My first info log using default logger! mystr2
+2021-01-03 10:00:57,821:[INFO]test typeany data = TEID = 256
+2021-01-03 10:00:57,821:[INFO]test typeany data = 2
+2021-01-03 10:00:57,821:[INFO]Simple Type free!TID 256
+2021-01-03 10:00:57,821:[DEBUG]My first info log using default logger! mystr3
+2021-01-03 10:00:57,821:[INFO]test typeany data = TEID = 256
+2021-01-03 10:00:57,821:[INFO]test typeany data = 3
+2021-01-03 10:00:57,821:[INFO]Simple Type free!TID 256
+2021-01-03 10:00:57,821:[INFO]Logged if condition is true4i = 4i = 4
+2021-01-03 10:00:57,821:[DEBUG]My first info log using default logger! mystr4
+2021-01-03 10:00:57,821:[INFO]test typeany data = TEID = 256
+2021-01-03 10:00:57,821:[INFO]test typeany data = 4
+2021-01-03 10:00:57,821:[INFO]Simple Type free!TID 256
+2021-01-03 10:00:57,821:[DEBUG]My first info log using default logger! mystr5
+2021-01-03 10:00:57,821:[INFO]test typeany data = TEID = 256
+2021-01-03 10:00:57,821:[INFO]test typeany data = 5
+2021-01-03 10:00:57,821:[INFO]Simple Type free!TID 256
+2021-01-03 10:00:57,821:[INFO]Logged if condition is true6i = 6i = 6
+2021-01-03 10:00:57,821:[DEBUG]My first info log using default logger! mystr6
+2021-01-03 10:00:57,821:[INFO]test typeany data = TEID = 256
+2021-01-03 10:00:57,821:[INFO]test typeany data = 6
+2021-01-03 10:00:57,821:[INFO]Simple Type free!TID 256
+2021-01-03 10:00:57,821:[DEBUG]My first info log using default logger! mystr7
+2021-01-03 10:00:57,821:[INFO]test typeany data = TEID = 256
+2021-01-03 10:00:57,821:[INFO]test typeany data = 7
+2021-01-03 10:00:57,821:[INFO]Simple Type free!TID 256
+2021-01-03 10:00:57,821:[INFO]Logged if condition is true8i = 8i = 8
+2021-01-03 10:00:57,821:[DEBUG]My first info log using default logger! mystr8
+2021-01-03 10:00:57,821:[INFO]test typeany data = TEID = 256
+2021-01-03 10:00:57,821:[INFO]test typeany data = 8
+2021-01-03 10:00:57,821:[INFO]Simple Type free!TID 256
+2021-01-03 10:00:57,821:[DEBUG]My first info log using default logger! mystr9
+2021-01-03 10:00:57,821:[INFO]test typeany data = 	TEID = 256
+2021-01-03 10:00:57,821:[INFO]test typeany data = 9
+2021-01-03 10:00:57,821:[INFO]Simple Type free!TID 256

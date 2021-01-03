@@ -1,0 +1,4 @@
+/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/build/CMakeFiles/rebuild_cache.dir
+/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/build/CMakeFiles/edit_cache.dir
+/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/build/CMakeFiles/siemenscnc.dir
+/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/build/CMakeFiles/clean-all.dir

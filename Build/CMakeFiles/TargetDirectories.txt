@@ -1,0 +1,4 @@
+/home/fchuanlin/datamodule/Build/CMakeFiles/rebuild_cache.dir
+/home/fchuanlin/datamodule/Build/CMakeFiles/edit_cache.dir
+/home/fchuanlin/datamodule/Build/CMakeFiles/xDC.dir
+/home/fchuanlin/datamodule/Build/CMakeFiles/clean-all.dir

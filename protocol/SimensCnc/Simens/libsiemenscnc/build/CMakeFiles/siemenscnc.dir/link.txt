@@ -1,0 +1,2 @@
+/usr/bin/ar qc lib/libsiemenscnc.a  CMakeFiles/siemenscnc.dir/src/siemenscnc.c.o CMakeFiles/siemenscnc.dir/src/siemenscnc_data.c.o CMakeFiles/siemenscnc.dir/src/siemenscnc_private.c.o CMakeFiles/siemenscnc.dir/src/siemenscnc_tcp_private.c.o
+/usr/bin/ranlib lib/libsiemenscnc.a
