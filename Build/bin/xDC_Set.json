@@ -1,0 +1,18 @@
+{
+	"command": "set",
+	"device": {
+		"interface": 2,
+		"protocol": 1,
+		"baud": 19200,
+		"dataBit": 8,
+		"stopBit": 1,
+		"parity": "n",
+		"ip": "192.168.3.23",
+		"port": "502"
+	},
+	"list": [{
+		"type": 1,
+		"name": 200,
+		"value": 10
+	}]
+}

@@ -27,38 +27,8 @@ void easylogginginit()
     el::Loggers::reconfigureAllLoggers( conf );
 }
 
-void testtypeany( UINT8 i )
-{
-    Any testany( i );
-
-    LOG( INFO ) << "test typeany data = " << ( UINT8 )testany.v.m_octet << "TEID = " << testany.m_typeany_id;
-    LOG( INFO ) << "test typeany data = " << testany.v.m_int;
-}
-
-void readJson( string filepath, string &jsonstr )
-{
-    //FILE *fp = fopen( filepath, "r" );
-}
-int testfile()
-{
-    string str;
-    ifstream fin( "file.json" );
-    if ( fin.peek() == EOF )
-    {
-        cout << "file is empty." << endl;
-        return 0;
-    }
-    while ( !fin.eof() )
-    {
-        fin >> str;
-        cout << str;
-    }
-    return 0;
-}
-
 int TestJson()
 {
-    testfile();
     auto text = R"(
     {
         "Image": {
@@ -109,20 +79,29 @@ int TestJson()
     return 0;
 }
 
-int main()
+int main( int argc, char * argv[] )
 {
     easylogginginit();
 
-    for( int i = 1; i < 10; i++ )
-    {
-        char mystr[10] = {0};
-        sprintf( mystr, "mystr%d", i );
-        LOG_IF( ( ( i % 2 ) == 0 ), INFO ) << "Logged if condition is true" << i << "i = " << i << "i = " << i;
-        LOG( DEBUG ) << "My first info log using default logger! " << mystr;
-        testtypeany( i );
-    }
+    LOG_IF( ( ( 1 % 2 ) == 0 ), INFO ) << "Logged if condition is true";
+    LOG( DEBUG ) << "My first info log using default logger! ";
 
-    TestJson();
+    if( argc > 1 )
+    {
+        /// 读取配置文件
+        ifstream fjson( argv[1]);
+        json jsoncfg;
+        fjson >> jsoncfg;
+        cout << jsoncfg["command"] << endl;;
+        cout << jsoncfg["device"] << endl;;
+        cout << jsoncfg["list"] << endl;;
+        fjson.close();
+    }
+    else
+    {
+        LOG( ERROR ) << "No Json file! ";
+        return 0;
+    }
 
     //// 西门子采集协议测试程序
 #if 1
