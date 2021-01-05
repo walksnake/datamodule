@@ -1,7 +1,7 @@
-set(CMAKE_C_COMPILER "/usr/lib64/ccache/gcc")
-set(CMAKE_C_COMPILER_ARG1 "")
+set(CMAKE_C_COMPILER "/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc")
+set(CMAKE_C_COMPILER_ARG1 " -mcpu=cortex-a9")
 set(CMAKE_C_COMPILER_ID "GNU")
-set(CMAKE_C_COMPILER_VERSION "8.3.1")
+set(CMAKE_C_COMPILER_VERSION "5.3.1")
 set(CMAKE_C_COMPILER_VERSION_INTERNAL "")
 set(CMAKE_C_COMPILER_WRAPPER "")
 set(CMAKE_C_STANDARD_COMPUTED_DEFAULT "11")
@@ -43,7 +43,7 @@ set(CMAKE_C_IGNORE_EXTENSIONS h;H;o;O;obj;OBJ;def;DEF;rc;RC)
 set(CMAKE_C_LINKER_PREFERENCE 10)
 
 # Save compiler ABI information.
-set(CMAKE_C_SIZEOF_DATA_PTR "8")
+set(CMAKE_C_SIZEOF_DATA_PTR "4")
 set(CMAKE_C_COMPILER_ABI "ELF")
 set(CMAKE_C_LIBRARY_ARCHITECTURE "")
 
@@ -69,5 +69,5 @@ endif()
 
 
 set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "gcc;gcc_s;c;gcc;gcc_s")
-set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "/usr/lib/gcc/x86_64-redhat-linux/8;/usr/lib64;/lib64;/usr/lib")
+set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/5.3.1;/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf;/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc;/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/lib;/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/lib;/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/lib")
 set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

@@ -24,8 +24,10 @@ set ( CMAKE_CXX_FLAGS "-g -std=c++11 -pthread" )
 
 #macro
 #add_definitions (
-#		-DSIEMENSCNC_BEGIN_DECLS
+#	-DCMAKE_CXX_COMPILER=$(which arm-linux-gnueabihf-g++) 
+#	-DCMAKE_C_COMPILER=$(which arm-linux-gnueabihf-gcc)
 #)
+
 #generate target
 add_library ( siemenscnc ${DIR_CNC_SRC} )
 

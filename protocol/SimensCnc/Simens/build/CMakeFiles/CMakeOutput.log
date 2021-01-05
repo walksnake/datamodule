@@ -1,7 +1,7 @@
 The system is: Linux - 4.18.0-147.el8.x86_64 - x86_64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
-Compiler: /usr/lib64/ccache/gcc 
-Build flags: 
+Compiler: /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc -mcpu=cortex-a9
+Build flags: ;-O2;-pipe;-g
 Id flags:  
 
 The output was:
@@ -13,8 +13,8 @@ Compilation of the C compiler identification source "CMakeCCompilerId.c" produce
 The C compiler identification is GNU, found in "/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/3.11.4/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-Compiler: /usr/lib64/ccache/g++ 
-Build flags: 
+Compiler: /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++ -mcpu=cortex-a9
+Build flags: ;-O2;-pipe;-g;
 Id flags:  
 
 The output was:
@@ -28,42 +28,39 @@ The CXX compiler identification is GNU, found in "/home/fchuanlin/datamodule/pro
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_1f1ce/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_1f1ce.dir/build.make CMakeFiles/cmTC_1f1ce.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_d3bbc/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_d3bbc.dir/build.make CMakeFiles/cmTC_d3bbc.dir/build
 gmake[1]: Entering directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_1f1ce.dir/testCCompiler.c.o
-/usr/lib64/ccache/gcc    -o CMakeFiles/cmTC_1f1ce.dir/testCCompiler.c.o   -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_1f1ce
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1f1ce.dir/link.txt --verbose=1
-/usr/lib64/ccache/gcc      CMakeFiles/cmTC_1f1ce.dir/testCCompiler.c.o  -o cmTC_1f1ce 
+Building C object CMakeFiles/cmTC_d3bbc.dir/testCCompiler.c.o
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9   -O2 -pipe -g    -o CMakeFiles/cmTC_d3bbc.dir/testCCompiler.c.o   -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_d3bbc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d3bbc.dir/link.txt --verbose=1
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 -O2 -pipe -g   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_d3bbc.dir/testCCompiler.c.o  -o cmTC_d3bbc 
 gmake[1]: Leaving directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_3809c/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_3809c.dir/build.make CMakeFiles/cmTC_3809c.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_0bedc/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_0bedc.dir/build.make CMakeFiles/cmTC_0bedc.dir/build
 gmake[1]: Entering directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_3809c.dir/CMakeCCompilerABI.c.o
-/usr/lib64/ccache/gcc    -o CMakeFiles/cmTC_3809c.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_3809c
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3809c.dir/link.txt --verbose=1
-/usr/lib64/ccache/gcc     -v CMakeFiles/cmTC_3809c.dir/CMakeCCompilerABI.c.o  -o cmTC_3809c 
+Building C object CMakeFiles/cmTC_0bedc.dir/CMakeCCompilerABI.c.o
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9   -O2 -pipe -g    -o CMakeFiles/cmTC_0bedc.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_0bedc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0bedc.dir/link.txt --verbose=1
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 -O2 -pipe -g   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_0bedc.dir/CMakeCCompilerABI.c.o  -o cmTC_0bedc 
 Using built-in specs.
-COLLECT_GCC=/usr/bin/gcc
-COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper
-OFFLOAD_TARGET_NAMES=nvptx-none
-OFFLOAD_TARGET_DEFAULT=1
-Target: x86_64-redhat-linux
-Configured with: ../configure --enable-bootstrap --enable-languages=c,c++,fortran,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl --disable-libmpx --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
+COLLECT_GCC=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc
+COLLECT_LTO_WRAPPER=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/lto-wrapper
+Target: arm-linux-gnueabihf
+Configured with: /home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/snapshots/gcc-linaro-5.3-2016.05/configure SHELL=/bin/bash --with-mpc=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu --with-mpfr=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gmp=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gnu-as --with-gnu-ld --disable-libstdcxx-pch --disable-libmudflap --with-cloog=no --with-ppl=no --with-isl=no --disable-nls --enable-c99 --with-tune=cortex-a9 --with-arch=armv7-a --with-fpu=vfpv3-d16 --with-float=hard --with-mode=thumb --disable-multilib --enable-multiarch --with-build-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/sysroots/arm-linux-gnueabihf --enable-lto --enable-linker-build-id --enable-long-long --enable-shared --with-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu/arm-linux-gnueabihf/libc --enable-languages=c,c++,fortran,lto --enable-checking=release --disable-bootstrap --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --target=arm-linux-gnueabihf --prefix=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu
 Thread model: posix
-gcc version 8.3.1 20191121 (Red Hat 8.3.1-5) (GCC) 
-COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/
-LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3809c' '-mtune=generic' '-march=x86-64'
- /usr/libexec/gcc/x86_64-redhat-linux/8/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/8/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper -plugin-opt=-fresolution=/tmp/cc1FJPkD.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_3809c /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/8 -L/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/8/../../.. CMakeFiles/cmTC_3809c.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/8/crtend.o /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3809c' '-mtune=generic' '-march=x86-64'
+gcc version 5.3.1 20160412 (Linaro GCC 5.3-2016.05) 
+COMPILER_PATH=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/../../../../arm-linux-gnueabihf/bin/
+LIBRARY_PATH=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/../../../../arm-linux-gnueabihf/lib/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/
+COLLECT_GCC_OPTIONS='-mcpu=cortex-a9' '-O2' '-pipe' '-g' '-v' '-o' 'cmTC_0bedc' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mthumb' '-mtls-dialect=gnu'
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/collect2 -plugin /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/liblto_plugin.so -plugin-opt=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccBkrTII.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_0bedc /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crt1.o /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crti.o /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtbegin.o -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1 -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/../../../../arm-linux-gnueabihf/lib -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_0bedc.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crtn.o
 gmake[1]: Leaving directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
 
 
@@ -71,56 +68,58 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_3809c/fast"]
-  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_3809c.dir/build.make CMakeFiles/cmTC_3809c.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_0bedc/fast"]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_0bedc.dir/build.make CMakeFiles/cmTC_0bedc.dir/build]
   ignore line: [gmake[1]: Entering directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_3809c.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/lib64/ccache/gcc    -o CMakeFiles/cmTC_3809c.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_3809c]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3809c.dir/link.txt --verbose=1]
-  ignore line: [/usr/lib64/ccache/gcc     -v CMakeFiles/cmTC_3809c.dir/CMakeCCompilerABI.c.o  -o cmTC_3809c ]
+  ignore line: [Building C object CMakeFiles/cmTC_0bedc.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9   -O2 -pipe -g    -o CMakeFiles/cmTC_0bedc.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_0bedc]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0bedc.dir/link.txt --verbose=1]
+  ignore line: [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 -O2 -pipe -g   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_0bedc.dir/CMakeCCompilerABI.c.o  -o cmTC_0bedc ]
   ignore line: [Using built-in specs.]
-  ignore line: [COLLECT_GCC=/usr/bin/gcc]
-  ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper]
-  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
-  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
-  ignore line: [Target: x86_64-redhat-linux]
-  ignore line: [Configured with: ../configure --enable-bootstrap --enable-languages=c,c++,fortran,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl --disable-libmpx --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux]
+  ignore line: [COLLECT_GCC=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/lto-wrapper]
+  ignore line: [Target: arm-linux-gnueabihf]
+  ignore line: [Configured with: /home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/snapshots/gcc-linaro-5.3-2016.05/configure SHELL=/bin/bash --with-mpc=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu --with-mpfr=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gmp=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gnu-as --with-gnu-ld --disable-libstdcxx-pch --disable-libmudflap --with-cloog=no --with-ppl=no --with-isl=no --disable-nls --enable-c99 --with-tune=cortex-a9 --with-arch=armv7-a --with-fpu=vfpv3-d16 --with-float=hard --with-mode=thumb --disable-multilib --enable-multiarch --with-build-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/sysroots/arm-linux-gnueabihf --enable-lto --enable-linker-build-id --enable-long-long --enable-shared --with-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu/arm-linux-gnueabihf/libc --enable-languages=c,c++,fortran,lto --enable-checking=release --disable-bootstrap --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --target=arm-linux-gnueabihf --prefix=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu]
   ignore line: [Thread model: posix]
-  ignore line: [gcc version 8.3.1 20191121 (Red Hat 8.3.1-5) (GCC) ]
-  ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/]
-  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3809c' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/8/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/8/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper -plugin-opt=-fresolution=/tmp/cc1FJPkD.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_3809c /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/8 -L/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/8/../../.. CMakeFiles/cmTC_3809c.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/8/crtend.o /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o]
-    arg [/usr/libexec/gcc/x86_64-redhat-linux/8/collect2] ==> ignore
+  ignore line: [gcc version 5.3.1 20160412 (Linaro GCC 5.3-2016.05) ]
+  ignore line: [COMPILER_PATH=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/../../../../arm-linux-gnueabihf/bin/]
+  ignore line: [LIBRARY_PATH=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/../../../../arm-linux-gnueabihf/lib/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-a9' '-O2' '-pipe' '-g' '-v' '-o' 'cmTC_0bedc' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mthumb' '-mtls-dialect=gnu']
+  link line: [ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/collect2 -plugin /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/liblto_plugin.so -plugin-opt=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccBkrTII.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_0bedc /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crt1.o /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crti.o /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtbegin.o -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1 -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/../../../../arm-linux-gnueabihf/lib -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_0bedc.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crtn.o]
+    arg [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/collect2] ==> ignore
     arg [-plugin] ==> ignore
-    arg [/usr/libexec/gcc/x86_64-redhat-linux/8/liblto_plugin.so] ==> ignore
-    arg [-plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/cc1FJPkD.res] ==> ignore
+    arg [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccBkrTII.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--sysroot=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc] ==> ignore
     arg [--build-id] ==> ignore
-    arg [--no-add-needed] ==> ignore
     arg [--eh-frame-hdr] ==> ignore
-    arg [--hash-style=gnu] ==> ignore
-    arg [-m] ==> ignore
-    arg [elf_x86_64] ==> ignore
     arg [-dynamic-linker] ==> ignore
-    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [/lib/ld-linux-armhf.so.3] ==> ignore
+    arg [-X] ==> ignore
+    arg [-m] ==> ignore
+    arg [armelf_linux_eabi] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_3809c] ==> ignore
-    arg [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o] ==> ignore
-    arg [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o] ==> ignore
-    arg [/usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o] ==> ignore
-    arg [-L/usr/lib/gcc/x86_64-redhat-linux/8] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/8]
-    arg [-L/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64]
-    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
-    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
-    arg [-L/usr/lib/gcc/x86_64-redhat-linux/8/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../..]
-    arg [CMakeFiles/cmTC_3809c.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [cmTC_0bedc] ==> ignore
+    arg [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crt1.o] ==> ignore
+    arg [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crti.o] ==> ignore
+    arg [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtbegin.o] ==> ignore
+    arg [-L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1] ==> dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1]
+    arg [-L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf] ==> dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf]
+    arg [-L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc] ==> dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc]
+    arg [-L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/../../../../arm-linux-gnueabihf/lib] ==> dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/../../../../arm-linux-gnueabihf/lib]
+    arg [-L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib] ==> dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib]
+    arg [-L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib] ==> dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib]
+    arg [-O1] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [CMakeFiles/cmTC_0bedc.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -130,15 +129,16 @@ Parsed C implicit link information from above output:
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
     arg [--no-as-needed] ==> ignore
-    arg [/usr/lib/gcc/x86_64-redhat-linux/8/crtend.o] ==> ignore
-    arg [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o] ==> ignore
-  collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/8] ==> [/usr/lib/gcc/x86_64-redhat-linux/8]
-  collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64] ==> [/usr/lib64]
-  collapse library dir [/lib/../lib64] ==> [/lib64]
-  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
-  collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../..] ==> [/usr/lib]
+    arg [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o] ==> ignore
+    arg [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crtn.o] ==> ignore
+  collapse library dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1] ==> [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/5.3.1]
+  collapse library dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf] ==> [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf]
+  collapse library dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc] ==> [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc]
+  collapse library dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/../../../../arm-linux-gnueabihf/lib] ==> [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/lib]
+  collapse library dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib] ==> [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/lib]
+  collapse library dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib] ==> [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/lib]
   implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
-  implicit dirs: [/usr/lib/gcc/x86_64-redhat-linux/8;/usr/lib64;/lib64;/usr/lib]
+  implicit dirs: [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/5.3.1;/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf;/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc;/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/lib;/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/lib;/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/lib]
   implicit fwks: []
 
 
@@ -147,14 +147,14 @@ Parsed C implicit link information from above output:
 Detecting C [-std=c11] compiler features compiled with the following output:
 Change Dir: /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_b4a68/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_b4a68.dir/build.make CMakeFiles/cmTC_b4a68.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_2b4c4/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_2b4c4.dir/build.make CMakeFiles/cmTC_2b4c4.dir/build
 gmake[1]: Entering directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_b4a68.dir/feature_tests.c.o
-/usr/lib64/ccache/gcc   -std=c11 -o CMakeFiles/cmTC_b4a68.dir/feature_tests.c.o   -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_b4a68
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b4a68.dir/link.txt --verbose=1
-/usr/lib64/ccache/gcc      CMakeFiles/cmTC_b4a68.dir/feature_tests.c.o  -o cmTC_b4a68 
+Building C object CMakeFiles/cmTC_2b4c4.dir/feature_tests.c.o
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9   -O2 -pipe -g    -std=c11 -o CMakeFiles/cmTC_2b4c4.dir/feature_tests.c.o   -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_2b4c4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2b4c4.dir/link.txt --verbose=1
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 -O2 -pipe -g   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_2b4c4.dir/feature_tests.c.o  -o cmTC_2b4c4 
 gmake[1]: Leaving directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
 
 
@@ -167,14 +167,14 @@ gmake[1]: Leaving directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simen
 Detecting C [-std=c99] compiler features compiled with the following output:
 Change Dir: /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_2dd36/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_2dd36.dir/build.make CMakeFiles/cmTC_2dd36.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_f7c21/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_f7c21.dir/build.make CMakeFiles/cmTC_f7c21.dir/build
 gmake[1]: Entering directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_2dd36.dir/feature_tests.c.o
-/usr/lib64/ccache/gcc   -std=c99 -o CMakeFiles/cmTC_2dd36.dir/feature_tests.c.o   -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_2dd36
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2dd36.dir/link.txt --verbose=1
-/usr/lib64/ccache/gcc      CMakeFiles/cmTC_2dd36.dir/feature_tests.c.o  -o cmTC_2dd36 
+Building C object CMakeFiles/cmTC_f7c21.dir/feature_tests.c.o
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9   -O2 -pipe -g    -std=c99 -o CMakeFiles/cmTC_f7c21.dir/feature_tests.c.o   -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_f7c21
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f7c21.dir/link.txt --verbose=1
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 -O2 -pipe -g   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_f7c21.dir/feature_tests.c.o  -o cmTC_f7c21 
 gmake[1]: Leaving directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
 
 
@@ -187,14 +187,14 @@ gmake[1]: Leaving directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simen
 Detecting C [-std=c90] compiler features compiled with the following output:
 Change Dir: /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_c9b65/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_c9b65.dir/build.make CMakeFiles/cmTC_c9b65.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_95e80/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_95e80.dir/build.make CMakeFiles/cmTC_95e80.dir/build
 gmake[1]: Entering directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_c9b65.dir/feature_tests.c.o
-/usr/lib64/ccache/gcc   -std=c90 -o CMakeFiles/cmTC_c9b65.dir/feature_tests.c.o   -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_c9b65
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c9b65.dir/link.txt --verbose=1
-/usr/lib64/ccache/gcc      CMakeFiles/cmTC_c9b65.dir/feature_tests.c.o  -o cmTC_c9b65 
+Building C object CMakeFiles/cmTC_95e80.dir/feature_tests.c.o
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9   -O2 -pipe -g    -std=c90 -o CMakeFiles/cmTC_95e80.dir/feature_tests.c.o   -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_95e80
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_95e80.dir/link.txt --verbose=1
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 -O2 -pipe -g   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_95e80.dir/feature_tests.c.o  -o cmTC_95e80 
 gmake[1]: Leaving directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
 
 
@@ -205,42 +205,39 @@ gmake[1]: Leaving directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simen
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_45643/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_45643.dir/build.make CMakeFiles/cmTC_45643.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_bc699/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_bc699.dir/build.make CMakeFiles/cmTC_bc699.dir/build
 gmake[1]: Entering directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_45643.dir/testCXXCompiler.cxx.o
-/usr/lib64/ccache/g++     -o CMakeFiles/cmTC_45643.dir/testCXXCompiler.cxx.o -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_45643
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_45643.dir/link.txt --verbose=1
-/usr/lib64/ccache/g++       CMakeFiles/cmTC_45643.dir/testCXXCompiler.cxx.o  -o cmTC_45643 
+Building CXX object CMakeFiles/cmTC_bc699.dir/testCXXCompiler.cxx.o
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  -mcpu=cortex-a9    -O2 -pipe -g    -o CMakeFiles/cmTC_bc699.dir/testCXXCompiler.cxx.o -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_bc699
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bc699.dir/link.txt --verbose=1
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  -mcpu=cortex-a9  -O2 -pipe -g   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_bc699.dir/testCXXCompiler.cxx.o  -o cmTC_bc699 
 gmake[1]: Leaving directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_2c084/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_2c084.dir/build.make CMakeFiles/cmTC_2c084.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_aae50/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_aae50.dir/build.make CMakeFiles/cmTC_aae50.dir/build
 gmake[1]: Entering directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_2c084.dir/CMakeCXXCompilerABI.cpp.o
-/usr/lib64/ccache/g++     -o CMakeFiles/cmTC_2c084.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_2c084
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2c084.dir/link.txt --verbose=1
-/usr/lib64/ccache/g++      -v CMakeFiles/cmTC_2c084.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_2c084 
+Building CXX object CMakeFiles/cmTC_aae50.dir/CMakeCXXCompilerABI.cpp.o
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  -mcpu=cortex-a9    -O2 -pipe -g    -o CMakeFiles/cmTC_aae50.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_aae50
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aae50.dir/link.txt --verbose=1
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  -mcpu=cortex-a9  -O2 -pipe -g   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_aae50.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_aae50 
 Using built-in specs.
-COLLECT_GCC=/usr/bin/g++
-COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper
-OFFLOAD_TARGET_NAMES=nvptx-none
-OFFLOAD_TARGET_DEFAULT=1
-Target: x86_64-redhat-linux
-Configured with: ../configure --enable-bootstrap --enable-languages=c,c++,fortran,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl --disable-libmpx --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
+COLLECT_GCC=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++
+COLLECT_LTO_WRAPPER=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/lto-wrapper
+Target: arm-linux-gnueabihf
+Configured with: /home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/snapshots/gcc-linaro-5.3-2016.05/configure SHELL=/bin/bash --with-mpc=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu --with-mpfr=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gmp=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gnu-as --with-gnu-ld --disable-libstdcxx-pch --disable-libmudflap --with-cloog=no --with-ppl=no --with-isl=no --disable-nls --enable-c99 --with-tune=cortex-a9 --with-arch=armv7-a --with-fpu=vfpv3-d16 --with-float=hard --with-mode=thumb --disable-multilib --enable-multiarch --with-build-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/sysroots/arm-linux-gnueabihf --enable-lto --enable-linker-build-id --enable-long-long --enable-shared --with-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu/arm-linux-gnueabihf/libc --enable-languages=c,c++,fortran,lto --enable-checking=release --disable-bootstrap --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --target=arm-linux-gnueabihf --prefix=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu
 Thread model: posix
-gcc version 8.3.1 20191121 (Red Hat 8.3.1-5) (GCC) 
-COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/
-LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_2c084' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/libexec/gcc/x86_64-redhat-linux/8/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/8/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper -plugin-opt=-fresolution=/tmp/ccZR1NME.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_2c084 /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/8 -L/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/8/../../.. CMakeFiles/cmTC_2c084.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/8/crtend.o /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_2c084' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+gcc version 5.3.1 20160412 (Linaro GCC 5.3-2016.05) 
+COMPILER_PATH=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/../../../../arm-linux-gnueabihf/bin/
+LIBRARY_PATH=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/../../../../arm-linux-gnueabihf/lib/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/
+COLLECT_GCC_OPTIONS='-mcpu=cortex-a9' '-O2' '-pipe' '-g' '-v' '-o' 'cmTC_aae50' '-shared-libgcc' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mthumb' '-mtls-dialect=gnu'
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/collect2 -plugin /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/liblto_plugin.so -plugin-opt=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccB9diPe.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_aae50 /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crt1.o /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crti.o /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtbegin.o -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1 -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/../../../../arm-linux-gnueabihf/lib -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_aae50.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crtn.o
 gmake[1]: Leaving directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
 
 
@@ -248,56 +245,58 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_2c084/fast"]
-  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_2c084.dir/build.make CMakeFiles/cmTC_2c084.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_aae50/fast"]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_aae50.dir/build.make CMakeFiles/cmTC_aae50.dir/build]
   ignore line: [gmake[1]: Entering directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_2c084.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/lib64/ccache/g++     -o CMakeFiles/cmTC_2c084.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_2c084]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2c084.dir/link.txt --verbose=1]
-  ignore line: [/usr/lib64/ccache/g++      -v CMakeFiles/cmTC_2c084.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_2c084 ]
+  ignore line: [Building CXX object CMakeFiles/cmTC_aae50.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  -mcpu=cortex-a9    -O2 -pipe -g    -o CMakeFiles/cmTC_aae50.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_aae50]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aae50.dir/link.txt --verbose=1]
+  ignore line: [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  -mcpu=cortex-a9  -O2 -pipe -g   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_aae50.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_aae50 ]
   ignore line: [Using built-in specs.]
-  ignore line: [COLLECT_GCC=/usr/bin/g++]
-  ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper]
-  ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
-  ignore line: [OFFLOAD_TARGET_DEFAULT=1]
-  ignore line: [Target: x86_64-redhat-linux]
-  ignore line: [Configured with: ../configure --enable-bootstrap --enable-languages=c,c++,fortran,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl --disable-libmpx --enable-offload-targets=nvptx-none --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux]
+  ignore line: [COLLECT_GCC=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/lto-wrapper]
+  ignore line: [Target: arm-linux-gnueabihf]
+  ignore line: [Configured with: /home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/snapshots/gcc-linaro-5.3-2016.05/configure SHELL=/bin/bash --with-mpc=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu --with-mpfr=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gmp=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gnu-as --with-gnu-ld --disable-libstdcxx-pch --disable-libmudflap --with-cloog=no --with-ppl=no --with-isl=no --disable-nls --enable-c99 --with-tune=cortex-a9 --with-arch=armv7-a --with-fpu=vfpv3-d16 --with-float=hard --with-mode=thumb --disable-multilib --enable-multiarch --with-build-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/sysroots/arm-linux-gnueabihf --enable-lto --enable-linker-build-id --enable-long-long --enable-shared --with-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu/arm-linux-gnueabihf/libc --enable-languages=c,c++,fortran,lto --enable-checking=release --disable-bootstrap --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --target=arm-linux-gnueabihf --prefix=/home/tcwg-buildslave/workspace/tcwg-make-release/label/docker-trusty-amd64-tcwg/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu]
   ignore line: [Thread model: posix]
-  ignore line: [gcc version 8.3.1 20191121 (Red Hat 8.3.1-5) (GCC) ]
-  ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/8/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/]
-  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/8/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/8/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_2c084' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/8/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/8/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper -plugin-opt=-fresolution=/tmp/ccZR1NME.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_2c084 /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/8 -L/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/8/../../.. CMakeFiles/cmTC_2c084.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/8/crtend.o /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o]
-    arg [/usr/libexec/gcc/x86_64-redhat-linux/8/collect2] ==> ignore
+  ignore line: [gcc version 5.3.1 20160412 (Linaro GCC 5.3-2016.05) ]
+  ignore line: [COMPILER_PATH=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/../../../../arm-linux-gnueabihf/bin/]
+  ignore line: [LIBRARY_PATH=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/../../../../arm-linux-gnueabihf/lib/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib/:/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-a9' '-O2' '-pipe' '-g' '-v' '-o' 'cmTC_aae50' '-shared-libgcc' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mthumb' '-mtls-dialect=gnu']
+  link line: [ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/collect2 -plugin /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/liblto_plugin.so -plugin-opt=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccB9diPe.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc --build-id --eh-frame-hdr -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_aae50 /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crt1.o /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crti.o /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtbegin.o -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1 -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/../../../../arm-linux-gnueabihf/lib -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib -L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_aae50.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crtn.o]
+    arg [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/collect2] ==> ignore
     arg [-plugin] ==> ignore
-    arg [/usr/libexec/gcc/x86_64-redhat-linux/8/liblto_plugin.so] ==> ignore
-    arg [-plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/8/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccZR1NME.res] ==> ignore
+    arg [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/5.3.1/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccB9diPe.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--sysroot=/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc] ==> ignore
     arg [--build-id] ==> ignore
-    arg [--no-add-needed] ==> ignore
     arg [--eh-frame-hdr] ==> ignore
-    arg [--hash-style=gnu] ==> ignore
-    arg [-m] ==> ignore
-    arg [elf_x86_64] ==> ignore
     arg [-dynamic-linker] ==> ignore
-    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [/lib/ld-linux-armhf.so.3] ==> ignore
+    arg [-X] ==> ignore
+    arg [-m] ==> ignore
+    arg [armelf_linux_eabi] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_2c084] ==> ignore
-    arg [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crt1.o] ==> ignore
-    arg [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crti.o] ==> ignore
-    arg [/usr/lib/gcc/x86_64-redhat-linux/8/crtbegin.o] ==> ignore
-    arg [-L/usr/lib/gcc/x86_64-redhat-linux/8] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/8]
-    arg [-L/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64]
-    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
-    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
-    arg [-L/usr/lib/gcc/x86_64-redhat-linux/8/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../..]
-    arg [CMakeFiles/cmTC_2c084.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [cmTC_aae50] ==> ignore
+    arg [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crt1.o] ==> ignore
+    arg [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crti.o] ==> ignore
+    arg [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtbegin.o] ==> ignore
+    arg [-L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1] ==> dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1]
+    arg [-L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf] ==> dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf]
+    arg [-L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc] ==> dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc]
+    arg [-L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/../../../../arm-linux-gnueabihf/lib] ==> dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/../../../../arm-linux-gnueabihf/lib]
+    arg [-L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib] ==> dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib]
+    arg [-L/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib] ==> dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib]
+    arg [-O1] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [CMakeFiles/cmTC_aae50.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -305,15 +304,16 @@ Parsed CXX implicit link information from above output:
     arg [-lc] ==> lib [c]
     arg [-lgcc_s] ==> lib [gcc_s]
     arg [-lgcc] ==> lib [gcc]
-    arg [/usr/lib/gcc/x86_64-redhat-linux/8/crtend.o] ==> ignore
-    arg [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/crtn.o] ==> ignore
-  collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/8] ==> [/usr/lib/gcc/x86_64-redhat-linux/8]
-  collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64] ==> [/usr/lib64]
-  collapse library dir [/lib/../lib64] ==> [/lib64]
-  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
-  collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/8/../../..] ==> [/usr/lib]
+    arg [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/crtend.o] ==> ignore
+    arg [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib/crtn.o] ==> ignore
+  collapse library dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1] ==> [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/5.3.1]
+  collapse library dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf] ==> [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf]
+  collapse library dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc] ==> [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc]
+  collapse library dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../lib/gcc/arm-linux-gnueabihf/5.3.1/../../../../arm-linux-gnueabihf/lib] ==> [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/lib]
+  collapse library dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/lib] ==> [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/lib]
+  collapse library dir [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/../arm-linux-gnueabihf/libc/usr/lib] ==> [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/lib]
   implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
-  implicit dirs: [/usr/lib/gcc/x86_64-redhat-linux/8;/usr/lib64;/lib64;/usr/lib]
+  implicit dirs: [/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/5.3.1;/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf;/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc;/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/lib;/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/lib;/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/lib]
   implicit fwks: []
 
 
@@ -322,14 +322,14 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
 Change Dir: /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_ac0fb/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_ac0fb.dir/build.make CMakeFiles/cmTC_ac0fb.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_6d68b/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_6d68b.dir/build.make CMakeFiles/cmTC_6d68b.dir/build
 gmake[1]: Entering directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_ac0fb.dir/feature_tests.cxx.o
-/usr/lib64/ccache/g++    -std=c++1z -o CMakeFiles/cmTC_ac0fb.dir/feature_tests.cxx.o -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_ac0fb
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ac0fb.dir/link.txt --verbose=1
-/usr/lib64/ccache/g++       CMakeFiles/cmTC_ac0fb.dir/feature_tests.cxx.o  -o cmTC_ac0fb 
+Building CXX object CMakeFiles/cmTC_6d68b.dir/feature_tests.cxx.o
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  -mcpu=cortex-a9    -O2 -pipe -g    -std=c++1z -o CMakeFiles/cmTC_6d68b.dir/feature_tests.cxx.o -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_6d68b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6d68b.dir/link.txt --verbose=1
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  -mcpu=cortex-a9  -O2 -pipe -g   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_6d68b.dir/feature_tests.cxx.o  -o cmTC_6d68b 
 gmake[1]: Leaving directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
 
 
@@ -395,14 +395,14 @@ gmake[1]: Leaving directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simen
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
 Change Dir: /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_879ac/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_879ac.dir/build.make CMakeFiles/cmTC_879ac.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_f28bf/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_f28bf.dir/build.make CMakeFiles/cmTC_f28bf.dir/build
 gmake[1]: Entering directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_879ac.dir/feature_tests.cxx.o
-/usr/lib64/ccache/g++    -std=c++14 -o CMakeFiles/cmTC_879ac.dir/feature_tests.cxx.o -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_879ac
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_879ac.dir/link.txt --verbose=1
-/usr/lib64/ccache/g++       CMakeFiles/cmTC_879ac.dir/feature_tests.cxx.o  -o cmTC_879ac 
+Building CXX object CMakeFiles/cmTC_f28bf.dir/feature_tests.cxx.o
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  -mcpu=cortex-a9    -O2 -pipe -g    -std=c++14 -o CMakeFiles/cmTC_f28bf.dir/feature_tests.cxx.o -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_f28bf
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f28bf.dir/link.txt --verbose=1
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  -mcpu=cortex-a9  -O2 -pipe -g   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_f28bf.dir/feature_tests.cxx.o  -o cmTC_f28bf 
 gmake[1]: Leaving directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
 
 
@@ -468,14 +468,14 @@ gmake[1]: Leaving directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simen
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_04701/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_04701.dir/build.make CMakeFiles/cmTC_04701.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_1d20d/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_1d20d.dir/build.make CMakeFiles/cmTC_1d20d.dir/build
 gmake[1]: Entering directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_04701.dir/feature_tests.cxx.o
-/usr/lib64/ccache/g++    -std=c++11 -o CMakeFiles/cmTC_04701.dir/feature_tests.cxx.o -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_04701
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_04701.dir/link.txt --verbose=1
-/usr/lib64/ccache/g++       CMakeFiles/cmTC_04701.dir/feature_tests.cxx.o  -o cmTC_04701 
+Building CXX object CMakeFiles/cmTC_1d20d.dir/feature_tests.cxx.o
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  -mcpu=cortex-a9    -O2 -pipe -g    -std=c++11 -o CMakeFiles/cmTC_1d20d.dir/feature_tests.cxx.o -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_1d20d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1d20d.dir/link.txt --verbose=1
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  -mcpu=cortex-a9  -O2 -pipe -g   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_1d20d.dir/feature_tests.cxx.o  -o cmTC_1d20d 
 gmake[1]: Leaving directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
 
 
@@ -541,14 +541,14 @@ gmake[1]: Leaving directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simen
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_2bb2f/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_2bb2f.dir/build.make CMakeFiles/cmTC_2bb2f.dir/build
+Run Build Command:"/usr/bin/gmake" "cmTC_4c78e/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_4c78e.dir/build.make CMakeFiles/cmTC_4c78e.dir/build
 gmake[1]: Entering directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_2bb2f.dir/feature_tests.cxx.o
-/usr/lib64/ccache/g++    -std=c++98 -o CMakeFiles/cmTC_2bb2f.dir/feature_tests.cxx.o -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_2bb2f
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2bb2f.dir/link.txt --verbose=1
-/usr/lib64/ccache/g++       CMakeFiles/cmTC_2bb2f.dir/feature_tests.cxx.o  -o cmTC_2bb2f 
+Building CXX object CMakeFiles/cmTC_4c78e.dir/feature_tests.cxx.o
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  -mcpu=cortex-a9    -O2 -pipe -g    -std=c++98 -o CMakeFiles/cmTC_4c78e.dir/feature_tests.cxx.o -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_4c78e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4c78e.dir/link.txt --verbose=1
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  -mcpu=cortex-a9  -O2 -pipe -g   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_4c78e.dir/feature_tests.cxx.o  -o cmTC_4c78e 
 gmake[1]: Leaving directory '/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles/CMakeTmp'
 
 

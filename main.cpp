@@ -8,12 +8,19 @@
 #include "protocol/SimensCnc/Simens/libsiemenscnc/inc/siemenscnc.h"
 #include "protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.h"
 
+/// JSON
+#include "include/json.hpp"
+#include <fstream>
+
+using namespace std;
+using json = nlohmann::json;
+
 INITIALIZE_EASYLOGGINGPP
 
 void easylogginginit()
 {
     // 加载配置文件，构造一个配置器对象
-    el::Configurations conf( "../../doc/log.conf" );
+    el::Configurations conf( "/home/fchuanlin/datamodule/doc/log.conf" );
     // 重新配置一个单一日志记录器
     el::Loggers::reconfigureLogger( "default", conf );
     // 用配置文件配置所有的日志记录器
@@ -26,6 +33,80 @@ void testtypeany( UINT8 i )
 
     LOG( INFO ) << "test typeany data = " << ( UINT8 )testany.v.m_octet << "TEID = " << testany.m_typeany_id;
     LOG( INFO ) << "test typeany data = " << testany.v.m_int;
+}
+
+void readJson( string filepath, string &jsonstr )
+{
+    //FILE *fp = fopen( filepath, "r" );
+}
+int testfile()
+{
+    string str;
+    ifstream fin( "file.json" );
+    if ( fin.peek() == EOF )
+    {
+        cout << "file is empty." << endl;
+        return 0;
+    }
+    while ( !fin.eof() )
+    {
+        fin >> str;
+        cout << str;
+    }
+    return 0;
+}
+
+int TestJson()
+{
+    testfile();
+    auto text = R"(
+    {
+        "Image": {
+            "Width":  800,
+            "Height": 600,
+            "Title":  "View from 15th Floor",
+            "Thumbnail": {
+                "Url":    "http://www.example.com/image/481989943",
+                "Height": 125,
+                "Width":  100
+            },
+            "Animated" : false,
+            "IDs": [116, 943, 234, 38793]
+        }
+    }
+    )";
+
+    // fill a stream with JSON text
+    std::stringstream ss;
+    ss << text;
+
+    // parse and serialize JSON
+    json j_complete = json::parse( ss );
+    std::cout << std::setw( 4 ) << j_complete << "\n\n";
+
+
+    // define parser callback
+    json::parser_callback_t cb = []( int depth, json::parse_event_t event, json & parsed )
+    {
+        // skip object elements with key "Thumbnail"
+        if ( event == json::parse_event_t::key and parsed == json( "Thumbnail" ) )
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    };
+
+    // fill a stream with JSON text
+    ss.clear();
+    ss << text;
+
+    // parse (with callback) and serialize JSON
+    json j_filtered = json::parse( ss, cb );
+    std::cout << std::setw( 4 ) << j_filtered << '\n';
+    return 0;
 }
 
 int main()
@@ -41,6 +122,7 @@ int main()
         testtypeany( i );
     }
 
+    TestJson();
 
     //// 西门子采集协议测试程序
 #if 1
@@ -76,3 +158,8 @@ int main()
 
     return 0;
 }
+
+
+
+
+

@@ -60,28 +60,28 @@ include CMakeFiles/siemenscnctest.dir/flags.make
 CMakeFiles/siemenscnctest.dir/main.cpp.o: CMakeFiles/siemenscnctest.dir/flags.make
 CMakeFiles/siemenscnctest.dir/main.cpp.o: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/siemenscnctest.dir/main.cpp.o"
-	/usr/lib64/ccache/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/siemenscnctest.dir/main.cpp.o -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/main.cpp
+	/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  -mcpu=cortex-a9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/siemenscnctest.dir/main.cpp.o -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/main.cpp
 
 CMakeFiles/siemenscnctest.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/siemenscnctest.dir/main.cpp.i"
-	/usr/lib64/ccache/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/main.cpp > CMakeFiles/siemenscnctest.dir/main.cpp.i
+	/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  -mcpu=cortex-a9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/main.cpp > CMakeFiles/siemenscnctest.dir/main.cpp.i
 
 CMakeFiles/siemenscnctest.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/siemenscnctest.dir/main.cpp.s"
-	/usr/lib64/ccache/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/main.cpp -o CMakeFiles/siemenscnctest.dir/main.cpp.s
+	/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-g++  -mcpu=cortex-a9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/main.cpp -o CMakeFiles/siemenscnctest.dir/main.cpp.s
 
 CMakeFiles/siemenscnctest.dir/libsiemenscnc/828d/siemens_828d_new.c.o: CMakeFiles/siemenscnctest.dir/flags.make
 CMakeFiles/siemenscnctest.dir/libsiemenscnc/828d/siemens_828d_new.c.o: ../libsiemenscnc/828d/siemens_828d_new.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/siemenscnctest.dir/libsiemenscnc/828d/siemens_828d_new.c.o"
-	/usr/lib64/ccache/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/siemenscnctest.dir/libsiemenscnc/828d/siemens_828d_new.c.o   -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.c
+	/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/siemenscnctest.dir/libsiemenscnc/828d/siemens_828d_new.c.o   -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.c
 
 CMakeFiles/siemenscnctest.dir/libsiemenscnc/828d/siemens_828d_new.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/siemenscnctest.dir/libsiemenscnc/828d/siemens_828d_new.c.i"
-	/usr/lib64/ccache/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.c > CMakeFiles/siemenscnctest.dir/libsiemenscnc/828d/siemens_828d_new.c.i
+	/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.c > CMakeFiles/siemenscnctest.dir/libsiemenscnc/828d/siemens_828d_new.c.i
 
 CMakeFiles/siemenscnctest.dir/libsiemenscnc/828d/siemens_828d_new.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/siemenscnctest.dir/libsiemenscnc/828d/siemens_828d_new.c.s"
-	/usr/lib64/ccache/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.c -o CMakeFiles/siemenscnctest.dir/libsiemenscnc/828d/siemens_828d_new.c.s
+	/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.c -o CMakeFiles/siemenscnctest.dir/libsiemenscnc/828d/siemens_828d_new.c.s
 
 # Object files for target siemenscnctest
 siemenscnctest_OBJECTS = \

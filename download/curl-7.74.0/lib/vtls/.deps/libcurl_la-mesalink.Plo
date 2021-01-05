@@ -1,0 +1,255 @@
+vtls/libcurl_la-mesalink.lo: vtls/mesalink.c \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/stdc-predef.h \
+ ../lib/curl_setup.h ../lib/curl_config.h ../include/curl/curl.h \
+ ../include/curl/curlver.h ../include/curl/system.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/sys/types.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/features.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/sys/cdefs.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/wordsize.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/gnu/stubs.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/gnu/stubs-hard.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/types.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/typesizes.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/time.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/5.3.1/include/stddef.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/endian.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/endian.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/byteswap.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/byteswap-16.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/sys/select.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/select.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/sigset.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/time.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/sys/sysmacros.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/pthreadtypes.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/sys/socket.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/sys/uio.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/uio.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/socket.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/socket_type.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/sockaddr.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/asm/socket.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/asm-generic/socket.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/asm/sockios.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/asm-generic/sockios.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/stdio.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/libio.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/_G_config.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/wchar.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/5.3.1/include/stdarg.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/stdio_lim.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/sys_errlist.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/stdio.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/5.3.1/include-fixed/limits.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/5.3.1/include-fixed/syslimits.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/limits.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/posix1_lim.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/local_lim.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/linux/limits.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/posix2_lim.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/xlocale.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/sys/time.h \
+ ../include/curl/easy.h ../include/curl/multi.h ../include/curl/curl.h \
+ ../include/curl/urlapi.h ../include/curl/options.h \
+ ../include/curl/typecheck-gcc.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/assert.h \
+ ../lib/curl_setup_once.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/stdlib.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/waitflags.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/waitstatus.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/alloca.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/stdlib-bsearch.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/stdlib-float.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/string.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/string.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/string2.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/ctype.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/errno.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/errno.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/linux/errno.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/asm/errno.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/asm-generic/errno.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/asm-generic/errno-base.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/sys/stat.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/stat.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/5.3.1/include/stdbool.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/unistd.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/posix_opt.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/environments.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/confname.h \
+ /opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/getopt.h \
+ ../lib/curl_ctype.h ../lib/curl_setup.h
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/stdc-predef.h:
+
+../lib/curl_setup.h:
+
+../lib/curl_config.h:
+
+../include/curl/curl.h:
+
+../include/curl/curlver.h:
+
+../include/curl/system.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/sys/types.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/features.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/sys/cdefs.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/wordsize.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/gnu/stubs.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/gnu/stubs-hard.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/types.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/typesizes.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/time.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/5.3.1/include/stddef.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/endian.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/endian.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/byteswap.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/byteswap-16.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/sys/select.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/select.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/sigset.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/time.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/sys/sysmacros.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/pthreadtypes.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/sys/socket.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/sys/uio.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/uio.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/socket.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/socket_type.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/sockaddr.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/asm/socket.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/asm-generic/socket.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/asm/sockios.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/asm-generic/sockios.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/stdio.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/libio.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/_G_config.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/wchar.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/5.3.1/include/stdarg.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/stdio_lim.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/sys_errlist.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/stdio.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/5.3.1/include-fixed/limits.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/5.3.1/include-fixed/syslimits.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/limits.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/posix1_lim.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/local_lim.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/linux/limits.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/posix2_lim.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/xlocale.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/sys/time.h:
+
+../include/curl/easy.h:
+
+../include/curl/multi.h:
+
+../include/curl/curl.h:
+
+../include/curl/urlapi.h:
+
+../include/curl/options.h:
+
+../include/curl/typecheck-gcc.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/assert.h:
+
+../lib/curl_setup_once.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/stdlib.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/waitflags.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/waitstatus.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/alloca.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/stdlib-bsearch.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/stdlib-float.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/string.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/string.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/string2.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/ctype.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/errno.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/errno.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/linux/errno.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/asm/errno.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/asm-generic/errno.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/asm-generic/errno-base.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/sys/stat.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/stat.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/lib/gcc/arm-linux-gnueabihf/5.3.1/include/stdbool.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/unistd.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/posix_opt.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/environments.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/confname.h:
+
+/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/getopt.h:
+
+../lib/curl_ctype.h:
+
+../lib/curl_setup.h:

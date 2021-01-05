@@ -60,54 +60,54 @@ include CMakeFiles/siemenscnc.dir/flags.make
 CMakeFiles/siemenscnc.dir/src/siemenscnc.c.o: CMakeFiles/siemenscnc.dir/flags.make
 CMakeFiles/siemenscnc.dir/src/siemenscnc.c.o: ../src/siemenscnc.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/siemenscnc.dir/src/siemenscnc.c.o"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/siemenscnc.dir/src/siemenscnc.c.o   -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc.c
+	/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/siemenscnc.dir/src/siemenscnc.c.o   -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc.c
 
 CMakeFiles/siemenscnc.dir/src/siemenscnc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/siemenscnc.dir/src/siemenscnc.c.i"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc.c > CMakeFiles/siemenscnc.dir/src/siemenscnc.c.i
+	/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc.c > CMakeFiles/siemenscnc.dir/src/siemenscnc.c.i
 
 CMakeFiles/siemenscnc.dir/src/siemenscnc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/siemenscnc.dir/src/siemenscnc.c.s"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc.c -o CMakeFiles/siemenscnc.dir/src/siemenscnc.c.s
+	/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc.c -o CMakeFiles/siemenscnc.dir/src/siemenscnc.c.s
 
 CMakeFiles/siemenscnc.dir/src/siemenscnc_data.c.o: CMakeFiles/siemenscnc.dir/flags.make
 CMakeFiles/siemenscnc.dir/src/siemenscnc_data.c.o: ../src/siemenscnc_data.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/siemenscnc.dir/src/siemenscnc_data.c.o"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/siemenscnc.dir/src/siemenscnc_data.c.o   -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc_data.c
+	/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/siemenscnc.dir/src/siemenscnc_data.c.o   -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc_data.c
 
 CMakeFiles/siemenscnc.dir/src/siemenscnc_data.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/siemenscnc.dir/src/siemenscnc_data.c.i"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc_data.c > CMakeFiles/siemenscnc.dir/src/siemenscnc_data.c.i
+	/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc_data.c > CMakeFiles/siemenscnc.dir/src/siemenscnc_data.c.i
 
 CMakeFiles/siemenscnc.dir/src/siemenscnc_data.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/siemenscnc.dir/src/siemenscnc_data.c.s"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc_data.c -o CMakeFiles/siemenscnc.dir/src/siemenscnc_data.c.s
+	/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc_data.c -o CMakeFiles/siemenscnc.dir/src/siemenscnc_data.c.s
 
 CMakeFiles/siemenscnc.dir/src/siemenscnc_private.c.o: CMakeFiles/siemenscnc.dir/flags.make
 CMakeFiles/siemenscnc.dir/src/siemenscnc_private.c.o: ../src/siemenscnc_private.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/siemenscnc.dir/src/siemenscnc_private.c.o"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/siemenscnc.dir/src/siemenscnc_private.c.o   -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc_private.c
+	/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/siemenscnc.dir/src/siemenscnc_private.c.o   -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc_private.c
 
 CMakeFiles/siemenscnc.dir/src/siemenscnc_private.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/siemenscnc.dir/src/siemenscnc_private.c.i"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc_private.c > CMakeFiles/siemenscnc.dir/src/siemenscnc_private.c.i
+	/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc_private.c > CMakeFiles/siemenscnc.dir/src/siemenscnc_private.c.i
 
 CMakeFiles/siemenscnc.dir/src/siemenscnc_private.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/siemenscnc.dir/src/siemenscnc_private.c.s"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc_private.c -o CMakeFiles/siemenscnc.dir/src/siemenscnc_private.c.s
+	/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc_private.c -o CMakeFiles/siemenscnc.dir/src/siemenscnc_private.c.s
 
 CMakeFiles/siemenscnc.dir/src/siemenscnc_tcp_private.c.o: CMakeFiles/siemenscnc.dir/flags.make
 CMakeFiles/siemenscnc.dir/src/siemenscnc_tcp_private.c.o: ../src/siemenscnc_tcp_private.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/siemenscnc.dir/src/siemenscnc_tcp_private.c.o"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/siemenscnc.dir/src/siemenscnc_tcp_private.c.o   -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc_tcp_private.c
+	/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/siemenscnc.dir/src/siemenscnc_tcp_private.c.o   -c /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc_tcp_private.c
 
 CMakeFiles/siemenscnc.dir/src/siemenscnc_tcp_private.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/siemenscnc.dir/src/siemenscnc_tcp_private.c.i"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc_tcp_private.c > CMakeFiles/siemenscnc.dir/src/siemenscnc_tcp_private.c.i
+	/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc_tcp_private.c > CMakeFiles/siemenscnc.dir/src/siemenscnc_tcp_private.c.i
 
 CMakeFiles/siemenscnc.dir/src/siemenscnc_tcp_private.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/siemenscnc.dir/src/siemenscnc_tcp_private.c.s"
-	gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc_tcp_private.c -o CMakeFiles/siemenscnc.dir/src/siemenscnc_tcp_private.c.s
+	/opt/ArmLinuxSdk53/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc  -mcpu=cortex-a9 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/src/siemenscnc_tcp_private.c -o CMakeFiles/siemenscnc.dir/src/siemenscnc_tcp_private.c.s
 
 # Object files for target siemenscnc
 siemenscnc_OBJECTS = \

@@ -32,6 +32,7 @@ CMakeFiles/xDC.dir/common/typeany/src/typeany.cpp.o: ../include/normal_typedef.h
 CMakeFiles/xDC.dir/main.cpp.o: .././thirdparty/restclient/include/restclient-cpp/version.h
 CMakeFiles/xDC.dir/main.cpp.o: ../common/typeany/inc/typeany.h
 CMakeFiles/xDC.dir/main.cpp.o: ../feature/log/inc/easylogging.h
+CMakeFiles/xDC.dir/main.cpp.o: ../include/json.hpp
 CMakeFiles/xDC.dir/main.cpp.o: ../include/normal_typedef.h
 CMakeFiles/xDC.dir/main.cpp.o: ../main.cpp
 CMakeFiles/xDC.dir/main.cpp.o: ../protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.h
