@@ -20,7 +20,6 @@
 #include <math.h>
 #include <sys/time.h>
 /// SOCKET
-#ifdef LORA_SOCKET_SIM
 #include <string.h>
 #include <errno.h>
 #include <sys/types.h>
@@ -32,7 +31,6 @@
 #include <sys/prctl.h>
 #include <sys/time.h>
 #include <pthread.h>
-#endif
 
 /// define c++11 std
 #if 11

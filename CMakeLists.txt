@@ -16,12 +16,13 @@ include_directories (./common/typeany/inc)
 include_directories (./thirdparty/restclient/include)
 include_directories (./protocol/SimensCnc/Simens/libsiemenscnc/inc)
 include_directories (./protocol/SimensCnc/Simens/libsiemenscnc/828d)
-
+include_directories (./product/inc)
 #set source file
 aux_source_directory ( . DIR_USR_SOURCE )
 aux_source_directory ( ./common/typeany/src DIR_USR_SOURCE )
 aux_source_directory ( ./protocol/SimensCnc/Simens/libsiemenscnc/src DIR_USR_SOURCE )
 aux_source_directory ( ./protocol/SimensCnc/Simens/libsiemenscnc/828d DIR_USR_SOURCE )
+aux_source_directory ( ./product/src DIR_USR_SOURCE )
 
 #set CC AR LD AS
 set ( CMAKE_C_COMPILER $ENV{CC} )

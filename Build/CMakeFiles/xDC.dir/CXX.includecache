@@ -553,6 +553,8 @@ thirdparty/restclient/include/restclient-cpp/restclient.h
 /home/fchuanlin/datamodule/thirdparty/restclient/include/restclient-cpp/restclient.h
 common/typeany/inc/typeany.h
 /home/fchuanlin/datamodule/common/typeany/inc/typeany.h
+product/inc/datacollecter.h
+/home/fchuanlin/datamodule/product/inc/datacollecter.h
 protocol/SimensCnc/Simens/libsiemenscnc/inc/siemenscnc.h
 /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/inc/siemenscnc.h
 protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.h
@@ -561,6 +563,20 @@ include/json.hpp
 /home/fchuanlin/datamodule/include/json.hpp
 fstream
 -
+
+/home/fchuanlin/datamodule/product/inc/datacollecter.h
+../../include/normal_typedef.h
+/home/fchuanlin/datamodule/include/normal_typedef.h
+../../feature/log/inc/easylogging.h
+/home/fchuanlin/datamodule/feature/log/inc/easylogging.h
+../../include/json.hpp
+/home/fchuanlin/datamodule/include/json.hpp
+fstream
+-
+
+/home/fchuanlin/datamodule/product/src/datacollecter.cpp
+../inc/datacollecter.h
+/home/fchuanlin/datamodule/product/inc/datacollecter.h
 
 /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.h
 ../inc/siemenscnc.h

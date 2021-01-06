@@ -3,6 +3,7 @@
 #include "thirdparty/restclient/include/restclient-cpp/restclient.h"
 #include "common/typeany/inc/typeany.h"
 
+#include "product/inc/datacollecter.h"
 /// 西门子CNC test
 //
 #include "protocol/SimensCnc/Simens/libsiemenscnc/inc/siemenscnc.h"
@@ -89,7 +90,7 @@ int main( int argc, char * argv[] )
     if( argc > 1 )
     {
         /// 读取配置文件
-        ifstream fjson( argv[1]);
+        ifstream fjson( argv[1] );
         json jsoncfg;
         fjson >> jsoncfg;
         cout << jsoncfg["command"] << endl;;
@@ -99,8 +100,14 @@ int main( int argc, char * argv[] )
     }
     else
     {
-        LOG( ERROR ) << "No Json file! ";
-        return 0;
+        LOG( ERROR ) << "Default Json file! ";
+        ifstream fjson( "xDC_Get.json" );
+        json jsoncfg;
+        fjson >> jsoncfg;
+        cout << jsoncfg["command"] << endl;;
+        cout << jsoncfg["device"] << endl;;
+        cout << jsoncfg["list"] << endl;;
+        fjson.close();
     }
 
     //// 西门子采集协议测试程序
@@ -125,6 +132,11 @@ int main( int argc, char * argv[] )
         cout << "驱动器r37[2]" << siemenscnc_get_float( dest ) << "返回值" << rc;
     }
 #endif
+
+		/// 开启采集线程
+    DataCollecter *pDC = new DataCollecter();
+    pDC->Init();
+    pDC->Start();
 
     //// HTTP Post
     RestClient::Response resp = RestClient::post( "http://192.168.3.23:9080/ping", "application/x-www-form-urlencoded", "{\"foo\":\"test\"}" );

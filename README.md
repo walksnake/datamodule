@@ -5,7 +5,7 @@
 
 2、编译restclient-cpp 库
 	1）进入download/restclient-cpp运行autogen.sh生存configure文件
-	2）./configure --prefix=/home/fchuanlin/datamodule/thirdparty/restclient-arm --host=arm --target=arm
+	2）./configure --prefix=/home/fchuanlin/datamodule/thirdparty/restclient-arm --libdir=/opt/ArmLinuxSdk53/sysroot/usr/lib --includedir=/opt/ArmLinuxSdk53/sysroot/usr/include --host=arm-linux
 
 
 	3）make

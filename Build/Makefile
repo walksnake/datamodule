@@ -190,6 +190,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/xDC.dir/build.make CMakeFiles/xDC.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+product/src/datacollecter.o: product/src/datacollecter.cpp.o
+
+.PHONY : product/src/datacollecter.o
+
+# target to build an object file
+product/src/datacollecter.cpp.o:
+	$(MAKE) -f CMakeFiles/xDC.dir/build.make CMakeFiles/xDC.dir/product/src/datacollecter.cpp.o
+.PHONY : product/src/datacollecter.cpp.o
+
+product/src/datacollecter.i: product/src/datacollecter.cpp.i
+
+.PHONY : product/src/datacollecter.i
+
+# target to preprocess a source file
+product/src/datacollecter.cpp.i:
+	$(MAKE) -f CMakeFiles/xDC.dir/build.make CMakeFiles/xDC.dir/product/src/datacollecter.cpp.i
+.PHONY : product/src/datacollecter.cpp.i
+
+product/src/datacollecter.s: product/src/datacollecter.cpp.s
+
+.PHONY : product/src/datacollecter.s
+
+# target to generate assembly for a file
+product/src/datacollecter.cpp.s:
+	$(MAKE) -f CMakeFiles/xDC.dir/build.make CMakeFiles/xDC.dir/product/src/datacollecter.cpp.s
+.PHONY : product/src/datacollecter.cpp.s
+
 protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.o: protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.c.o
 
 .PHONY : protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.o
@@ -341,6 +368,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... product/src/datacollecter.o"
+	@echo "... product/src/datacollecter.i"
+	@echo "... product/src/datacollecter.s"
 	@echo "... protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.o"
 	@echo "... protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.i"
 	@echo "... protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.s"
