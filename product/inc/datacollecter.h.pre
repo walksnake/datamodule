@@ -33,12 +33,11 @@ typedef void *( *pJobFunc )( ... );
 typedef struct IOFunctionList
 {
     /// function list
-    UINT32 index;
-    UINT32 functionNum;
-    UINT32 paramNum;
-    vector<TypeAny> *paramList;
-    /// function list
-    pJobFunc func;
+    UINT32 index; ///< 索引
+    UINT32 functionNum; ///< 功能码，即是json中的type
+    UINT32 paramNum; ///< 参数个数
+    vector<TypeAny> paramList; ///< 参数列表
+    pJobFunc func; ///< 对应函数
 } IOFunctionList_s;
 
 
@@ -87,8 +86,10 @@ public:
     INT8 Start();
     INT8 Stop();
 
-    BOOLEAN InitIOListByJson(const CHAR *fileName );
-		IOFunctionList* GetIOFunctionFromType(UINT32 type);
+    BOOLEAN InitIOListByJson( const CHAR *fileName );
+		void InitFuncList( vector<IOFunctionList> funclist, json tmpjson );
+    INT32 GetIOFunctionFromType( UINT32 type );
+		INT32 JobFunctionCall(pJobFunc JobFunc, UINT32 paramNum, vector<TypeAny>);
 public:
     static void * TimerProcessFast( void *pThis );
     static void * TimerProcessSlow( void *pThis );

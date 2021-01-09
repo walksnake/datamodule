@@ -33,15 +33,17 @@ typedef void *( *pJobFunc )( ... );
 typedef struct IOFunctionList
 {
     /// function list
-    UINT32 index;
-    UINT32 functionNum;
-    UINT32 paramNum;
-    vector<TypeAny> *paramList;
-    /// function list
-    pJobFunc func;
+    UINT32 index; 								///< 索引
+    UINT32 functionNum; 					///< 功能码，即是json中的type
+    UINT32 paramNum; 							///< 参数个数
+		UINT32 returnpos;							///< 返回值的位置
+		UINT32 datatype; 							///< 数据类型
+    VOID **paramList; 		///< 参数列表
+    pJobFunc func; 								///< 对应函数
 } IOFunctionList_s;
 
 
+/// timeout define
 typedef enum
 {
     TIMEOUT_TYPE_CONNECT = 0,
@@ -56,13 +58,18 @@ typedef enum
 } TIMEOUT_TYPE_E;
 
 
-/// return value
+/// return key-value, this is "ID" : Object
 typedef struct KeyValue
 {
     string key;
     TypeAny value;
 } KeyValue_s;
 
+
+
+/**
+ * @brief  this class is only for timeout period
+ */
 class TimeOutCondition
 {
 public:
@@ -77,6 +84,12 @@ public:
     BOOLEAN CheckTimeout( UINT8 type );
 };
 
+
+
+/**
+ * @brief  this class is for data collecter, open three threads, such as fast-slow-post
+ * Init IOList from JSON file, post the collectted information by restclient.
+ */
 class DataCollecter
 {
 public:
@@ -88,8 +101,9 @@ public:
     INT8 Stop();
 
     BOOLEAN InitIOListByJson( const CHAR *fileName );
-		void InitFuncList( vector<IOFunctionList> funclist, json tmpjson );
+    void InitFuncList( vector<IOFunctionList> funclist, json tmpjson );
     INT32 GetIOFunctionFromType( UINT32 type );
+    INT32 JobFunctionCall( pJobFunc JobFunc, UINT32 paramNum, VOID **paramList);
 public:
     static void * TimerProcessFast( void *pThis );
     static void * TimerProcessSlow( void *pThis );
@@ -108,7 +122,7 @@ public:
     TimeOutCondition *m_timeout_slow;
 public:
 
-    /// collection list inti by json
+    /// collection list init by json
     std::vector<IOFunctionList> m_iolist_100ms;
     std::vector<IOFunctionList> m_iolist_1s;
     std::vector<IOFunctionList> m_iolist_5s;
@@ -120,6 +134,10 @@ public:
     vector<KeyValue> m_cur_data;
     vector<KeyValue> m_his_data;
 
+		VOID *m_protocol_cxt;
+		string m_ipaddr;
+		UINT16 m_port;
+		BOOLEAN m_connect;
 private:
     /// thread
     pthread_t m_thread_timer_Fast;

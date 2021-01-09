@@ -226,20 +226,27 @@ public:
         m_typeany_id = teid << TYPE_BASE_SHIFTBITS;
         v.m_buff_ptr = in_val;
     }
-    
-		TypeAny( CHAR* in_val, TYPEANY_ID teid = TYPE_BASE_STR_PTR )
+
+    TypeAny( CHAR* in_val, TYPEANY_ID teid = TYPE_BASE_STR_PTR )
     {
         m_typeany_id = teid << TYPE_BASE_SHIFTBITS;
         v.m_string_ptr = in_val;
     }
 
-		/// normal datatype
+    TypeAny( VOID * in_val, TYPEANY_ID teid = TYPE_BASE_VOID )
+    {
+        m_typeany_id = teid << TYPE_BASE_SHIFTBITS;
+        v.m_void = in_val;
+    }
+
+
+    /// normal datatype
     BOOLEAN IsSimpleDateType( TYPEANY_ID tid );
 
-		/// free memory
+    /// free memory
     void AllFree();
-   	
-		~TypeAny()
+
+    ~TypeAny()
     {
         AllFree();
     }

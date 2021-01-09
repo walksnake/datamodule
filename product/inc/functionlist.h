@@ -16,7 +16,11 @@
 #ifndef _FUNCTION_LIST_H_
 #define _FUNCTION_LIST_H_
 #include "datacollecter.h"
+
+/// 西门子CNC test
 #include "../../protocol/SimensCnc/Simens/libsiemenscnc/inc/siemenscnc.h"
+#include "../../protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.h"
+
 
 extern "C"
 {
@@ -26,13 +30,17 @@ extern "C"
             0,
             0,
             3,
+						2, /// BYTE *, LEN 
+						1, /// BYTE
             NULL,
             ( pJobFunc )( siemenscnc_read_serial_number ),
         },
         {
             1,
             1,
-            3,
+            3, 
+						2, /// BYTE *, LEN
+						1, /// BYTE
             NULL,
             ( pJobFunc )siemenscnc_read_cnc_type,
         },
@@ -40,20 +48,26 @@ extern "C"
             2,
             2,
             3,
+						2, /// BYTE *, LEN
+						1, /// BYTE
             NULL,
             ( pJobFunc )siemenscnc_read_verison,
         },
         {
             3,
             3,
-            3,
+            3, 
+            2, /// BYTE *, LEN 
+						1, /// BYTE
             NULL,
             ( pJobFunc )siemenscnc_read_manufacture_data,
         },
         {
             4,
             4,
-            3,
+            2, 
+						2, /// DOUBLE *
+						2, /// DOUBLE
             NULL,
             ( pJobFunc )siemenscnc_read_process_number,
         },
@@ -61,24 +75,29 @@ extern "C"
             5,
             5,
             0,
+						0,
+						0,
             NULL,
             NULL,
         },
         {
             6,
             6,
-            3,
+            2, 
+						2, /// DOUBLE *
+            2, /// DOUBLE
             NULL,
             ( pJobFunc )siemenscnc_read_process_set_number,
         },
         {
             7,
             7,
-            3,
+            2, 
+						2, /// DOUBLE *
+            2, /// DOUBLE
             NULL,
             ( pJobFunc )siemenscnc_read_run_time,
         }
-
     };
 }
 

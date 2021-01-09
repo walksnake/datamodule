@@ -49,5 +49,8 @@ CMakeFiles/xDC.dir/product/src/datacollecter.cpp.o: ../include/normal_typedef.h
 CMakeFiles/xDC.dir/product/src/datacollecter.cpp.o: ../product/inc/datacollecter.h
 CMakeFiles/xDC.dir/product/src/datacollecter.cpp.o: ../product/inc/functionlist.h
 CMakeFiles/xDC.dir/product/src/datacollecter.cpp.o: ../product/src/datacollecter.cpp
+CMakeFiles/xDC.dir/product/src/datacollecter.cpp.o: ../protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.h
 CMakeFiles/xDC.dir/product/src/datacollecter.cpp.o: ../protocol/SimensCnc/Simens/libsiemenscnc/inc/siemenscnc.h
+CMakeFiles/xDC.dir/product/src/datacollecter.cpp.o: ../protocol/SimensCnc/Simens/libsiemenscnc/inc/siemenscnc_private.h
+CMakeFiles/xDC.dir/product/src/datacollecter.cpp.o: ../protocol/SimensCnc/Simens/libsiemenscnc/inc/siemenscnc_tcp_private.h
 

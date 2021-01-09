@@ -5,7 +5,6 @@
 
 #include "product/inc/datacollecter.h"
 /// 西门子CNC test
-//
 #include "protocol/SimensCnc/Simens/libsiemenscnc/inc/siemenscnc.h"
 #include "protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.h"
 
@@ -28,57 +27,6 @@ void easylogginginit()
     el::Loggers::reconfigureAllLoggers( conf );
 }
 
-int TestJson()
-{
-    auto text = R"(
-    {
-        "Image": {
-            "Width":  800,
-            "Height": 600,
-            "Title":  "View from 15th Floor",
-            "Thumbnail": {
-                "Url":    "http://www.example.com/image/481989943",
-                "Height": 125,
-                "Width":  100
-            },
-            "Animated" : false,
-            "IDs": [116, 943, 234, 38793]
-        }
-    }
-    )";
-
-    // fill a stream with JSON text
-    std::stringstream ss;
-    ss << text;
-
-    // parse and serialize JSON
-    json j_complete = json::parse( ss );
-    std::cout << std::setw( 4 ) << j_complete << "\n\n";
-
-
-    // define parser callback
-    json::parser_callback_t cb = []( int depth, json::parse_event_t event, json & parsed )
-    {
-        // skip object elements with key "Thumbnail"
-        if ( event == json::parse_event_t::key and parsed == json( "Thumbnail" ) )
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    };
-
-    // fill a stream with JSON text
-    ss.clear();
-    ss << text;
-
-    // parse (with callback) and serialize JSON
-    json j_filtered = json::parse( ss, cb );
-    std::cout << std::setw( 4 ) << j_filtered << '\n';
-    return 0;
-}
 
 int main( int argc, char * argv[] )
 {
@@ -87,25 +35,8 @@ int main( int argc, char * argv[] )
     LOG_IF( ( ( 1 % 2 ) == 0 ), INFO ) << "Logged if condition is true";
     LOG( DEBUG ) << "My first info log using default logger! ";
 
-    if( argc > 1 )
-    {
-        /// 读取配置文件
-        ifstream fjson( argv[1] );
-   }
-    else
-    {
-        LOG( ERROR ) << "Default Json file! ";
-        ifstream fjson( "xDC_Get.json" );
-        json jsoncfg;
-        fjson >> jsoncfg;
-        cout << jsoncfg["command"] << endl;;
-        cout << jsoncfg["device"] << endl;;
-        cout << jsoncfg["list"] << endl;;
-        fjson.close();
-    }
-
     //// 西门子采集协议测试程序
-#if 1
+#if 0
     siemenscnc_t *ctx;
     ctx = siemenscnc_828d_new( "192.168.0.55", 102 );
     //
@@ -132,16 +63,12 @@ int main( int argc, char * argv[] )
     pDC->Init();
     if( argc > 1 )
     {
-				#ifdef PRINT_DEBUG_INFO
-    		pDC->InitIOListByJson((const CHAR *)"xDC_Get.json");
-				#else
         /// 读取配置文件
     		pDC->InitIOListByJson((const CHAR *)argv[1]);
-#endif
 		}
 		else
 		{
-    		pDC->InitIOListByJson((const CHAR *)"xDC_Get.json");
+    		pDC->InitIOListByJson((const CHAR *)"get_param.json");
 		}
 
     pDC->Start();

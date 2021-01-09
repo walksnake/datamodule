@@ -15,6 +15,7 @@
 
 #include "../inc/datacollecter.h"
 #include "../inc/functionlist.h"
+#include <functional>
 #include <vector>
 
 
@@ -51,6 +52,8 @@ BOOLEAN DataCollecter::Init()
     m_timeout_fast = new TimeOutCondition();
     m_timeout_slow = new TimeOutCondition();
 
+    m_protocol_cxt = NULL;
+    m_connect = FALSE;
     return TRUE;
 }
 
@@ -91,38 +94,63 @@ BOOLEAN DataCollecter::InitIOListByJson( const CHAR *fileName )
     {
         LOG( INFO ) << "get" << endl;
         LOG( INFO ) << jsoncfg["device"] << endl;
-        LOG( INFO ) << jsoncfg["listGet"] << endl;
-				
+        LOG( INFO ) << jsoncfg["listGet"].size() << endl;
+        LOG( INFO ) << jsoncfg["listGet"][0] << endl;
+        LOG( INFO ) << jsoncfg["listGet"][1] << endl;
+
+        /// Init connect
+        if( jsoncfg["device"]["interface"] == 2 )
+        {
+            cout << jsoncfg["device"]["ip"] << endl << jsoncfg["device"]["port"] << endl;
+
+            /// get string
+            string ip = jsoncfg["device"]["ip"];
+            m_ipaddr = ip;
+            UINT16 port = ( UINT16 )jsoncfg["device"]["port"];
+            m_port = port;
+            m_protocol_cxt = ( VOID * )siemenscnc_828d_new( ( const char * ) m_ipaddr.data(), m_port );
+
+            ///connect
+            if( siemenscnc_connect( ( siemenscnc_t * )m_protocol_cxt ) > 0 )
+            {
+                m_connect = TRUE;
+                LOG( INFO ) << "siemenscnc connect success!";
+            }
+            else
+            {
+                m_connect = FALSE;
+                LOG( ERROR ) << "siemenscnc connect fail!";
+            }
+        }
+
         for( UINT32 len = 0; len < jsoncfg["listGet"].size(); len++ )
         {
-            json tmpjson = jsoncfg["listGet"][len];
-						cout << tmpjson;
-						cout << tmpjson["frequency"]; 
-						string freq = tmpjson["frequency"]; 
+            float freq = ( float )( jsoncfg["listGet"][len]["frequency"] );
+            cout << freq << endl;
 
-            if( freq == "0.1" )
+            if( freq == 0.1 )
             {
-                InitFuncList( m_iolist_100ms, tmpjson );
+                InitFuncList( m_iolist_100ms, jsoncfg["listGet"][len] );
             }
-            else if( freq == "1" )
+            else if( freq == 1 )
             {
-                InitFuncList( m_iolist_1s, tmpjson );
+                InitFuncList( m_iolist_1s, jsoncfg["listGet"][len] );
             }
-            else if( freq == "5" )
+            else if( freq == 5 )
             {
-                InitFuncList( m_iolist_5s, tmpjson );
+                InitFuncList( m_iolist_5s, jsoncfg["listGet"][len] );
             }
-            else if( freq == "10" )
+            else if( freq == 10 )
             {
-                InitFuncList( m_iolist_10s, tmpjson );
+                InitFuncList( m_iolist_10s, jsoncfg["listGet"][len] );
             }
-            else if( freq == "30" )
+            else if( freq == 30 )
             {
-                InitFuncList( m_iolist_30s, tmpjson );
+                InitFuncList( m_iolist_30s, jsoncfg["listGet"][len] );
             }
-            else if( freq == "60" )
+            else if( freq == 60 )
             {
-                InitFuncList( m_iolist_60s, tmpjson );
+                InitFuncList( m_iolist_60s, jsoncfg["listGet"][len] );
             }
         }
     }
@@ -144,14 +172,84 @@ void DataCollecter::InitFuncList( vector<IOFunctionList> funclist, json tmpjson 
         INT32 funcIndex = GetIOFunctionFromType( UINT32( tmpjson["list"][len]["type"] ) ) ;
         if( funcIndex < 0 )
         {
-            LOG( ERROR ) << "frequency = " << tmpjson["frequency"] << "s: " <<  tmpjson["list"][len] << "not found!";
+            LOG( ERROR ) << "frequency = " << tmpjson["frequency"] << "s: " <<  tmpjson["list"][len] << " function not found!";
         }
         else
         {
-            funclist.push_back( functionlist[funcIndex] );
-            LOG( INFO ) << "frequency = " << tmpjson["frequency"] << "s: " <<  tmpjson["list"][len];
+#if 1
+            IOFunctionList *tempFunc = new IOFunctionList;
+						tempFunc = ( IOFunctionList * )&functionlist[funcIndex];
+            OCTET * rtnval = new OCTET[8];
+            UINT16 * len = new UINT16( 0 );
+            tempFunc->paramList = new VOID *[8];
+            TypeAny * param1 =  new TypeAny( m_protocol_cxt, 14 );
+            TypeAny * param2 =  new TypeAny( rtnval );
+            TypeAny * param3 =  new TypeAny( *len );
+
+            tempFunc->paramList[0] = (void *)param1;
+            tempFunc->paramList[1] = (void *)param2;
+            tempFunc->paramList[2] = (void *)param3;
+            funclist.push_back( *tempFunc );
+#endif
+            //LOG( INFO ) << "frequency = " << tmpjson["frequency"] << "s: " <<  tmpjson["list"][len];
         }
     }
+}
+
+INT32 DataCollecter::JobFunctionCall( pJobFunc JobFunc, UINT32 paramNum, void **paramList )
+{
+    INT32 ret = Lret_success;
+
+    //// 西门子采集协议测试程序
+#if 0
+    siemenscnc_t *ctx;
+    ctx = siemenscnc_828d_new( "192.168.0.55", 102 );
+    //
+    siemenscnc_set_debug( ctx, 1 );
+    struct timeval t;
+    int rc;
+    t.tv_sec = 0;
+    t.tv_usec = 1000000; //设置超时时间为1000毫秒
+    siemenscnc_set_error_recovery( ctx, SIEMENSCNC_ERROR_RECOVERY_LINK );
+    siemenscnc_set_response_timeout( ctx, &t );
+    rc = siemenscnc_connect( ctx );
+    cout << "connnect" << rc;
+    if( rc >= 0 )
+    {
+        uint8_t dest[256] = {0};
+        uint16_t length;
+        rc = siemenscnc_read_s_r_p_param( ctx, 0, 37, 2, dest, &length ); //驱动器R参数
+        cout << "驱动器r37[2]" << siemenscnc_get_float( dest ) << "返回值" << rc;
+    }
+#endif
+
+
+    switch ( paramNum )
+    {
+        case 2:
+            ret = *( ( INT32 * )( JobFunc(  paramList[0], paramList[1] )));
+            break;
+        case 3:
+            ret = *( ( INT32 * )( JobFunc( paramList[0], paramList[1], paramList[2] ) ) );
+            break;
+        case 4:
+            ret = *( ( INT32 * )( JobFunc( paramList[0], paramList[1], paramList[2], paramList[3] ) ) );
+            break;
+        case 5:
+            ret = *( ( INT32 * )( JobFunc( paramList[0], paramList[1], paramList[2], paramList[3], paramList[4] ) ) );
+            break;
+        case 6:
+            ret = *( ( INT32 * )( JobFunc( paramList[0], paramList[1], paramList[2], paramList[3], paramList[4], paramList[5] ) ) );
+            break;
+        case 7:
+            ret = *( ( INT32 * )( JobFunc( paramList[0], paramList[1], paramList[2], paramList[3], paramList[4], paramList[5], paramList[6] ) ) );
+            break;
+        default:
+            ret = Lret_fail;
+            break;
+    }
+
+    return ret;
 }
 
 /**
@@ -181,6 +279,10 @@ void * DataCollecter::TimerProcessFast( void *pThis )
         /// 10ms
         usleep( 10000 );
 
+        if( !pObj->m_connect )
+        {
+            continue;
+        }
         ///Timeout process
         pObj->m_timeout_fast->UpdateTimeout();
 
@@ -188,7 +290,20 @@ void * DataCollecter::TimerProcessFast( void *pThis )
         {
             for( UINT32 i = 0; i < pObj->m_iolist_100ms.size(); i++ )
             {
-                /// read IO item
+                pObj->JobFunctionCall( pObj->m_iolist_100ms[i].func, pObj->m_iolist_100ms[i].paramNum, pObj->m_iolist_100ms[i].paramList );
+                if( pObj->m_iolist_100ms[i].paramNum > pObj->m_iolist_100ms[i].returnpos )
+                {
+                    cout << pObj->m_iolist_100ms[i].paramList[pObj->m_iolist_100ms[i].paramNum - 2];
+                    cout << pObj->m_iolist_100ms[i].paramList[pObj->m_iolist_100ms[i].paramNum - 2];
+                    cout << pObj->m_iolist_100ms[i].paramList[pObj->m_iolist_100ms[i].paramNum - 1];
+                    cout << pObj->m_iolist_100ms[i].paramList[pObj->m_iolist_100ms[i].paramNum - 1];
+                }
+                else
+                {
+                    cout << pObj->m_iolist_100ms[i].paramList[pObj->m_iolist_100ms[i].paramNum - 1];
+                    cout << pObj->m_iolist_100ms[i].paramList[pObj->m_iolist_100ms[i].paramNum - 1];
+                }
+
             }
 
             /// reset timeout
@@ -240,12 +355,30 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
     {
         /// 10ms
         usleep( 10000 );
+        if( !pObj->m_connect )
+        {
+            continue;
+        }
 
         ///Timeout process
         pObj->m_timeout_slow->UpdateTimeout();
 
         if( TRUE == pObj->m_timeout_slow->CheckTimeout( TIMEOUT_TYPE_1S ) )
         {
+            for( UINT32 i = 0; i < pObj->m_iolist_1s.size(); i++ )
+            {
+                pObj->JobFunctionCall( pObj->m_iolist_1s[i].func, pObj->m_iolist_1s[i].paramNum, pObj->m_iolist_1s[i].paramList );
+                if( pObj->m_iolist_1s[i].paramNum > pObj->m_iolist_1s[i].returnpos )
+                {
+                    cout <<  pObj->m_iolist_1s[i].paramList[pObj->m_iolist_1s[i].paramNum - 2];
+                    cout <<  pObj->m_iolist_1s[i].paramList[pObj->m_iolist_1s[i].paramNum - 1];
+                }
+                else
+                {
+                    cout <<  pObj->m_iolist_1s[i].paramList[pObj->m_iolist_1s[i].paramNum - 1];
+                }
+            }
+
             /// reset timeout
             pObj->m_timeout_slow->StopTimeout( TIMEOUT_TYPE_1S );
             pObj->m_timeout_slow->StartTimeout( TIMEOUT_TYPE_1S, 100 );
@@ -253,6 +386,10 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
         }
         if( TRUE == pObj->m_timeout_slow->CheckTimeout( TIMEOUT_TYPE_5S ) )
         {
+            for( UINT32 i = 0; i < pObj->m_iolist_5s.size(); i++ )
+            {
+                pObj->JobFunctionCall( pObj->m_iolist_5s[i].func, pObj->m_iolist_5s[i].paramNum, pObj->m_iolist_5s[i].paramList );
+            }
             /// reset timeout
             pObj->m_timeout_slow->StopTimeout( TIMEOUT_TYPE_5S );
             pObj->m_timeout_slow->StartTimeout( TIMEOUT_TYPE_5S, 510 );
@@ -260,6 +397,10 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
         }
         if( TRUE == pObj->m_timeout_slow->CheckTimeout( TIMEOUT_TYPE_10S ) )
         {
+            for( UINT32 i = 0; i < pObj->m_iolist_10s.size(); i++ )
+            {
+                pObj->JobFunctionCall( pObj->m_iolist_10s[i].func, pObj->m_iolist_10s[i].paramNum, pObj->m_iolist_10s[i].paramList );
+            }
             /// reset timeout
             pObj->m_timeout_slow->StopTimeout( TIMEOUT_TYPE_10S );
             pObj->m_timeout_slow->StartTimeout( TIMEOUT_TYPE_10S, 1020 );
@@ -267,6 +408,10 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
         }
         if( TRUE == pObj->m_timeout_slow->CheckTimeout( TIMEOUT_TYPE_30S ) )
         {
+            for( UINT32 i = 0; i < pObj->m_iolist_30s.size(); i++ )
+            {
+                pObj->JobFunctionCall( pObj->m_iolist_30s[i].func, pObj->m_iolist_30s[i].paramNum, pObj->m_iolist_30s[i].paramList );
+            }
             /// reset timeout
             pObj->m_timeout_slow->StopTimeout( TIMEOUT_TYPE_30S );
             pObj->m_timeout_slow->StartTimeout( TIMEOUT_TYPE_30S, 3030 );
@@ -274,6 +419,10 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
         }
         if( TRUE == pObj->m_timeout_slow->CheckTimeout( TIMEOUT_TYPE_60S ) )
         {
+            for( UINT32 i = 0; i < pObj->m_iolist_60s.size(); i++ )
+            {
+                pObj->JobFunctionCall( pObj->m_iolist_60s[i].func, pObj->m_iolist_60s[i].paramNum, pObj->m_iolist_60s[i].paramList );
+            }
             /// reset timeout
             pObj->m_timeout_slow->StopTimeout( TIMEOUT_TYPE_60S );
             pObj->m_timeout_slow->StartTimeout( TIMEOUT_TYPE_60S, 6040 );
@@ -308,6 +457,13 @@ void * DataCollecter::PostHandler( void *pThis )
         sem_wait( &( pObj->m_sem_post ) );
 
         LOG( INFO ) << "PostHandler";
+
+#if 0
+        //// HTTP Post
+        RestClient::Response resp = RestClient::post( "http://192.168.0.23:9080/ping", "application/x-www-form-urlencoded", "{\"foo\":\"test\"}" );
+
+        cout << resp.body;
+#endif
 
         if( pObj->m_thread_post_stop )
         {
