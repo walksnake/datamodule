@@ -18,11 +18,28 @@
 
 #include "../../include/normal_typedef.h"
 #include "../../feature/log/inc/easylogging.h"
+#include "../../common/typeany/inc/typeany.h"
 /// JSON
 #include "../../include/json.hpp"
+#include <cstdint>
 #include <fstream>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
+
+/// function param list is unknow
+typedef void *( *pJobFunc )( ... );
+
+typedef struct IOFunctionList
+{
+    /// function list
+    UINT32 index;
+    UINT32 functionNum;
+    UINT32 paramNum;
+    vector<TypeAny> *paramList;
+    /// function list
+    pJobFunc func;
+} IOFunctionList_s;
 
 
 typedef enum
@@ -39,12 +56,12 @@ typedef enum
 } TIMEOUT_TYPE_E;
 
 
-typedef struct IOFunctionList
+/// return value
+typedef struct KeyValue
 {
-    /// function list
-
-} IOFunctionList_s;
-
+    string key;
+    TypeAny value;
+} KeyValue_s;
 
 class TimeOutCondition
 {
@@ -70,8 +87,9 @@ public:
     INT8 Start();
     INT8 Stop();
 
-    BOOLEAN InitIOListByJson( CHAR *fileName );
-
+    BOOLEAN InitIOListByJson( const CHAR *fileName );
+		void InitFuncList( vector<IOFunctionList> funclist, json tmpjson );
+    INT32 GetIOFunctionFromType( UINT32 type );
 public:
     static void * TimerProcessFast( void *pThis );
     static void * TimerProcessSlow( void *pThis );
@@ -97,6 +115,10 @@ public:
     std::vector<IOFunctionList> m_iolist_10s;
     std::vector<IOFunctionList> m_iolist_30s;
     std::vector<IOFunctionList> m_iolist_60s;
+
+    /// report data
+    vector<KeyValue> m_cur_data;
+    vector<KeyValue> m_his_data;
 
 private:
     /// thread

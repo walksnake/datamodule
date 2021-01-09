@@ -1,0 +1,24 @@
+2021-01-09 05:09:28,674:[DEBUG]My first info log using default logger! 
+2021-01-09 05:09:28,730:[INFO]TimerProcess create!
+2021-01-09 05:09:28,731:[INFO]getPostHandler create!
+
+2021-01-09 05:09:28,731:[INFO]getPostHandler create!
+
+2021-01-09 05:09:28,731:[INFO]getPostHandler create!
+
+2021-01-09 05:09:28,731:[INFO]TimerProcessSlow create!{"baud":19200,"dataBit":8,"interface":2,"ip":"192.168.3.23","parity":"n","port":"502","protocol":1,"
+2021-01-09 05:09:28,731:[INFO]TimerProcessSlow create!{"baud":19200,"dataBit":8,"interface":2,"ip":"192.168.3.23","parity":"n","port":"502","protocol":1,"
+2021-01-09 05:09:28,731:[INFO]TimerProcessSlow create!{"baud":19200,"dataBit":8,"interface":2,"ip":"192.168.3.23","parity":"n","port":"502","protocol":1,"stopBit":1}
+
+2021-01-09 05:09:28,731:[INFO]null
+
+2021-01-09 05:09:29,842:[INFO]reset Fast counter
+2021-01-09 05:09:29,953:[INFO]reset Fast counter
+2021-01-09 05:09:30,065:[INFO]reset Fast counter
+2021-01-09 05:09:30,176:[INFO]reset Fast counter
+2021-01-09 05:09:30,287:[INFO]reset Fast counter
+2021-01-09 05:09:30,399:[INFO]reset Fast counter
+2021-01-09 05:09:30,510:[INFO]reset Fast counter
+2021-01-09 05:09:30,621:[INFO]reset Fast counter
+2021-01-09 05:09:30,733:[INFO]reset Fast counter
+2021-01-09 05:09:30,844:[INFO]reset Fast counter

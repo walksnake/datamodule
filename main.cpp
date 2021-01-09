@@ -87,33 +87,10 @@ int main( int argc, char * argv[] )
     LOG_IF( ( ( 1 % 2 ) == 0 ), INFO ) << "Logged if condition is true";
     LOG( DEBUG ) << "My first info log using default logger! ";
 
-    if( argc > 1 )
-    {
-        /// 读取配置文件
-        ifstream fjson( argv[1] );
-        json jsoncfg;
-        fjson >> jsoncfg;
-        cout << jsoncfg["command"] << endl;;
-        cout << jsoncfg["device"] << endl;;
-        cout << jsoncfg["list"] << endl;;
-        fjson.close();
-    }
-    else
-    {
-        LOG( ERROR ) << "Default Json file! ";
-        ifstream fjson( "xDC_Get.json" );
-        json jsoncfg;
-        fjson >> jsoncfg;
-        cout << jsoncfg["command"] << endl;;
-        cout << jsoncfg["device"] << endl;;
-        cout << jsoncfg["list"] << endl;;
-        fjson.close();
-    }
-
     //// 西门子采集协议测试程序
 #if 1
     siemenscnc_t *ctx;
-    ctx = siemenscnc_828d_new( "192.168.2.99", 102 );
+    ctx = siemenscnc_828d_new( "192.168.0.55", 102 );
     //
     siemenscnc_set_debug( ctx, 1 );
     struct timeval t;
@@ -133,13 +110,27 @@ int main( int argc, char * argv[] )
     }
 #endif
 
-		/// 开启采集线程
+    /// 开启采集线程
     DataCollecter *pDC = new DataCollecter();
     pDC->Init();
+    if( argc > 1 )
+    {
+#ifdef PRINT_DEBUG_INFO
+        pDC->InitIOListByJson( ( const CHAR * )"xDC_Get.json" );
+#else
+        /// 读取配置文件
+        pDC->InitIOListByJson( ( const CHAR * )argv[1] );
+#endif
+    }
+    else
+    {
+        pDC->InitIOListByJson( ( const CHAR * )"xDC_Get.json" );
+    }
+
     pDC->Start();
 
     //// HTTP Post
-    RestClient::Response resp = RestClient::post( "http://192.168.3.23:9080/ping", "application/x-www-form-urlencoded", "{\"foo\":\"test\"}" );
+    RestClient::Response resp = RestClient::post( "http://192.168.0.23:9080/ping", "application/x-www-form-urlencoded", "{\"foo\":\"test\"}" );
 
     cout << resp.body;
 

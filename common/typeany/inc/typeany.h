@@ -221,10 +221,16 @@ public:
         v.m_boolean = in_val;
     }
 
-    TypeAny( OCTET* in_val, TYPEANY_ID teid = TYPE_BASE_BOOLEAN )
+    TypeAny( OCTET* in_val, TYPEANY_ID teid = TYPE_BASE_BUFF_PTR )
     {
         m_typeany_id = teid << TYPE_BASE_SHIFTBITS;
-        v.m_boolean = in_val;
+        v.m_buff_ptr = in_val;
+    }
+    
+		TypeAny( CHAR* in_val, TYPEANY_ID teid = TYPE_BASE_STR_PTR )
+    {
+        m_typeany_id = teid << TYPE_BASE_SHIFTBITS;
+        v.m_string_ptr = in_val;
     }
 
 		/// normal datatype

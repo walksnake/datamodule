@@ -14,6 +14,8 @@
  */
 
 #include "../inc/datacollecter.h"
+#include "../inc/functionlist.h"
+#include <vector>
 
 
 DataCollecter* DataCollecter::m_pInstance_s = NULL;
@@ -80,22 +82,78 @@ INT8 DataCollecter::Stop()
 }
 
 
-BOOLEAN DataCollecter::InitIOListByJson( CHAR *fileName )
+BOOLEAN DataCollecter::InitIOListByJson( const CHAR *fileName )
 {
-    ifstream fjson( "xDC_Get.json" );
+    ifstream fjson( ( const char * )fileName );
     json jsoncfg;
     fjson >> jsoncfg;
-    cout << jsoncfg["command"] << endl;;
-    cout << jsoncfg["device"] << endl;;
-    cout << jsoncfg["list"] << endl;;
+    if( ( string )jsoncfg["command"] == "get" )
+    {
+        LOG( INFO ) << "get" << endl;
+        LOG( INFO ) << jsoncfg["device"] << endl;
+        LOG( INFO ) << jsoncfg["listGet"] << endl;
+				
+        for( UINT32 len = 0; len < jsoncfg["listGet"].size(); len++ )
+        {
+            json tmpjson = jsoncfg["listGet"][len];
+						cout << tmpjson;
+						cout << tmpjson["frequency"]; 
+						string freq = tmpjson["frequency"]; 
+
+            if( freq == "0.1" )
+            {
+                InitFuncList( m_iolist_100ms, tmpjson );
+            }
+            else if( freq == "1" )
+            {
+                InitFuncList( m_iolist_1s, tmpjson );
+            }
+            else if( freq == "5" )
+            {
+                InitFuncList( m_iolist_5s, tmpjson );
+            }
+            else if( freq == "10" )
+            {
+                InitFuncList( m_iolist_10s, tmpjson );
+            }
+            else if( freq == "30" )
+            {
+                InitFuncList( m_iolist_30s, tmpjson );
+            }
+            else if( freq == "60" )
+            {
+                InitFuncList( m_iolist_60s, tmpjson );
+            }
+        }
+    }
+    else
+    {
+        LOG( INFO ) << jsoncfg["device"] << endl;
+        LOG( INFO ) << jsoncfg["listSet"].count( jsoncfg["listSet"] ) << endl;
+        LOG( INFO ) << jsoncfg["listSet"] << endl;
+    }
     fjson.close();
 
-		/// init iolist
-		/// IOFunctionList item;
-		/// m_iolist_1s.push_back(item);
-
-		return TRUE;
+    return TRUE;
 }
+
+void DataCollecter::InitFuncList( vector<IOFunctionList> funclist, json tmpjson )
+{
+    for( UINT32 len = 0; len < tmpjson["list"].size() ; len++ )
+    {
+        INT32 funcIndex = GetIOFunctionFromType( UINT32( tmpjson["list"][len]["type"] ) ) ;
+        if( funcIndex < 0 )
+        {
+            LOG( ERROR ) << "frequency = " << tmpjson["frequency"] << "s: " <<  tmpjson["list"][len] << "not found!";
+        }
+        else
+        {
+            funclist.push_back( functionlist[funcIndex] );
+            LOG( INFO ) << "frequency = " << tmpjson["frequency"] << "s: " <<  tmpjson["list"][len];
+        }
+    }
+}
+
 /**
  * @brief  this thread is for fast data collecttng
  *
@@ -128,10 +186,10 @@ void * DataCollecter::TimerProcessFast( void *pThis )
 
         if( TRUE == pObj->m_timeout_fast->CheckTimeout( TIMEOUT_TYPE_Fast ) )
         {
-						for(UINT32 i = 0; i < pObj->m_iolist_100ms.size(); i++)
-						{
-							/// read IO item
-						}
+            for( UINT32 i = 0; i < pObj->m_iolist_100ms.size(); i++ )
+            {
+                /// read IO item
+            }
 
             /// reset timeout
             pObj->m_timeout_fast->StopTimeout( TIMEOUT_TYPE_Fast );
@@ -261,6 +319,19 @@ void * DataCollecter::PostHandler( void *pThis )
     return NULL;
 }
 
+INT32 DataCollecter::GetIOFunctionFromType( UINT32 type )
+{
+    for( UINT32 i = 0; i < sizeof( functionlist ) / sizeof( IOFunctionList ); i++ )
+    {
+        if( type == functionlist[i].functionNum )
+        {
+            return i;
+        }
+    }
+
+    /// invalid index
+    return -1;
+}
 
 /* --------------------------------------------------------------------------*/
 /**
