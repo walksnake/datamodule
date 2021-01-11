@@ -1,6 +1,6 @@
 #ifndef EZSOCKET_PRIVATE_H
 #define EZSOCKET_PRIVATE_H
-#include "libezsocket/ezsocket.h"
+#include "ezsocket.h"
 //# include <ws2tcpip.h>
 
 

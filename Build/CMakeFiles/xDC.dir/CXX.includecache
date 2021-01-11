@@ -587,6 +587,12 @@ datacollecter.h
 /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/inc/siemenscnc.h
 ../../protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.h
 /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.h
+../../protocol/MitCncTest/MitTest/libezsocket/ezsocket.h
+/home/fchuanlin/datamodule/protocol/MitCncTest/MitTest/libezsocket/ezsocket.h
+../../protocol/MitCncTest/MitTest/libezsocket/ezsocket_new.h
+/home/fchuanlin/datamodule/protocol/MitCncTest/MitTest/libezsocket/ezsocket_new.h
+../../protocol/MitCncTest/MitTest/libezsocket/ezsocket_private.h
+/home/fchuanlin/datamodule/protocol/MitCncTest/MitTest/libezsocket/ezsocket_private.h
 
 /home/fchuanlin/datamodule/product/src/datacollecter.cpp
 ../inc/datacollecter.h
@@ -597,6 +603,32 @@ functional
 -
 vector
 -
+
+/home/fchuanlin/datamodule/protocol/MitCncTest/MitTest/libezsocket/ezsocket.h
+stdint.h
+-
+sys/time.h
+-
+stdio.h
+-
+stdint.h
+/home/fchuanlin/datamodule/protocol/MitCncTest/MitTest/libezsocket/stdint.h
+time.h
+-
+ws2tcpip.h
+-
+ezsocket_private.h
+/home/fchuanlin/datamodule/protocol/MitCncTest/MitTest/libezsocket/ezsocket_private.h
+ezsocket_new.h
+/home/fchuanlin/datamodule/protocol/MitCncTest/MitTest/libezsocket/ezsocket_new.h
+
+/home/fchuanlin/datamodule/protocol/MitCncTest/MitTest/libezsocket/ezsocket_new.h
+ezsocket.h
+/home/fchuanlin/datamodule/protocol/MitCncTest/MitTest/libezsocket/ezsocket.h
+
+/home/fchuanlin/datamodule/protocol/MitCncTest/MitTest/libezsocket/ezsocket_private.h
+ezsocket.h
+/home/fchuanlin/datamodule/protocol/MitCncTest/MitTest/libezsocket/ezsocket.h
 
 /home/fchuanlin/datamodule/protocol/SimensCnc/Simens/libsiemenscnc/828d/siemens_828d_new.h
 ../inc/siemenscnc.h

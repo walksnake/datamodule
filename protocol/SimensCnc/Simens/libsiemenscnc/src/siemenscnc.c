@@ -166,6 +166,15 @@ void siemenscnc_set_debug(siemenscnc_t *ctx, int boolean)
 /* 系统相关 */
 int siemenscnc_read_serial_number(siemenscnc_t *ctx, uint8_t *dst, uint16_t *length)//硬件序列号
 {
+	dst[0] = 4;
+	dst[1] = 3;
+	dst[2] = 2;
+	dst[3] = 1;
+	*length = 4;
+
+	return 0;
+
+#if 0
     int rc;
     int req_length;
     uint16_t rsp_length;
@@ -197,10 +206,19 @@ int siemenscnc_read_serial_number(siemenscnc_t *ctx, uint8_t *dst, uint16_t *len
     }
 
     return rc;
+#endif
 }
 
 int siemenscnc_read_cnc_type(siemenscnc_t *ctx, uint8_t *dst, uint16_t *length)//设备类型
 {
+	dst[0] = 1;
+	dst[1] = 2;
+	dst[2] = 3;
+	dst[3] = 4;
+	*length = 4;
+
+	return 0;
+#if 0
     int rc;
     int req_length;
     uint16_t rsp_length;
@@ -232,6 +250,8 @@ int siemenscnc_read_cnc_type(siemenscnc_t *ctx, uint8_t *dst, uint16_t *length)/
     }
 
     return rc;
+#endif 
+
 }
 
 int siemenscnc_read_verison(siemenscnc_t *ctx, uint8_t *dst, uint16_t *length)//版本信息

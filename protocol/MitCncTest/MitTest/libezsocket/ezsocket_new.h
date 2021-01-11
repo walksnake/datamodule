@@ -1,7 +1,7 @@
 #ifndef EZSOCKET_NEW_H
 #define EZSOCKET_NEW_H
 
-#include "libezsocket/ezsocket.h"
+#include "ezsocket.h"
 
 
 

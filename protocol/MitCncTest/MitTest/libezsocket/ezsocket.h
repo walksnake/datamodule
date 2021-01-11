@@ -298,7 +298,7 @@ R4885    R4901   R4917    R4933 电机负载电流 第1轴
     tab_int8[(index) + 2] = (value) >> 8; \
     tab_int8[(index) + 3] = (value); \
     } while (0)
-#include "libezsocket/ezsocket_private.h"
-#include "libezsocket/ezsocket_new.h"
+#include "ezsocket_private.h"
+#include "ezsocket_new.h"
 EZSOCKET_END_DECLS
 #endif // SIMENSCNC_H

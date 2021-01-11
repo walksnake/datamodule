@@ -28,7 +28,7 @@ using namespace std;
 using json = nlohmann::json;
 
 /// function param list is unknow
-typedef void *( *pJobFunc )( ... );
+typedef void * ( *pJobFunc )( ... );
 
 typedef struct IOFunctionList
 {
@@ -38,7 +38,7 @@ typedef struct IOFunctionList
     UINT32 paramNum; 							///< 参数个数
 		UINT32 returnpos;							///< 返回值的位置
 		UINT32 datatype; 							///< 数据类型
-    VOID **paramList; 		///< 参数列表
+    VOID **paramList; 						///< 参数列表
     pJobFunc func; 								///< 对应函数
 } IOFunctionList_s;
 
@@ -101,7 +101,7 @@ public:
     INT8 Stop();
 
     BOOLEAN InitIOListByJson( const CHAR *fileName );
-    void InitFuncList( vector<IOFunctionList> funclist, json tmpjson );
+    void InitFuncList( vector<IOFunctionList> *funclist, json tmpjson );
     INT32 GetIOFunctionFromType( UINT32 type );
     INT32 JobFunctionCall( pJobFunc JobFunc, UINT32 paramNum, VOID **paramList);
 public:

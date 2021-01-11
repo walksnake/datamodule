@@ -1,0 +1,52 @@
+2021-01-11 11:36:26,661:[INFO]Start DataModule! 
+2021-01-11 11:36:26,661:[INFO]TimerProcess create!TimerProcessSlow create!
+2021-01-11 11:36:26,661:[INFO]TimerProcess create!TimerProcessSlow create!
+2021-01-11 11:36:26,661:[INFO]TimerProcess create!TimerProcessSlow create!
+2021-01-11 11:36:26,661:[INFO]TimerProcess create!TimerProcessSlow create!PostHandler create!
+2021-01-11 11:36:39,728:[INFO]Start DataModule! 
+2021-01-11 11:36:39,728:[INFO]TimerProcess create!TimerProcessSlow create!
+2021-01-11 11:36:39,728:[INFO]PostHandler create!
+2021-01-11 11:36:39,728:[INFO]PostHandler create!
+2021-01-11 11:36:39,729:[INFO]get
+
+2021-01-11 11:36:39,729:[INFO]{"baud":null,"dataBit":null,"interface":2,"ip":"192.168.0.55","parity":null,"port":102,"protocol":54,"slave":null,"stopBit":null}
+
+2021-01-11 11:36:39,729:[INFO][{"frequency":1,"list":[{"dataType":5,"hex":10,"id":0,"name":0,"num":null,"type":4,"value":null},{"dataType":5,"hex":10,"id":1,"name":0,"num":null,"type":5,"value":null},{"dataType":5,"hex":10,"id":2,"name":0,"num":null,"type":6,"value":null},{"dataType":5,"hex":10,"id":3,"name":0,"num":null,"type":7,"value":null},{"dataType":6,"hex":10,"id":4,"name":0,"num":null,"type":8,"value":null},{"dataType":1,"hex":10,"id":5,"name":0,"num":null,"type":10,"value":null},{"dataType":1,"hex":10,"id":6,"name":0,"num":null,"type":11,"value":null},{"dataType":6,"hex":null,"id":7,"name":0,"num":null,"type":20,"value":null},{"dataType":5,"hex":10,"id":8,"name":0,"num":null,"type":24,"value":null},{"dataType":5,"hex":10,"id":9,"name":0,"num":null,"type":29,"value":null},{"dataType":6,"hex":10,"id":10,"name":0,"num":null,"type":40,"value":null},{"dataType":6,"hex":10,"id":11,"name":0,"num":null,"type":60,"value":null},{"dataType":5,"hex":null,"id":12,"name":1,"num":null,"type":70,"value":null}]},{"frequency":5,"list":[{"dataType":1,"hex":10,"id":13,"name":0,"num":null,"type":0,"value":null},{"dataType":1,"hex":10,"id":14,"name":0,"num":null,"type":1,"value":null}]}]
+
+2021-01-11 11:36:39,729:[ERROR]frequency = 1s: {"dataType":5,"hex":10,"id":0,"name":0,"num":null,"type":4,"value":null} function not found!
+2021-01-11 11:36:39,729:[ERROR]frequency = 1s: {"dataType":5,"hex":10,"id":1,"name":0,"num":null,"type":5,"value":null} function not found!
+2021-01-11 11:36:39,729:[ERROR]frequency = 1s: {"dataType":5,"hex":10,"id":2,"name":0,"num":null,"type":6,"value":null} function not found!
+2021-01-11 11:36:39,729:[ERROR]frequency = 1s: {"dataType":5,"hex":10,"id":3,"name":0,"num":null,"type":7,"value":null} function not found!
+2021-01-11 11:36:39,729:[ERROR]frequency = 1s: {"dataType":6,"hex":10,"id":4,"name":0,"num":null,"type":8,"value":null} function not found!
+2021-01-11 11:36:39,729:[ERROR]frequency = 1s: {"dataType":1,"hex":10,"id":5,"name":0,"num":null,"type":10,"value":null} function not found!
+2021-01-11 11:36:39,729:[ERROR]frequency = 1s: {"dataType":1,"hex":10,"id":6,"name":0,"num":null,"type":11,"value":null} function not found!
+2021-01-11 11:36:39,729:[ERROR]frequency = 1s: {"dataType":6,"hex":null,"id":7,"name":0,"num":null,"type":20,"value":null} function not found!
+2021-01-11 11:36:39,729:[ERROR]frequency = 1s: {"dataType":5,"hex":10,"id":8,"name":0,"num":null,"type":24,"value":null} function not found!
+2021-01-11 11:36:39,729:[ERROR]frequency = 1s: {"dataType":5,"hex":10,"id":9,"name":0,"num":null,"type":29,"value":null} function not found!
+2021-01-11 11:36:39,729:[ERROR]frequency = 1s: {"dataType":6,"hex":10,"id":10,"name":0,"num":null,"type":40,"value":null} function not found!
+2021-01-11 11:36:39,729:[ERROR]frequency = 1s: {"dataType":6,"hex":10,"id":11,"name":0,"num":null,"type":60,"value":null} function not found!
+2021-01-11 11:36:39,729:[ERROR]frequency = 1s: {"dataType":5,"hex":null,"id":12,"name":1,"num":null,"type":70,"value":null} function not found!
+2021-01-11 11:42:42,589:[INFO]Start DataModule! 
+2021-01-11 11:42:42,611:[INFO]TimerProcess create!TimerProcessSlow create!
+2021-01-11 11:42:42,611:[INFO]TimerProcess create!TimerProcessSlow create!
+2021-01-11 11:42:42,611:[INFO]TimerProcess create!TimerProcessSlow create!
+2021-01-11 11:42:42,611:[INFO]PostHandler create!
+2021-01-11 11:42:42,643:[INFO]get
+
+2021-01-11 11:42:42,643:[INFO]{"baud":null,"dataBit":null,"interface":2,"ip":"192.168.0.55","parity":null,"port":102,"protocol":54,"slave":null,"stopBit":null}
+
+2021-01-11 11:42:42,644:[INFO][{"frequency":1,"list":[{"dataType":5,"hex":10,"id":0,"name":0,"num":null,"type":4,"value":null},{"dataType":5,"hex":10,"id":1,"name":0,"num":null,"type":5,"value":null},{"dataType":5,"hex":10,"id":2,"name":0,"num":null,"type":6,"value":null},{"dataType":5,"hex":10,"id":3,"name":0,"num":null,"type":7,"value":null},{"dataType":6,"hex":10,"id":4,"name":0,"num":null,"type":8,"value":null},{"dataType":1,"hex":10,"id":5,"name":0,"num":null,"type":10,"value":null},{"dataType":1,"hex":10,"id":6,"name":0,"num":null,"type":11,"value":null},{"dataType":6,"hex":null,"id":7,"name":0,"num":null,"type":20,"value":null},{"dataType":5,"hex":10,"id":8,"name":0,"num":null,"type":24,"value":null},{"dataType":5,"hex":10,"id":9,"name":0,"num":null,"type":29,"value":null},{"dataType":6,"hex":10,"id":10,"name":0,"num":null,"type":40,"value":null},{"dataType":6,"hex":10,"id":11,"name":0,"num":null,"type":60,"value":null},{"dataType":5,"hex":null,"id":12,"name":1,"num":null,"type":70,"value":null}]},{"frequency":5,"list":[{"dataType":1,"hex":10,"id":13,"name":0,"num":null,"type":0,"value":null},{"dataType":1,"hex":10,"id":14,"name":0,"num":null,"type":1,"value":null}]}]
+
+2021-01-11 11:42:42,644:[ERROR]frequency = 1s: {"dataType":5,"hex":10,"id":0,"name":0,"num":null,"type":4,"value":null} function not found!
+2021-01-11 11:42:42,644:[ERROR]frequency = 1s: {"dataType":5,"hex":10,"id":1,"name":0,"num":null,"type":5,"value":null} function not found!
+2021-01-11 11:42:42,644:[ERROR]frequency = 1s: {"dataType":5,"hex":10,"id":2,"name":0,"num":null,"type":6,"value":null} function not found!
+2021-01-11 11:42:42,644:[ERROR]frequency = 1s: {"dataType":5,"hex":10,"id":3,"name":0,"num":null,"type":7,"value":null} function not found!
+2021-01-11 11:42:42,644:[ERROR]frequency = 1s: {"dataType":6,"hex":10,"id":4,"name":0,"num":null,"type":8,"value":null} function not found!
+2021-01-11 11:42:42,644:[ERROR]frequency = 1s: {"dataType":1,"hex":10,"id":5,"name":0,"num":null,"type":10,"value":null} function not found!
+2021-01-11 11:42:42,644:[ERROR]frequency = 1s: {"dataType":1,"hex":10,"id":6,"name":0,"num":null,"type":11,"value":null} function not found!
+2021-01-11 11:42:42,644:[ERROR]frequency = 1s: {"dataType":6,"hex":null,"id":7,"name":0,"num":null,"type":20,"value":null} function not found!
+2021-01-11 11:42:42,644:[ERROR]frequency = 1s: {"dataType":5,"hex":10,"id":8,"name":0,"num":null,"type":24,"value":null} function not found!
+2021-01-11 11:42:42,644:[ERROR]frequency = 1s: {"dataType":5,"hex":10,"id":9,"name":0,"num":null,"type":29,"value":null} function not found!
+2021-01-11 11:42:42,644:[ERROR]frequency = 1s: {"dataType":6,"hex":10,"id":10,"name":0,"num":null,"type":40,"value":null} function not found!
+2021-01-11 11:42:42,644:[ERROR]frequency = 1s: {"dataType":6,"hex":10,"id":11,"name":0,"num":null,"type":60,"value":null} function not found!
+2021-01-11 11:42:42,644:[ERROR]frequency = 1s: {"dataType":5,"hex":null,"id":12,"name":1,"num":null,"type":70,"value":null} function not found!

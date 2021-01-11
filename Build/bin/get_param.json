@@ -136,13 +136,23 @@
 		},
 		{
 			"frequency": 5,
-			"list": [{
-					"id": 0,
-					"type": 4,
+			"list": [
+				{
+					"id": 13,
+					"type": 0,
 					"name": 0,
 					"hex": 10,
 					"num": null,
-					"dataType": 5,
+					"dataType": 1,
+					"value": null
+				},
+				{
+					"id": 14,
+					"type": 1,
+					"name": 0,
+					"hex": 10,
+					"num": null,
+					"dataType": 1,
 					"value": null
 				}
 			]
