@@ -163,6 +163,33 @@ common/typeany/src/typeany.cpp.s:
 	$(MAKE) -f CMakeFiles/xDC.dir/build.make CMakeFiles/xDC.dir/common/typeany/src/typeany.cpp.s
 .PHONY : common/typeany/src/typeany.cpp.s
 
+feature/easyloggingpp/src/easylogging++.o: feature/easyloggingpp/src/easylogging++.cc.o
+
+.PHONY : feature/easyloggingpp/src/easylogging++.o
+
+# target to build an object file
+feature/easyloggingpp/src/easylogging++.cc.o:
+	$(MAKE) -f CMakeFiles/xDC.dir/build.make CMakeFiles/xDC.dir/feature/easyloggingpp/src/easylogging++.cc.o
+.PHONY : feature/easyloggingpp/src/easylogging++.cc.o
+
+feature/easyloggingpp/src/easylogging++.i: feature/easyloggingpp/src/easylogging++.cc.i
+
+.PHONY : feature/easyloggingpp/src/easylogging++.i
+
+# target to preprocess a source file
+feature/easyloggingpp/src/easylogging++.cc.i:
+	$(MAKE) -f CMakeFiles/xDC.dir/build.make CMakeFiles/xDC.dir/feature/easyloggingpp/src/easylogging++.cc.i
+.PHONY : feature/easyloggingpp/src/easylogging++.cc.i
+
+feature/easyloggingpp/src/easylogging++.s: feature/easyloggingpp/src/easylogging++.cc.s
+
+.PHONY : feature/easyloggingpp/src/easylogging++.s
+
+# target to generate assembly for a file
+feature/easyloggingpp/src/easylogging++.cc.s:
+	$(MAKE) -f CMakeFiles/xDC.dir/build.make CMakeFiles/xDC.dir/feature/easyloggingpp/src/easylogging++.cc.s
+.PHONY : feature/easyloggingpp/src/easylogging++.cc.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -365,6 +392,9 @@ help:
 	@echo "... common/typeany/src/typeany.o"
 	@echo "... common/typeany/src/typeany.i"
 	@echo "... common/typeany/src/typeany.s"
+	@echo "... feature/easyloggingpp/src/easylogging++.o"
+	@echo "... feature/easyloggingpp/src/easylogging++.i"
+	@echo "... feature/easyloggingpp/src/easylogging++.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

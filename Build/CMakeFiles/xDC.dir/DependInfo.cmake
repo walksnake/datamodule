@@ -15,16 +15,16 @@ set(CMAKE_C_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_C
-  "ELPP_NO_DEFAULT_LOG_FILE"
+  "ELPP_FEATURE_ALL"
+  "ELPP_OS_UNIX"
+  "ELPP_THREAD_SAFE"
   "PRINT_DEBUG_INFO"
-  "SQLITE_ENABLE_COLUMN_METADATA"
-  "SQLITE_ENABLE_RTREE"
   )
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
   ".././include"
-  ".././feature/log/inc"
+  ".././feature/easyloggingpp/src"
   ".././common/typeany/inc"
   ".././thirdparty/restclient/include"
   ".././protocol/SimensCnc/Simens/libsiemenscnc/inc"
@@ -33,6 +33,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   )
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/fchuanlin/datamodule/common/typeany/src/typeany.cpp" "/home/fchuanlin/datamodule/Build/CMakeFiles/xDC.dir/common/typeany/src/typeany.cpp.o"
+  "/home/fchuanlin/datamodule/feature/easyloggingpp/src/easylogging++.cc" "/home/fchuanlin/datamodule/Build/CMakeFiles/xDC.dir/feature/easyloggingpp/src/easylogging++.cc.o"
   "/home/fchuanlin/datamodule/main.cpp" "/home/fchuanlin/datamodule/Build/CMakeFiles/xDC.dir/main.cpp.o"
   "/home/fchuanlin/datamodule/product/src/datacollecter.cpp" "/home/fchuanlin/datamodule/Build/CMakeFiles/xDC.dir/product/src/datacollecter.cpp.o"
   )
@@ -40,16 +41,16 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
-  "ELPP_NO_DEFAULT_LOG_FILE"
+  "ELPP_FEATURE_ALL"
+  "ELPP_OS_UNIX"
+  "ELPP_THREAD_SAFE"
   "PRINT_DEBUG_INFO"
-  "SQLITE_ENABLE_COLUMN_METADATA"
-  "SQLITE_ENABLE_RTREE"
   )
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   ".././include"
-  ".././feature/log/inc"
+  ".././feature/easyloggingpp/src"
   ".././common/typeany/inc"
   ".././thirdparty/restclient/include"
   ".././protocol/SimensCnc/Simens/libsiemenscnc/inc"

@@ -19,15 +19,15 @@ set ( CMAKE_C_COMPILER $ENV{CC} )
 set ( CMAKE_C_AR $ENV{AR} )
 
 
-set ( CMAKE_C_FLAGS "-g -pthread" )
-set ( CMAKE_CXX_FLAGS "-g -std=c++11 -pthread" )
+set ( CMAKE_C_FLAGS "-g -lpthread" )
+set ( CMAKE_CXX_FLAGS "-g -std=c++11 -lpthread" )
 
 #for log
-#add_definitions (
-#		-DELPP_NO_DEFAULT_LOG_FILE
-#		-DELPP_THREAD_SAFE
-#)
-#
+add_definitions (
+	#-DELPP_NO_DEFAULT_LOG_FILE
+		-DELPP_THREAD_SAFE
+)
+
 
 #generate target
 add_library ( easylog ${DIR_LOG_SRC} )

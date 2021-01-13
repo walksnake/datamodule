@@ -29,8 +29,12 @@ CMakeFiles/xDC.dir/common/typeany/src/typeany.cpp.o: ../common/typeany/src/typea
 CMakeFiles/xDC.dir/common/typeany/src/typeany.cpp.o: ../feature/log/inc/easylogging.h
 CMakeFiles/xDC.dir/common/typeany/src/typeany.cpp.o: ../include/normal_typedef.h
 
+CMakeFiles/xDC.dir/feature/easyloggingpp/src/easylogging++.cc.o: ../feature/easyloggingpp/src/easylogging++.cc
+CMakeFiles/xDC.dir/feature/easyloggingpp/src/easylogging++.cc.o: ../feature/easyloggingpp/src/easylogging++.h
+
 CMakeFiles/xDC.dir/main.cpp.o: .././thirdparty/restclient/include/restclient-cpp/version.h
 CMakeFiles/xDC.dir/main.cpp.o: ../common/typeany/inc/typeany.h
+CMakeFiles/xDC.dir/main.cpp.o: ../feature/easyloggingpp/src/easylogging++.h
 CMakeFiles/xDC.dir/main.cpp.o: ../feature/log/inc/easylogging.h
 CMakeFiles/xDC.dir/main.cpp.o: ../include/json.hpp
 CMakeFiles/xDC.dir/main.cpp.o: ../include/normal_typedef.h
