@@ -743,7 +743,11 @@ datacollecter.h
 /home/fchuanlin/datamodule/product/inc/datacollecter.h
 ../inc/functionlist.h
 /home/fchuanlin/datamodule/product/inc/functionlist.h
+cstdio
+-
 functional
+-
+string
 -
 vector
 -

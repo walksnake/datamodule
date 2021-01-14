@@ -15,12 +15,15 @@
 
 #include "../inc/datacollecter.h"
 #include "../inc/functionlist.h"
+#include <cstdio>
 #include <functional>
+#include <string>
 #include <vector>
 
 
 DataCollecter* DataCollecter::m_pInstance_s = NULL;
 
+#define TYPE_BASE_MASK  0xf
 
 /**
  * @brief  construct
@@ -170,32 +173,54 @@ void DataCollecter::InitFuncList( vector<IOFunctionList> *funclist, json tmpjson
 {
     for( UINT32 len = 0; len < tmpjson["list"].size() ; len++ )
     {
-        INT32 funcIndex = GetIOFunctionFromType( UINT32( tmpjson["list"][len]["type"] ) ) ;
+				UINT32 functionNum = tmpjson["list"][len]["type"]; 
+        FLOAT freq = tmpjson["frequency"] ;
+        string content = to_string( tmpjson["list"][len]["name"] ) ;
+        INT32 funcIndex = GetIOFunctionFromType( functionNum ) ;
         if( funcIndex < 0 )
         {
-            LOG( ERROR ) << "frequency = " << tmpjson["frequency"] << "s: " <<  tmpjson["list"][len] << " function not found!";
+            LOG( ERROR ) << "frequency = " << freq << "s: regName = " << content << " functionNum = " << functionNum << " not found!";
         }
         else
         {
-#if 1
-            IOFunctionList *tempFunc = new IOFunctionList;
-            tempFunc = ( IOFunctionList * )&functionlist[funcIndex];
-            OCTET * rtnval = new OCTET[8];
-            UINT16 * len = new UINT16( 0 );
-            VOID **paramList = new VOID *[8];
-            tempFunc->paramList = paramList;
-            TypeAny * param1 =  new TypeAny( m_protocol_cxt, 14 );
-            TypeAny * param2 =  new TypeAny( rtnval );
-            TypeAny * param3 =  new TypeAny( *len );
-
-            tempFunc->paramList[0] = ( void * )param1;
-            tempFunc->paramList[1] = ( void * )param2;
-            tempFunc->paramList[2] = ( void * )param3;
-            funclist->push_back( *tempFunc );
-#endif
-            //LOG( INFO ) << "frequency = " << tmpjson["frequency"] << "s: " <<  tmpjson["list"][len] << " function found!";
+            FormatParamList( funclist, funcIndex, content );
+            LOG( INFO ) << "frequency = " << freq << "s:  regName = " << content << " functionNum = "<< functionNum << " ok!";
         }
     }
+}
+
+
+VOID DataCollecter::FormatParamList( vector<IOFunctionList> *funclist, INT32 funcIndex, string regName )
+{
+    IOFunctionList *tempFunc = new IOFunctionList;
+    tempFunc = ( IOFunctionList * )&functionlist[funcIndex];
+
+    /// this is common
+    /// Max paramlist size - 8
+    VOID **paramList = new VOID *[8];
+    tempFunc->paramList = paramList;
+    for( UINT32 i = 0; i < tempFunc->paramNum; i++ )
+    {
+        cout << "datatype = " << hex << tempFunc->datatype << endl;
+
+				///得到每个参数的类型
+				OCTET datatye = (tempFunc->datatype & ( ( TYPE_BASE_MASK ) << (i * 4 )))>>(i*4);
+        if( 0 == i )
+        {
+            /// The first param is protocol cxt
+            TypeAny * param1 =  new TypeAny( m_protocol_cxt, datatye);
+            tempFunc->paramList[i] = ( void * )param1;
+        }
+        else
+        {
+            /// all param is pointer, the maxsize is 8 bytes
+            OCTET * ptr = new OCTET[8];
+            TypeAny * parami =  new TypeAny( ptr, datatye);
+            tempFunc->paramList[i] = ( void * )parami;
+        }
+        LOG( INFO ) << "Type of param [" << i << "] is " << type_base_str[datatye];
+    }
+    funclist->push_back( *tempFunc );
 }
 
 INT32 DataCollecter::JobFunctionCall( pJobFunc JobFunc, UINT32 paramNum, void **paramList )
