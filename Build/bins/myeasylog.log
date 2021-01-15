@@ -1,0 +1,492 @@
+2021-01-15 10:41:41,200:[INFO]Start DataModule! 
+2021-01-15 10:41:41,200:[INFO]TimerProcess create!
+2021-01-15 10:41:41,201:[INFO]TimerProcessSlow create!
+2021-01-15 10:41:41,201:[INFO]PostHandler create!
+2021-01-15 10:41:41,201:[INFO]get
+
+2021-01-15 10:41:41,201:[INFO]{"baud":null,"dataBit":null,"interface":2,"ip":"192.168.0.55","parity":null,"port":102,"protocol":54,"slave":null,"stopBit":null}
+
+2021-01-15 10:41:41,201:[INFO][{"frequency":1,"list":[{"dataType":5,"hex":10,"id":0,"name":0,"num":null,"type":4,"value":null},{"dataType":5,"hex":10,"id":1,"name":0,"num":null,"type":5,"value":null},{"dataType":5,"hex":10,"id":2,"name":0,"num":null,"type":6,"value":null},{"dataType":5,"hex":10,"id":3,"name":0,"num":null,"type":7,"value":null},{"dataType":6,"hex":10,"id":4,"name":0,"num":null,"type":8,"value":null},{"dataType":1,"hex":10,"id":5,"name":0,"num":null,"type":10,"value":null},{"dataType":1,"hex":10,"id":6,"name":0,"num":null,"type":11,"value":null},{"dataType":6,"hex":null,"id":7,"name":0,"num":null,"type":20,"value":null},{"dataType":5,"hex":10,"id":8,"name":0,"num":null,"type":24,"value":null},{"dataType":5,"hex":10,"id":9,"name":0,"num":null,"type":29,"value":null},{"dataType":6,"hex":10,"id":10,"name":0,"num":null,"type":40,"value":null},{"dataType":6,"hex":10,"id":11,"name":0,"num":null,"type":60,"value":null},{"dataType":5,"hex":null,"id":12,"name":1,"num":null,"type":70,"value":null}]},{"frequency":5,"list":[{"dataType":1,"hex":10,"id":13,"name":0,"num":null,"type":0,"value":null},{"dataType":1,"hex":10,"id":14,"name":0,"num":null,"type":1,"value":null}]}]
+
+2021-01-15 10:41:49,964:[FATAL]CRASH HANDLED; Application has crashed due to [SIGINT] signal
+    ======= Backtrace: =========
+
+2021-01-15 10:41:49,964:[WARNING]Aborting application. Reason: Fatal log at [/home/fchuanlin/datamodule/feature/easyloggingpp/src/easylogging++.cc:2884]
+2021-01-15 10:42:42,739:[INFO]Start DataModule! 
+2021-01-15 10:42:42,739:[INFO]TimerProcessSlow create!
+2021-01-15 10:42:42,739:[INFO]TimerProcess create!
+2021-01-15 10:42:42,739:[INFO]PostHandler create!
+2021-01-15 10:42:42,740:[INFO]get
+
+2021-01-15 10:42:42,740:[INFO]{"baud":null,"dataBit":null,"interface":2,"ip":"192.168.0.55","parity":null,"port":102,"protocol":54,"slave":null,"stopBit":null}
+
+2021-01-15 10:42:42,740:[INFO][{"frequency":1,"list":[{"dataType":5,"hex":10,"id":0,"name":0,"num":null,"type":4,"value":null},{"dataType":5,"hex":10,"id":1,"name":0,"num":null,"type":5,"value":null},{"dataType":5,"hex":10,"id":2,"name":0,"num":null,"type":6,"value":null},{"dataType":5,"hex":10,"id":3,"name":0,"num":null,"type":7,"value":null},{"dataType":6,"hex":10,"id":4,"name":0,"num":null,"type":8,"value":null},{"dataType":1,"hex":10,"id":5,"name":0,"num":null,"type":10,"value":null},{"dataType":1,"hex":10,"id":6,"name":0,"num":null,"type":11,"value":null},{"dataType":6,"hex":null,"id":7,"name":0,"num":null,"type":20,"value":null},{"dataType":5,"hex":10,"id":8,"name":0,"num":null,"type":24,"value":null},{"dataType":5,"hex":10,"id":9,"name":0,"num":null,"type":29,"value":null},{"dataType":6,"hex":10,"id":10,"name":0,"num":null,"type":40,"value":null},{"dataType":6,"hex":10,"id":11,"name":0,"num":null,"type":60,"value":null},{"dataType":5,"hex":null,"id":12,"name":1,"num":null,"type":70,"value":null}]},{"frequency":5,"list":[{"dataType":1,"hex":10,"id":13,"name":0,"num":null,"type":0,"value":null},{"dataType":1,"hex":10,"id":14,"name":0,"num":null,"type":1,"value":null}]}]
+
+2021-01-15 10:42:42,740:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:42:42,740:[INFO]Type of param [1] is TYPE_BASE_DOUBLE
+2021-01-15 10:42:42,740:[INFO]frequency = 1s:  regName = 0 functionNum = 4 ok!
+2021-01-15 10:42:42,740:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:42:42,740:[INFO]Type of param [1] is TYPE_BASE_DOUBLE
+2021-01-15 10:42:42,740:[INFO]frequency = 1s:  regName = 0 functionNum = 5 ok!
+2021-01-15 10:42:42,740:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:42:42,740:[INFO]Type of param [1] is TYPE_BASE_DOUBLE
+2021-01-15 10:42:42,740:[INFO]frequency = 1s:  regName = 0 functionNum = 6 ok!
+2021-01-15 10:42:42,740:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:42:42,740:[INFO]Type of param [1] is TYPE_BASE_DOUBLE
+2021-01-15 10:42:42,740:[INFO]frequency = 1s:  regName = 0 functionNum = 7 ok!
+2021-01-15 10:42:42,740:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:42:42,740:[INFO]Type of param [1] is TYPE_BASE_BUFF_PTR
+2021-01-15 10:42:42,740:[INFO]Type of param [2] is TYPE_BASE_USHORT
+2021-01-15 10:42:42,740:[INFO]frequency = 1s:  regName = 0 functionNum = 8 ok!
+2021-01-15 10:42:42,740:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:42:42,740:[INFO]Type of param [1] is TYPE_BASE_OCTET
+2021-01-15 10:42:42,740:[INFO]frequency = 1s:  regName = 0 functionNum = 10 ok!
+2021-01-15 10:42:42,740:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:42:42,740:[INFO]Type of param [1] is TYPE_BASE_OCTET
+2021-01-15 10:42:42,741:[INFO]frequency = 1s:  regName = 0 functionNum = 11 ok!
+2021-01-15 10:42:42,741:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:42:42,741:[INFO]Type of param [1] is TYPE_BASE_BUFF_PTR
+2021-01-15 10:42:42,741:[INFO]Type of param [2] is TYPE_BASE_USHORT
+2021-01-15 10:42:42,741:[INFO]frequency = 1s:  regName = 0 functionNum = 20 ok!
+2021-01-15 10:42:42,741:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:42:42,741:[INFO]Type of param [1] is TYPE_BASE_DOUBLE
+2021-01-15 10:42:42,741:[INFO]frequency = 1s:  regName = 0 functionNum = 24 ok!
+2021-01-15 10:42:42,741:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:42:42,741:[INFO]Type of param [1] is TYPE_BASE_DOUBLE
+2021-01-15 10:42:42,741:[INFO]frequency = 1s:  regName = 0 functionNum = 29 ok!
+2021-01-15 10:42:42,741:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:42:42,741:[INFO]Type of param [1] is TYPE_BASE_BUFF_PTR
+2021-01-15 10:42:42,741:[INFO]Type of param [2] is TYPE_BASE_USHORT
+2021-01-15 10:42:42,741:[INFO]frequency = 1s:  regName = 0 functionNum = 40 ok!
+2021-01-15 10:42:42,741:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:42:42,741:[INFO]Type of param [1] is TYPE_BASE_USHORT
+2021-01-15 10:42:42,741:[INFO]frequency = 1s:  regName = 0 functionNum = 60 ok!
+2021-01-15 10:42:42,741:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:42:42,741:[INFO]Type of param [1] is TYPE_BASE_USHORT
+2021-01-15 10:42:42,741:[INFO]Type of param [2] is TYPE_BASE_USHORT
+2021-01-15 10:42:42,741:[INFO]Type of param [3] is TYPE_BASE_BUFF_PTR
+2021-01-15 10:42:42,741:[INFO]Type of param [4] is TYPE_BASE_USHORT
+2021-01-15 10:42:42,741:[INFO]frequency = 1s:  regName = 1 functionNum = 70 ok!
+2021-01-15 10:42:42,741:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:42:42,741:[INFO]Type of param [1] is TYPE_BASE_BUFF_PTR
+2021-01-15 10:42:42,741:[INFO]Type of param [2] is TYPE_BASE_USHORT
+2021-01-15 10:42:42,741:[INFO]frequency = 5s:  regName = 0 functionNum = 0 ok!
+2021-01-15 10:42:42,741:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:42:42,741:[INFO]Type of param [1] is TYPE_BASE_BUFF_PTR
+2021-01-15 10:42:42,741:[INFO]Type of param [2] is TYPE_BASE_USHORT
+2021-01-15 10:42:42,741:[INFO]frequency = 5s:  regName = 0 functionNum = 1 ok!
+2021-01-15 10:42:43,851:[INFO]reset Fast counter
+2021-01-15 10:42:43,963:[INFO]reset Fast counter
+2021-01-15 10:42:44,074:[INFO]reset Fast counter
+2021-01-15 10:42:44,190:[INFO]reset Fast counter
+2021-01-15 10:42:44,306:[INFO]reset Fast counter
+2021-01-15 10:42:44,423:[INFO]reset Fast counter
+2021-01-15 10:42:44,541:[INFO]reset Fast counter
+2021-01-15 10:42:44,658:[INFO]reset Fast counter
+2021-01-15 10:42:44,775:[INFO]reset Fast counter
+2021-01-15 10:42:44,894:[INFO]reset Fast counter
+2021-01-15 10:42:45,012:[INFO]reset Fast counter
+2021-01-15 10:42:45,129:[INFO]reset Fast counter
+2021-01-15 10:42:45,242:[INFO]reset Fast counter
+2021-01-15 10:42:45,360:[INFO]reset Fast counter
+2021-01-15 10:42:45,475:[INFO]reset Fast counter
+2021-01-15 10:42:45,590:[INFO]reset Fast counter
+2021-01-15 10:42:45,705:[INFO]reset Fast counter
+2021-01-15 10:42:45,809:[FATAL]CRASH HANDLED; Application has crashed due to [SIGSEGV] signal
+    ======= Backtrace: =========
+
+2021-01-15 10:42:45,809:[WARNING]Aborting application. Reason: Fatal log at [/home/fchuanlin/datamodule/feature/easyloggingpp/src/easylogging++.cc:2884]
+2021-01-15 10:52:44,060:[INFO]Start DataModule! 
+2021-01-15 10:52:44,060:[INFO]TimerProcessSlow create!
+2021-01-15 10:52:44,061:[INFO]TimerProcess create!
+2021-01-15 10:52:44,061:[INFO]get
+
+2021-01-15 10:52:44,061:[INFO]{"baud":null,"dataBit":null,"interface":2,"ip":"192.168.0.55","parity":null,"port":102,"protocol":54,"slave":null,"stopBit":null}
+
+2021-01-15 10:52:44,061:[INFO][{"frequency":1,"list":[{"dataType":5,"hex":10,"id":0,"name":0,"num":null,"type":4,"value":null},{"dataType":5,"hex":10,"id":1,"name":0,"num":null,"type":5,"value":null},{"dataType":5,"hex":10,"id":2,"name":0,"num":null,"type":6,"value":null},{"dataType":5,"hex":10,"id":3,"name":0,"num":null,"type":7,"value":null},{"dataType":6,"hex":10,"id":4,"name":0,"num":null,"type":8,"value":null},{"dataType":1,"hex":10,"id":5,"name":0,"num":null,"type":10,"value":null},{"dataType":1,"hex":10,"id":6,"name":0,"num":null,"type":11,"value":null},{"dataType":6,"hex":null,"id":7,"name":0,"num":null,"type":20,"value":null},{"dataType":5,"hex":10,"id":8,"name":0,"num":null,"type":24,"value":null},{"dataType":5,"hex":10,"id":9,"name":0,"num":null,"type":29,"value":null},{"dataType":6,"hex":10,"id":10,"name":0,"num":null,"type":40,"value":null},{"dataType":6,"hex":10,"id":11,"name":0,"num":null,"type":60,"value":null},{"dataType":5,"hex":null,"id":12,"name":1,"num":null,"type":70,"value":null}]},{"frequency":5,"list":[{"dataType":1,"hex":10,"id":13,"name":0,"num":null,"type":0,"value":null},{"dataType":1,"hex":10,"id":14,"name":0,"num":null,"type":1,"value":null}]}]
+
+2021-01-15 10:52:44,061:[ERROR] void DataCollecter::InitFuncList(std::vector<IOFunctionList>*, json)[192] frequency = 1s: regName = 0 functionNum = 4 not found!
+2021-01-15 10:52:44,061:[ERROR] void DataCollecter::InitFuncList(std::vector<IOFunctionList>*, json)[192] frequency = 1s: regName = 0 functionNum = 5 not found!
+2021-01-15 10:52:44,061:[ERROR] void DataCollecter::InitFuncList(std::vector<IOFunctionList>*, json)[192] frequency = 1s: regName = 0 functionNum = 6 not found!
+2021-01-15 10:52:44,061:[ERROR] void DataCollecter::InitFuncList(std::vector<IOFunctionList>*, json)[192] frequency = 1s: regName = 0 functionNum = 7 not found!
+2021-01-15 10:52:44,061:[ERROR] void DataCollecter::InitFuncList(std::vector<IOFunctionList>*, json)[192] frequency = 1s: regName = 0 functionNum = 8 not found!
+2021-01-15 10:52:44,061:[ERROR] void DataCollecter::InitFuncList(std::vector<IOFunctionList>*, json)[192] frequency = 1s: regName = 0 functionNum = 10 not found!
+2021-01-15 10:52:44,061:[ERROR] void DataCollecter::InitFuncList(std::vector<IOFunctionList>*, json)[192] frequency = 1s: regName = 0 functionNum = 11 not found!
+2021-01-15 10:52:44,061:[ERROR] void DataCollecter::InitFuncList(std::vector<IOFunctionList>*, json)[192] frequency = 1s: regName = 0 functionNum = 20 not found!
+2021-01-15 10:52:44,062:[ERROR] void DataCollecter::InitFuncList(std::vector<IOFunctionList>*, json)[192] frequency = 1s: regName = 0 functionNum = 24 not found!
+2021-01-15 10:52:44,062:[ERROR] void DataCollecter::InitFuncList(std::vector<IOFunctionList>*, json)[192] frequency = 1s: regName = 0 functionNum = 29 not found!
+2021-01-15 10:52:44,062:[ERROR] void DataCollecter::InitFuncList(std::vector<IOFunctionList>*, json)[192] frequency = 1s: regName = 0 functionNum = 40 not found!
+2021-01-15 10:52:44,062:[ERROR] void DataCollecter::InitFuncList(std::vector<IOFunctionList>*, json)[192] frequency = 1s: regName = 0 functionNum = 60 not found!
+2021-01-15 10:52:44,062:[ERROR] void DataCollecter::InitFuncList(std::vector<IOFunctionList>*, json)[192] frequency = 1s: regName = 1 functionNum = 70 not found!
+2021-01-15 10:52:44,062:[INFO]function is siemenscnc_read_serial_number
+2021-01-15 10:52:44,062:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:52:44,062:[INFO]Type of param [1] is TYPE_BASE_BUFF_PTR
+2021-01-15 10:52:44,062:[INFO]Type of param [2] is TYPE_BASE_USHORT
+2021-01-15 10:52:44,062:[INFO]frequency = 5s:  regName = 0 functionNum = 0 ok!
+2021-01-15 10:52:44,062:[ERROR] void DataCollecter::InitFuncList(std::vector<IOFunctionList>*, json)[192] frequency = 5s: regName = 0 functionNum = 1 not found!
+2021-01-15 10:52:44,062:[INFO]PostHandler create!
+2021-01-15 10:52:45,176:[INFO]reset Fast counter
+2021-01-15 10:52:45,289:[INFO]reset Fast counter
+2021-01-15 10:52:45,402:[INFO]reset Fast counter
+2021-01-15 10:52:45,517:[INFO]reset Fast counter
+2021-01-15 10:52:45,630:[INFO]reset Fast counter
+2021-01-15 10:52:45,742:[INFO]reset Fast counter
+2021-01-15 10:52:45,859:[INFO]reset Fast counter
+2021-01-15 10:52:45,970:[INFO]reset Fast counter
+2021-01-15 10:52:46,082:[INFO]reset Fast counter
+2021-01-15 10:52:46,195:[INFO]reset Fast counter
+2021-01-15 10:52:46,306:[INFO]reset Fast counter
+2021-01-15 10:52:46,417:[INFO]reset Fast counter
+2021-01-15 10:52:46,532:[INFO]reset Fast counter
+2021-01-15 10:52:46,648:[INFO]reset Fast counter
+2021-01-15 10:52:46,760:[INFO]reset Fast counter
+2021-01-15 10:52:46,871:[INFO]reset Fast counter
+2021-01-15 10:52:46,987:[INFO]reset Fast counter
+2021-01-15 10:52:47,099:[INFO]reset Fast counter
+2021-01-15 10:52:47,099:[INFO]reset 1s counter
+2021-01-15 10:52:47,210:[INFO]reset Fast counter
+2021-01-15 10:52:47,321:[INFO]reset Fast counter
+2021-01-15 10:52:47,438:[INFO]reset Fast counter
+2021-01-15 10:52:47,549:[INFO]reset Fast counter
+2021-01-15 10:52:47,660:[INFO]reset Fast counter
+2021-01-15 10:52:47,774:[INFO]reset Fast counter
+2021-01-15 10:52:47,885:[INFO]reset Fast counter
+2021-01-15 10:52:48,000:[INFO]reset Fast counter
+2021-01-15 10:52:48,111:[INFO]reset Fast counter
+2021-01-15 10:52:48,132:[INFO]reset 1s counter
+2021-01-15 10:52:48,223:[INFO]reset Fast counter
+2021-01-15 10:52:48,335:[INFO]reset Fast counter
+2021-01-15 10:52:48,449:[INFO]reset Fast counter
+2021-01-15 10:52:48,567:[INFO]reset Fast counter
+2021-01-15 10:52:48,679:[INFO]reset Fast counter
+2021-01-15 10:52:48,791:[INFO]reset Fast counter
+2021-01-15 10:52:48,908:[INFO]reset Fast counter
+2021-01-15 10:52:49,023:[INFO]reset Fast counter
+2021-01-15 10:52:49,134:[INFO]reset Fast counter
+2021-01-15 10:52:49,176:[INFO]reset 1s counter
+2021-01-15 10:52:49,246:[INFO]reset Fast counter
+2021-01-15 10:52:49,361:[INFO]reset Fast counter
+2021-01-15 10:52:49,472:[INFO]reset Fast counter
+2021-01-15 10:52:49,586:[INFO]reset Fast counter
+2021-01-15 10:52:49,698:[INFO]reset Fast counter
+2021-01-15 10:52:49,809:[INFO]reset Fast counter
+2021-01-15 10:52:49,829:[FATAL]CRASH HANDLED; Application has crashed due to [SIGINT] signal
+    ======= Backtrace: =========
+
+2021-01-15 10:52:49,829:[WARNING]Aborting application. Reason: Fatal log at [/home/fchuanlin/datamodule/feature/easyloggingpp/src/easylogging++.cc:2884]
+2021-01-15 10:56:45,937:[INFO]Start DataModule! 
+2021-01-15 10:56:45,938:[INFO]TimerProcessSlow create!
+2021-01-15 10:56:45,938:[INFO]TimerProcess create!
+2021-01-15 10:56:45,938:[INFO]PostHandler create!
+2021-01-15 10:56:45,938:[INFO]get
+
+2021-01-15 10:56:45,938:[INFO]{"baud":null,"dataBit":null,"interface":2,"ip":"192.168.0.55","parity":null,"port":102,"protocol":54,"slave":null,"stopBit":null}
+
+2021-01-15 10:56:45,938:[INFO][{"frequency":1,"list":[{"dataType":5,"hex":10,"id":0,"name":0,"num":null,"type":4,"value":null},{"dataType":5,"hex":10,"id":1,"name":0,"num":null,"type":5,"value":null},{"dataType":5,"hex":10,"id":2,"name":0,"num":null,"type":6,"value":null},{"dataType":5,"hex":10,"id":3,"name":0,"num":null,"type":7,"value":null},{"dataType":6,"hex":10,"id":4,"name":0,"num":null,"type":8,"value":null},{"dataType":1,"hex":10,"id":5,"name":0,"num":null,"type":10,"value":null},{"dataType":1,"hex":10,"id":6,"name":0,"num":null,"type":11,"value":null},{"dataType":6,"hex":null,"id":7,"name":0,"num":null,"type":20,"value":null},{"dataType":5,"hex":10,"id":8,"name":0,"num":null,"type":24,"value":null},{"dataType":5,"hex":10,"id":9,"name":0,"num":null,"type":29,"value":null},{"dataType":6,"hex":10,"id":10,"name":0,"num":null,"type":40,"value":null},{"dataType":6,"hex":10,"id":11,"name":0,"num":null,"type":60,"value":null},{"dataType":5,"hex":null,"id":12,"name":1,"num":null,"type":70,"value":null}]},{"frequency":5,"list":[{"dataType":1,"hex":10,"id":13,"name":0,"num":null,"type":0,"value":null},{"dataType":1,"hex":10,"id":14,"name":0,"num":null,"type":1,"value":null}]}]
+
+2021-01-15 10:56:45,938:[INFO]function is siemenscnc_read_process_number
+2021-01-15 10:56:45,938:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:56:45,938:[INFO]Type of param [1] is TYPE_BASE_DOUBLE
+2021-01-15 10:56:45,938:[INFO]frequency = 1s:  regName = 0 functionNum = 4 ok!
+2021-01-15 10:56:45,938:[INFO]function is siemenscnc_read_process_set_number
+2021-01-15 10:56:45,938:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:56:45,939:[INFO]Type of param [1] is TYPE_BASE_DOUBLE
+2021-01-15 10:56:45,939:[INFO]frequency = 1s:  regName = 0 functionNum = 5 ok!
+2021-01-15 10:56:45,939:[INFO]function is siemenscnc_read_run_time
+2021-01-15 10:56:45,939:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:56:45,939:[INFO]Type of param [1] is TYPE_BASE_DOUBLE
+2021-01-15 10:56:45,939:[INFO]frequency = 1s:  regName = 0 functionNum = 6 ok!
+2021-01-15 10:56:45,939:[INFO]function is siemenscnc_read_remain_time
+2021-01-15 10:56:45,939:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:56:45,939:[INFO]Type of param [1] is TYPE_BASE_DOUBLE
+2021-01-15 10:56:45,939:[INFO]frequency = 1s:  regName = 0 functionNum = 7 ok!
+2021-01-15 10:56:45,939:[INFO]function is siemenscnc_read_program_name
+2021-01-15 10:56:45,939:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:56:45,939:[INFO]Type of param [1] is TYPE_BASE_BUFF_PTR
+2021-01-15 10:56:45,939:[INFO]Type of param [2] is TYPE_BASE_USHORT
+2021-01-15 10:56:45,939:[INFO]frequency = 1s:  regName = 0 functionNum = 8 ok!
+2021-01-15 10:56:45,939:[INFO]function is siemenscnc_read_operate_mode
+2021-01-15 10:56:45,939:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:56:45,939:[INFO]Type of param [1] is TYPE_BASE_OCTET
+2021-01-15 10:56:45,939:[INFO]frequency = 1s:  regName = 0 functionNum = 10 ok!
+2021-01-15 10:56:45,939:[INFO]function is siemenscnc_read_status
+2021-01-15 10:56:45,939:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:56:45,939:[INFO]Type of param [1] is TYPE_BASE_OCTET
+2021-01-15 10:56:45,939:[INFO]frequency = 1s:  regName = 0 functionNum = 11 ok!
+2021-01-15 10:56:45,939:[INFO]function is siemenscnc_read_axis_name
+2021-01-15 10:56:45,939:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:56:45,939:[INFO]Type of param [1] is TYPE_BASE_BUFF_PTR
+2021-01-15 10:56:45,939:[INFO]Type of param [2] is TYPE_BASE_USHORT
+2021-01-15 10:56:45,939:[INFO]frequency = 1s:  regName = 0 functionNum = 20 ok!
+2021-01-15 10:56:45,939:[INFO]function is siemenscnc_read_feed_set_speed
+2021-01-15 10:56:45,939:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:56:45,939:[INFO]Type of param [1] is TYPE_BASE_DOUBLE
+2021-01-15 10:56:45,939:[INFO]frequency = 1s:  regName = 0 functionNum = 24 ok!
+2021-01-15 10:56:45,939:[INFO]function is siemenscnc_read_spindle_rate
+2021-01-15 10:56:45,939:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:56:45,939:[INFO]Type of param [1] is TYPE_BASE_DOUBLE
+2021-01-15 10:56:45,939:[INFO]frequency = 1s:  regName = 0 functionNum = 29 ok!
+2021-01-15 10:56:45,939:[INFO]function is siemenscnc_read_tool_cur_name
+2021-01-15 10:56:45,939:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:56:45,940:[INFO]Type of param [1] is TYPE_BASE_BUFF_PTR
+2021-01-15 10:56:45,940:[INFO]Type of param [2] is TYPE_BASE_USHORT
+2021-01-15 10:56:45,940:[INFO]frequency = 1s:  regName = 0 functionNum = 40 ok!
+2021-01-15 10:56:45,940:[INFO]function is siemenscnc_read_cnc_nc_alarm_no
+2021-01-15 10:56:45,940:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:56:45,940:[INFO]Type of param [1] is TYPE_BASE_USHORT
+2021-01-15 10:56:45,940:[INFO]frequency = 1s:  regName = 0 functionNum = 60 ok!
+2021-01-15 10:56:45,940:[INFO]function is siemenscnc_read_control_unit_param
+2021-01-15 10:56:45,940:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:56:45,940:[INFO]Type of param [1] is TYPE_BASE_USHORT
+2021-01-15 10:56:45,940:[INFO]Type of param [2] is TYPE_BASE_USHORT
+2021-01-15 10:56:45,940:[INFO]Type of param [3] is TYPE_BASE_BUFF_PTR
+2021-01-15 10:56:45,940:[INFO]Type of param [4] is TYPE_BASE_USHORT
+2021-01-15 10:56:45,940:[INFO]frequency = 1s:  regName = 1 functionNum = 70 ok!
+2021-01-15 10:56:45,940:[INFO]function is siemenscnc_read_serial_number
+2021-01-15 10:56:45,940:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:56:45,940:[INFO]Type of param [1] is TYPE_BASE_BUFF_PTR
+2021-01-15 10:56:45,940:[INFO]Type of param [2] is TYPE_BASE_USHORT
+2021-01-15 10:56:45,940:[INFO]frequency = 5s:  regName = 0 functionNum = 0 ok!
+2021-01-15 10:56:45,940:[INFO]function is siemenscnc_read_cnc_type
+2021-01-15 10:56:45,940:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 10:56:45,940:[INFO]Type of param [1] is TYPE_BASE_BUFF_PTR
+2021-01-15 10:56:45,940:[INFO]Type of param [2] is TYPE_BASE_USHORT
+2021-01-15 10:56:45,940:[INFO]frequency = 5s:  regName = 0 functionNum = 1 ok!
+2021-01-15 10:56:47,049:[INFO]reset Fast counter
+2021-01-15 10:56:47,162:[INFO]reset Fast counter
+2021-01-15 10:56:47,276:[INFO]reset Fast counter
+2021-01-15 10:56:47,389:[INFO]reset Fast counter
+2021-01-15 10:56:47,503:[INFO]reset Fast counter
+2021-01-15 10:56:47,616:[INFO]reset Fast counter
+2021-01-15 10:56:47,732:[INFO]reset Fast counter
+2021-01-15 10:56:47,843:[INFO]reset Fast counter
+2021-01-15 10:56:47,955:[INFO]reset Fast counter
+2021-01-15 10:56:48,069:[INFO]reset Fast counter
+2021-01-15 10:56:48,182:[INFO]reset Fast counter
+2021-01-15 10:56:48,296:[INFO]reset Fast counter
+2021-01-15 10:56:48,409:[INFO]reset Fast counter
+2021-01-15 10:56:48,526:[INFO]reset Fast counter
+2021-01-15 10:56:48,640:[INFO]reset Fast counter
+2021-01-15 10:56:48,754:[INFO]reset Fast counter
+2021-01-15 10:56:48,867:[INFO]reset Fast counter
+2021-01-15 10:56:48,979:[INFO]reset Fast counter
+2021-01-15 10:56:48,980:[FATAL]CRASH HANDLED; Application has crashed due to [SIGSEGV] signal
+    ======= Backtrace: =========
+
+2021-01-15 10:56:48,980:[WARNING]Aborting application. Reason: Fatal log at [/home/fchuanlin/datamodule/feature/easyloggingpp/src/easylogging++.cc:2884]
+2021-01-15 11:07:42,063:[INFO]Start DataModule! 
+2021-01-15 11:07:42,063:[INFO]TimerProcess create!
+2021-01-15 11:07:42,063:[INFO]TimerProcessSlow create!
+2021-01-15 11:07:42,063:[INFO]PostHandler create!
+2021-01-15 11:07:42,064:[INFO]get
+
+2021-01-15 11:07:42,064:[INFO]{"baud":null,"dataBit":null,"interface":2,"ip":"192.168.0.55","parity":null,"port":102,"protocol":54,"slave":null,"stopBit":null}
+
+2021-01-15 11:07:42,064:[INFO][{"frequency":11,"list":[{"dataType":5,"hex":10,"id":0,"name":0,"num":null,"type":4,"value":null},{"dataType":5,"hex":10,"id":1,"name":0,"num":null,"type":5,"value":null},{"dataType":5,"hex":10,"id":2,"name":0,"num":null,"type":6,"value":null},{"dataType":5,"hex":10,"id":3,"name":0,"num":null,"type":7,"value":null},{"dataType":6,"hex":10,"id":4,"name":0,"num":null,"type":8,"value":null},{"dataType":1,"hex":10,"id":5,"name":0,"num":null,"type":10,"value":null},{"dataType":1,"hex":10,"id":6,"name":0,"num":null,"type":11,"value":null},{"dataType":6,"hex":null,"id":7,"name":0,"num":null,"type":20,"value":null},{"dataType":5,"hex":10,"id":8,"name":0,"num":null,"type":24,"value":null},{"dataType":5,"hex":10,"id":9,"name":0,"num":null,"type":29,"value":null},{"dataType":6,"hex":10,"id":10,"name":0,"num":null,"type":40,"value":null},{"dataType":6,"hex":10,"id":11,"name":0,"num":null,"type":60,"value":null},{"dataType":5,"hex":null,"id":12,"name":1,"num":null,"type":70,"value":null}]},{"frequency":5,"list":[{"dataType":1,"hex":10,"id":13,"name":0,"num":null,"type":0,"value":null},{"dataType":1,"hex":10,"id":14,"name":0,"num":null,"type":1,"value":null}]}]
+
+2021-01-15 11:07:42,064:[INFO]function is siemenscnc_read_serial_number
+2021-01-15 11:07:42,064:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 11:07:42,064:[INFO]Type of param [1] is TYPE_BASE_BUFF_PTR
+2021-01-15 11:07:42,064:[INFO]Type of param [2] is TYPE_BASE_USHORT
+2021-01-15 11:07:42,064:[INFO]frequency = 5s:  regName = 0 functionNum = 0 ok!
+2021-01-15 11:07:42,064:[INFO]function is siemenscnc_read_cnc_type
+2021-01-15 11:07:42,064:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 11:07:42,064:[INFO]Type of param [1] is TYPE_BASE_BUFF_PTR
+2021-01-15 11:07:42,064:[INFO]Type of param [2] is TYPE_BASE_USHORT
+2021-01-15 11:07:42,064:[INFO]frequency = 5s:  regName = 0 functionNum = 1 ok!
+2021-01-15 11:07:43,178:[INFO]reset Fast counter
+2021-01-15 11:07:43,289:[INFO]reset Fast counter
+2021-01-15 11:07:43,407:[INFO]reset Fast counter
+2021-01-15 11:07:43,518:[INFO]reset Fast counter
+2021-01-15 11:07:43,634:[INFO]reset Fast counter
+2021-01-15 11:07:43,746:[INFO]reset Fast counter
+2021-01-15 11:07:43,857:[INFO]reset Fast counter
+2021-01-15 11:07:43,973:[INFO]reset Fast counter
+2021-01-15 11:07:44,092:[INFO]reset Fast counter
+2021-01-15 11:07:44,203:[INFO]reset Fast counter
+2021-01-15 11:07:44,314:[INFO]reset Fast counter
+2021-01-15 11:07:44,429:[INFO]reset Fast counter
+2021-01-15 11:07:44,540:[INFO]reset Fast counter
+2021-01-15 11:07:44,656:[INFO]reset Fast counter
+2021-01-15 11:07:44,767:[INFO]reset Fast counter
+2021-01-15 11:07:44,879:[INFO]reset Fast counter
+2021-01-15 11:07:44,990:[INFO]reset Fast counter
+2021-01-15 11:07:45,104:[INFO]reset Fast counter
+2021-01-15 11:07:45,104:[INFO]reset 1s counter
+2021-01-15 11:07:45,221:[INFO]reset Fast counter
+2021-01-15 11:07:45,332:[INFO]reset Fast counter
+2021-01-15 11:07:45,447:[INFO]reset Fast counter
+2021-01-15 11:07:45,566:[INFO]reset Fast counter
+2021-01-15 11:07:45,678:[INFO]reset Fast counter
+2021-01-15 11:07:45,789:[INFO]reset Fast counter
+2021-01-15 11:07:45,900:[INFO]reset Fast counter
+2021-01-15 11:07:46,012:[INFO]reset Fast counter
+2021-01-15 11:07:46,131:[INFO]reset Fast counter
+2021-01-15 11:07:46,151:[INFO]reset 1s counter
+2021-01-15 11:07:46,246:[INFO]reset Fast counter
+2021-01-15 11:07:46,357:[INFO]reset Fast counter
+2021-01-15 11:07:46,472:[INFO]reset Fast counter
+2021-01-15 11:07:46,583:[INFO]reset Fast counter
+2021-01-15 11:07:46,699:[INFO]reset Fast counter
+2021-01-15 11:07:46,811:[INFO]reset Fast counter
+2021-01-15 11:07:46,922:[INFO]reset Fast counter
+2021-01-15 11:07:47,033:[INFO]reset Fast counter
+2021-01-15 11:07:47,149:[INFO]reset Fast counter
+2021-01-15 11:07:47,190:[INFO]reset 1s counter
+2021-01-15 11:07:47,264:[INFO]reset Fast counter
+2021-01-15 11:07:47,375:[INFO]reset Fast counter
+2021-01-15 11:07:47,490:[INFO]reset Fast counter
+2021-01-15 11:07:47,602:[INFO]reset Fast counter
+2021-01-15 11:07:47,717:[INFO]reset Fast counter
+2021-01-15 11:07:47,829:[INFO]reset Fast counter
+2021-01-15 11:07:47,940:[INFO]reset Fast counter
+2021-01-15 11:07:48,051:[INFO]reset Fast counter
+2021-01-15 11:07:48,168:[INFO]reset Fast counter
+2021-01-15 11:07:48,231:[INFO]reset 1s counter
+2021-01-15 11:07:48,284:[INFO]reset Fast counter
+2021-01-15 11:07:48,395:[INFO]reset Fast counter
+2021-01-15 11:07:48,510:[INFO]reset Fast counter
+2021-01-15 11:07:48,621:[INFO]reset Fast counter
+2021-01-15 11:07:48,732:[INFO]reset Fast counter
+2021-01-15 11:07:48,844:[INFO]reset Fast counter
+2021-01-15 11:07:48,957:[INFO]reset Fast counter
+2021-01-15 11:07:49,068:[INFO]reset Fast counter
+2021-01-15 11:07:49,180:[INFO]reset Fast counter
+2021-01-15 11:07:49,264:[INFO]reset 1s counter
+2021-01-15 11:07:49,299:[INFO]reset Fast counter
+2021-01-15 11:07:49,329:[INFO]value = 0x1020304
+2021-01-15 11:07:49,329:[INFO]len = 4
+2021-01-15 11:07:49,329:[INFO]value = 0x4030201
+2021-01-15 11:07:49,330:[INFO]len = 4
+2021-01-15 11:07:49,330:[INFO]reset 5s counter
+2021-01-15 11:07:49,410:[INFO]reset Fast counter
+2021-01-15 11:07:49,521:[INFO]reset Fast counter
+2021-01-15 11:07:49,633:[INFO]reset Fast counter
+2021-01-15 11:07:49,746:[INFO]reset Fast counter
+2021-01-15 11:07:49,857:[INFO]reset Fast counter
+2021-01-15 11:07:49,972:[INFO]reset Fast counter
+2021-01-15 11:07:50,083:[INFO]reset Fast counter
+2021-01-15 11:07:50,199:[INFO]reset Fast counter
+2021-01-15 11:07:50,303:[INFO]reset 1s counter
+2021-01-15 11:07:50,318:[INFO]reset Fast counter
+2021-01-15 11:07:50,433:[INFO]reset Fast counter
+2021-01-15 11:07:50,548:[INFO]reset Fast counter
+2021-01-15 11:07:50,659:[INFO]reset Fast counter
+2021-01-15 11:07:50,772:[INFO]reset Fast counter
+2021-01-15 11:07:50,883:[INFO]reset Fast counter
+2021-01-15 11:07:50,900:[FATAL]CRASH HANDLED; Application has crashed due to [SIGINT] signal
+    ======= Backtrace: =========
+
+2021-01-15 11:07:50,900:[WARNING]Aborting application. Reason: Fatal log at [/home/fchuanlin/datamodule/feature/easyloggingpp/src/easylogging++.cc:b44]
+2021-01-15 11:09:56,128:[INFO]Start DataModule! 
+2021-01-15 11:09:56,128:[INFO]TimerProcess create!
+2021-01-15 11:09:56,129:[INFO]TimerProcessSlow create!
+2021-01-15 11:09:56,129:[INFO]PostHandler create!
+2021-01-15 11:09:56,129:[INFO]get
+
+2021-01-15 11:09:56,129:[INFO]{"baud":null,"dataBit":null,"interface":2,"ip":"192.168.0.55","parity":null,"port":102,"protocol":54,"slave":null,"stopBit":null}
+
+2021-01-15 11:09:56,129:[INFO][{"frequency":11,"list":[{"dataType":5,"hex":10,"id":0,"name":0,"num":null,"type":4,"value":null},{"dataType":5,"hex":10,"id":1,"name":0,"num":null,"type":5,"value":null},{"dataType":5,"hex":10,"id":2,"name":0,"num":null,"type":6,"value":null},{"dataType":5,"hex":10,"id":3,"name":0,"num":null,"type":7,"value":null},{"dataType":6,"hex":10,"id":4,"name":0,"num":null,"type":8,"value":null},{"dataType":1,"hex":10,"id":5,"name":0,"num":null,"type":10,"value":null},{"dataType":1,"hex":10,"id":6,"name":0,"num":null,"type":11,"value":null},{"dataType":6,"hex":null,"id":7,"name":0,"num":null,"type":20,"value":null},{"dataType":5,"hex":10,"id":8,"name":0,"num":null,"type":24,"value":null},{"dataType":5,"hex":10,"id":9,"name":0,"num":null,"type":29,"value":null},{"dataType":6,"hex":10,"id":10,"name":0,"num":null,"type":40,"value":null},{"dataType":6,"hex":10,"id":11,"name":0,"num":null,"type":60,"value":null},{"dataType":5,"hex":null,"id":12,"name":1,"num":null,"type":70,"value":null}]},{"frequency":5,"list":[{"dataType":1,"hex":10,"id":13,"name":0,"num":null,"type":0,"value":null},{"dataType":1,"hex":10,"id":14,"name":0,"num":null,"type":1,"value":null}]}]
+
+2021-01-15 11:09:56,129:[INFO]"192.168.0.55"-102
+2021-01-15 11:09:56,129:[INFO]function is siemenscnc_read_serial_number
+2021-01-15 11:09:56,129:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 11:09:56,129:[INFO]Type of param [1] is TYPE_BASE_BUFF_PTR
+2021-01-15 11:09:56,129:[INFO]Type of param [2] is TYPE_BASE_USHORT
+2021-01-15 11:09:56,130:[INFO]frequency = 5s:  regName = 0 functionNum = 0 ok!
+2021-01-15 11:09:56,130:[INFO]function is siemenscnc_read_cnc_type
+2021-01-15 11:09:56,130:[INFO]Type of param [0] is TYPE_BASE_VOID
+2021-01-15 11:09:56,130:[INFO]Type of param [1] is TYPE_BASE_BUFF_PTR
+2021-01-15 11:09:56,130:[INFO]Type of param [2] is TYPE_BASE_USHORT
+2021-01-15 11:09:56,130:[INFO]frequency = 5s:  regName = 0 functionNum = 1 ok!
+2021-01-15 11:09:57,240:[INFO]reset Fast counter
+2021-01-15 11:09:57,351:[INFO]reset Fast counter
+2021-01-15 11:09:57,466:[INFO]reset Fast counter
+2021-01-15 11:09:57,580:[INFO]reset Fast counter
+2021-01-15 11:09:57,694:[INFO]reset Fast counter
+2021-01-15 11:09:57,812:[INFO]reset Fast counter
+2021-01-15 11:09:57,931:[INFO]reset Fast counter
+2021-01-15 11:09:58,049:[INFO]reset Fast counter
+2021-01-15 11:09:58,167:[INFO]reset Fast counter
+2021-01-15 11:09:58,286:[INFO]reset Fast counter
+2021-01-15 11:09:58,398:[INFO]reset Fast counter
+2021-01-15 11:09:58,512:[INFO]reset Fast counter
+2021-01-15 11:09:58,627:[INFO]reset Fast counter
+2021-01-15 11:09:58,743:[INFO]reset Fast counter
+2021-01-15 11:09:58,859:[INFO]reset Fast counter
+2021-01-15 11:09:58,976:[INFO]reset Fast counter
+2021-01-15 11:09:59,095:[INFO]reset Fast counter
+2021-01-15 11:09:59,189:[INFO]reset 1s counter
+2021-01-15 11:09:59,209:[INFO]reset Fast counter
+2021-01-15 11:09:59,326:[INFO]reset Fast counter
+2021-01-15 11:09:59,441:[INFO]reset Fast counter
+2021-01-15 11:09:59,557:[INFO]reset Fast counter
+2021-01-15 11:09:59,671:[INFO]reset Fast counter
+2021-01-15 11:09:59,785:[INFO]reset Fast counter
+2021-01-15 11:09:59,900:[INFO]reset Fast counter
+2021-01-15 11:10:00,014:[INFO]reset Fast counter
+2021-01-15 11:10:00,129:[INFO]reset Fast counter
+2021-01-15 11:10:00,246:[INFO]reset Fast counter
+2021-01-15 11:10:00,246:[INFO]reset 1s counter
+2021-01-15 11:10:00,361:[INFO]reset Fast counter
+2021-01-15 11:10:00,476:[INFO]reset Fast counter
+2021-01-15 11:10:00,593:[INFO]reset Fast counter
+2021-01-15 11:10:00,710:[INFO]reset Fast counter
+2021-01-15 11:10:00,828:[INFO]reset Fast counter
+2021-01-15 11:10:00,942:[INFO]reset Fast counter
+2021-01-15 11:10:01,061:[INFO]reset Fast counter
+2021-01-15 11:10:01,176:[INFO]reset Fast counter
+2021-01-15 11:10:01,289:[INFO]reset Fast counter
+2021-01-15 11:10:01,310:[INFO]reset 1s counter
+2021-01-15 11:10:01,401:[INFO]reset Fast counter
+2021-01-15 11:10:01,518:[INFO]reset Fast counter
+2021-01-15 11:10:01,632:[INFO]reset Fast counter
+2021-01-15 11:10:01,747:[INFO]reset Fast counter
+2021-01-15 11:10:01,864:[INFO]reset Fast counter
+2021-01-15 11:10:01,978:[INFO]reset Fast counter
+2021-01-15 11:10:02,094:[INFO]reset Fast counter
+2021-01-15 11:10:02,208:[INFO]reset Fast counter
+2021-01-15 11:10:02,322:[INFO]reset Fast counter
+2021-01-15 11:10:02,365:[INFO]reset 1s counter
+2021-01-15 11:10:02,441:[INFO]reset Fast counter
+2021-01-15 11:10:02,559:[INFO]reset Fast counter
+2021-01-15 11:10:02,676:[INFO]reset Fast counter
+2021-01-15 11:10:02,789:[INFO]reset Fast counter
+2021-01-15 11:10:02,902:[INFO]reset Fast counter
+2021-01-15 11:10:03,013:[INFO]reset Fast counter
+2021-01-15 11:10:03,124:[INFO]reset Fast counter
+2021-01-15 11:10:03,235:[INFO]reset Fast counter
+2021-01-15 11:10:03,349:[INFO]reset Fast counter
+2021-01-15 11:10:03,414:[INFO]reset 1s counter
+2021-01-15 11:10:03,467:[INFO]reset Fast counter
+2021-01-15 11:10:03,477:[INFO]value = 0x
+2021-01-15 11:10:03,478:[INFO]len = 4
+2021-01-15 11:10:03,478:[INFO]value = 0x
+2021-01-15 11:10:03,478:[INFO]len = 4
+2021-01-15 11:10:03,478:[INFO]reset 5s counter
+2021-01-15 11:10:03,585:[INFO]reset Fast counter
+2021-01-15 11:10:03,704:[INFO]reset Fast counter
+2021-01-15 11:10:03,824:[INFO]reset Fast counter
+2021-01-15 11:10:03,939:[INFO]reset Fast counter
+2021-01-15 11:10:04,056:[INFO]reset Fast counter
+2021-01-15 11:10:04,174:[INFO]reset Fast counter
+2021-01-15 11:10:04,287:[INFO]reset Fast counter
+2021-01-15 11:10:04,398:[INFO]reset Fast counter
+2021-01-15 11:10:04,479:[INFO]reset 1s counter
+2021-01-15 11:10:04,510:[INFO]reset Fast counter
+2021-01-15 11:10:04,621:[INFO]reset Fast counter
+2021-01-15 11:10:04,740:[INFO]reset Fast counter
+2021-01-15 11:10:04,856:[INFO]reset Fast counter
+2021-01-15 11:10:04,971:[INFO]reset Fast counter
+2021-01-15 11:10:05,085:[INFO]reset Fast counter
+2021-01-15 11:10:05,199:[INFO]reset Fast counter
+2021-01-15 11:10:05,314:[INFO]reset Fast counter
+2021-01-15 11:10:05,429:[INFO]reset Fast counter
+2021-01-15 11:10:05,543:[INFO]reset 1s counter
+2021-01-15 11:10:05,543:[INFO]reset Fast counter
+2021-01-15 11:10:05,656:[INFO]reset Fast counter
+2021-01-15 11:10:05,773:[INFO]reset Fast counter
+2021-01-15 11:10:05,831:[FATAL]CRASH HANDLED; Application has crashed due to [SIGINT] signal
+    ======= Backtrace: =========
+
+2021-01-15 11:10:05,831:[WARNING]Aborting application. Reason: Fatal log at [/home/fchuanlin/datamodule/feature/easyloggingpp/src/easylogging++.cc:2884]

@@ -34,17 +34,18 @@ typedef struct IOFunctionList
 {
     /// function list
     UINT32 index;                               ///< 索引
-    UINT32 functionNum;                     		///< 功能码，即是json中的type
+    UINT32 functionNum;                             ///< 功能码，即是json中的type
     UINT32 paramNum;                            ///< 参数个数
     UINT32 returnpos;                           ///< 返回值的位置
     UINT32 datatype;                            ///< 数据类型按照最多8个参数排列8 x 4bits = 32bits
-																								///< [31:28][27:24][23:20][19:16][15:12][11:8][7:4][3:0]
-		string regName;															///< 采集函数的输入参数, 按照目前的规律，
-																								///< 第一个参数是cxt，
-																								///< 最后一个参数如果是返回值,则类型为普通指针
-																								///< 倒数第二个参数是返回值，则最后一个参数是长度信息
-    VOID **paramList;                       		///< 参数列表
+    ///< [31:28][27:24][23:20][19:16][15:12][11:8][7:4][3:0]
+    string regName;                                                         ///< 采集函数的输入参数, 按照目前的规律，
+    ///< 第一个参数是cxt，
+    ///< 最后一个参数如果是返回值,则类型为普通指针
+    ///< 倒数第二个参数是返回值，则最后一个参数是长度信息
+    VOID **paramList;                               ///< 参数列表
     pJobFunc func;                              ///< 对应函数
+    string funcName;                                                        ///< function name
 } IOFunctionList_s;
 
 
@@ -140,6 +141,7 @@ public:
     vector<KeyValue> m_cur_data;
     vector<KeyValue> m_his_data;
 
+    UINT32 m_protocol_id;
     VOID *m_protocol_cxt;
     string m_ipaddr;
     UINT16 m_port;

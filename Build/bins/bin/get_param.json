@@ -1,0 +1,161 @@
+{
+	"command": "get",
+	"device": {
+		"interface": 2,
+		"protocol": 54,
+		"baud": null,
+		"dataBit": null,
+		"stopBit": null,
+		"parity": null,
+		"slave": null,
+		"ip": "192.168.0.55",
+		"port": 102
+	},
+	"listSet": null,
+	"listGet": [{
+			"frequency": 1,
+			"list": [{
+					"id": 0,
+					"type": 4,
+					"name": 0,
+					"hex": 10,
+					"num": null,
+					"dataType": 5,
+					"value": null
+				},
+				{
+					"id": 1,
+					"type": 5,
+					"name": 0,
+					"hex": 10,
+					"num": null,
+					"dataType": 5,
+					"value": null
+				},
+				{
+					"id": 2,
+					"type": 6,
+					"name": 0,
+					"hex": 10,
+					"num": null,
+					"dataType": 5,
+					"value": null
+				},
+				{
+					"id": 3,
+					"type": 7,
+					"name": 0,
+					"hex": 10,
+					"num": null,
+					"dataType": 5,
+					"value": null
+				},
+				{
+					"id": 4,
+					"type": 8,
+					"name": 0,
+					"hex": 10,
+					"num": null,
+					"dataType": 6,
+					"value": null
+				},
+				{
+					"id": 5,
+					"type": 10,
+					"name": 0,
+					"hex": 10,
+					"num": null,
+					"dataType": 1,
+					"value": null
+				},
+				{
+					"id": 6,
+					"type": 11,
+					"name": 0,
+					"hex": 10,
+					"num": null,
+					"dataType": 1,
+					"value": null
+				},
+				{
+					"id": 7,
+					"type": 20,
+					"name": 0,
+					"hex": null,
+					"num": null,
+					"dataType": 6,
+					"value": null
+				},
+				{
+					"id": 8,
+					"type": 24,
+					"name": 0,
+					"hex": 10,
+					"num": null,
+					"dataType": 5,
+					"value": null
+				},
+				{
+					"id": 9,
+					"type": 29,
+					"name": 0,
+					"hex": 10,
+					"num": null,
+					"dataType": 5,
+					"value": null
+				},
+				{
+					"id": 10,
+					"type": 40,
+					"name": 0,
+					"hex": 10,
+					"num": null,
+					"dataType": 6,
+					"value": null
+				},
+				{
+					"id": 11,
+					"type": 60,
+					"name": 0,
+					"hex": 10,
+					"num": null,
+					"dataType": 6,
+					"value": null
+				},
+				{
+					"id": 12,
+					"type": 70,
+					"name": 1,
+					"hex": null,
+					"num": null,
+					"dataType": 5,
+					"value": null
+
+				}
+			]
+		},
+		{
+			"frequency": 5,
+			"list": [
+				{
+					"id": 13,
+					"type": 0,
+					"name": 0,
+					"hex": 10,
+					"num": null,
+					"dataType": 1,
+					"value": null
+				},
+				{
+					"id": 14,
+					"type": 1,
+					"name": 0,
+					"hex": 10,
+					"num": null,
+					"dataType": 1,
+					"value": null
+				}
+			]
+		}
+	]
+}

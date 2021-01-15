@@ -23,7 +23,7 @@
 
 DataCollecter* DataCollecter::m_pInstance_s = NULL;
 
-#define TYPE_BASE_MASK  0x0000000f 
+#define TYPE_BASE_MASK  0xf
 
 /**
  * @brief  construct
@@ -100,37 +100,47 @@ BOOLEAN DataCollecter::InitIOListByJson( const CHAR *fileName )
         LOG( INFO ) << jsoncfg["listGet"] << endl;
 
 
-#if 0
         /// Init connect
         if( jsoncfg["device"]["interface"] == 2 )
         {
-            cout << jsoncfg["device"]["ip"] << endl << jsoncfg["device"]["port"] << endl;
+            LOG( INFO ) << jsoncfg["device"]["ip"] << "-" << jsoncfg["device"]["port"];
 
             /// get string
             string ip = jsoncfg["device"]["ip"];
             m_ipaddr = ip;
             UINT16 port = ( UINT16 )jsoncfg["device"]["port"];
             m_port = port;
-            m_protocol_cxt = ( VOID * )siemenscnc_828d_new( ( const char * ) m_ipaddr.data(), m_port );
+            UINT32 protocol_id = ( UINT16 )jsoncfg["device"]["protocol"];
+            m_protocol_id = protocol_id;
 
-            ///connect
-            if( siemenscnc_connect( ( siemenscnc_t * )m_protocol_cxt ) > 0 )
+            if( m_protocol_id == SIEMENSCNC )
             {
+#if 0
+                m_protocol_cxt = ( VOID * )siemenscnc_828d_new( ( const char * ) m_ipaddr.data(), m_port );
+                ///connect
+                if( siemenscnc_connect( ( siemenscnc_t * )m_protocol_cxt ) > 0 )
+                {
+                    m_connect = TRUE;
+                    LOG( INFO ) << "siemenscnc connect success!";
+                }
+                else
+                {
+                    m_connect = FALSE;
+                    LOG( ERROR ) << "siemenscnc connect fail!";
+                }
+#endif
                 m_connect = TRUE;
-                LOG( INFO ) << "siemenscnc connect success!";
             }
             else
             {
-                m_connect = FALSE;
-                LOG( ERROR ) << "siemenscnc connect fail!";
+                LOG( ERROR ) << "protocol not support !";
             }
         }
-#endif
-        m_connect = TRUE;
+
         for( UINT32 len = 0; len < jsoncfg["listGet"].size(); len++ )
         {
             float freq = ( float )( jsoncfg["listGet"][len]["frequency"] );
-            cout << freq << endl;
+            LOG( INFO ) << "Parse frequency ->"  << freq ;
 
             if( freq == 0.1 )
             {
@@ -173,17 +183,18 @@ void DataCollecter::InitFuncList( vector<IOFunctionList> *funclist, json tmpjson
 {
     for( UINT32 len = 0; len < tmpjson["list"].size() ; len++ )
     {
-        INT32 funcIndex = GetIOFunctionFromType( UINT32( tmpjson["list"][len]["type"] ) ) ;
+        UINT32 functionNum = tmpjson["list"][len]["type"];
         FLOAT freq = tmpjson["frequency"] ;
-        string content = to_string( tmpjson["list"][len]["name"] ) ;
+        string regName = to_string( tmpjson["list"][len]["name"] ) ;
+        INT32 funcIndex = GetIOFunctionFromType( functionNum ) ;
         if( funcIndex < 0 )
         {
-            LOG( ERROR ) << "frequency = " << freq << "s: regName = " << content << " function not found!";
+            LOG( ERROR ) << "frequency = " << freq << "s: regName = " << regName << " functionNum = " << functionNum << " not found!";
         }
         else
         {
-            FormatParamList( funclist, funcIndex, content );
-            LOG( INFO ) << "frequency = " << freq << "s:  regName = " << content << " function ok!";
+            FormatParamList( funclist, funcIndex, regName );
+            LOG( INFO ) << "frequency = " << freq << "s:  regName = " << regName << " functionNum = " << functionNum << " ok!";
         }
     }
 }
@@ -192,7 +203,7 @@ void DataCollecter::InitFuncList( vector<IOFunctionList> *funclist, json tmpjson
 VOID DataCollecter::FormatParamList( vector<IOFunctionList> *funclist, INT32 funcIndex, string regName )
 {
     IOFunctionList *tempFunc = new IOFunctionList;
-    tempFunc = ( IOFunctionList * )&functionlist[funcIndex];
+    tempFunc = ( IOFunctionList * )&functionlist_siemens[funcIndex];
 
     /// this is common
     /// Max paramlist size - 8
@@ -200,21 +211,22 @@ VOID DataCollecter::FormatParamList( vector<IOFunctionList> *funclist, INT32 fun
     tempFunc->paramList = paramList;
     for( UINT32 i = 0; i < tempFunc->paramNum; i++ )
     {
-				cout << "datatype = " << hex << tempFunc->datatype << endl; 
+        ///得到每个参数的类型
+        OCTET datatye = ( tempFunc->datatype & ( ( TYPE_BASE_MASK ) << ( i * 4 ) ) ) >> ( i * 4 );
         if( 0 == i )
         {
             /// The first param is protocol cxt
-            TypeAny * param1 =  new TypeAny( m_protocol_cxt, tempFunc->datatype & ( ( TYPE_BASE_MASK ) << i*4 ) );
+            TypeAny * param1 =  new TypeAny( m_protocol_cxt, datatye );
             tempFunc->paramList[i] = ( void * )param1;
         }
         else
         {
             /// all param is pointer, the maxsize is 8 bytes
             OCTET * ptr = new OCTET[8];
-            TypeAny * parami =  new TypeAny( ptr, tempFunc->datatype & ( ( TYPE_BASE_MASK ) << i*4 ) );
+            TypeAny * parami =  new TypeAny( ptr, datatye );
             tempFunc->paramList[i] = ( void * )parami;
         }
-        LOG( INFO ) << "Type of param [" << i << "] is " << type_base_str[tempFunc->datatype & ( ( TYPE_BASE_MASK ) << i*4 )];
+        LOG( INFO ) << "Type of param [" << i << "] is " << type_base_str[datatye];
     }
     funclist->push_back( *tempFunc );
 }
@@ -226,7 +238,7 @@ INT32 DataCollecter::JobFunctionCall( pJobFunc JobFunc, UINT32 paramNum, void **
     switch ( paramNum )
     {
         case 2:
-            ret = ( ( INT32 * )( JobFunc(  paramList[0], paramList[1] ) ) );
+            ret = ( ( INT32 * )( JobFunc( paramList[0], paramList[1] ) ) );
             break;
         case 3:
             ret = ( ( INT32 * )( JobFunc( paramList[0], paramList[1], paramList[2] ) ) );
@@ -300,13 +312,10 @@ void * DataCollecter::TimerProcessFast( void *pThis )
                 if( pObj->m_iolist_100ms[i].paramNum > pObj->m_iolist_100ms[i].returnpos )
                 {
                     cout << pObj->m_iolist_100ms[i].paramList[pObj->m_iolist_100ms[i].paramNum - 2];
-                    cout << pObj->m_iolist_100ms[i].paramList[pObj->m_iolist_100ms[i].paramNum - 2];
-                    cout << pObj->m_iolist_100ms[i].paramList[pObj->m_iolist_100ms[i].paramNum - 1];
                     cout << pObj->m_iolist_100ms[i].paramList[pObj->m_iolist_100ms[i].paramNum - 1];
                 }
                 else
                 {
-                    cout << pObj->m_iolist_100ms[i].paramList[pObj->m_iolist_100ms[i].paramNum - 1];
                     cout << pObj->m_iolist_100ms[i].paramList[pObj->m_iolist_100ms[i].paramNum - 1];
                 }
 
@@ -397,7 +406,7 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
                 pObj->JobFunctionCall( pObj->m_iolist_5s[i].func, pObj->m_iolist_5s[i].paramNum, pObj->m_iolist_5s[i].paramList );
                 if( pObj->m_iolist_5s[i].paramNum > pObj->m_iolist_5s[i].returnpos )
                 {
-                    LOG( INFO ) << "value = 0x" << hex << *( ( int * )pObj->m_iolist_5s[i].paramList[pObj->m_iolist_5s[i].paramNum - 2] );
+                    LOG( INFO ) << "value = 0x" << ( CHAR * )(pObj->m_iolist_5s[i].paramList[pObj->m_iolist_5s[i].paramNum - 2]) ;
                     LOG( INFO ) << "len = "  << *( ( int * )pObj->m_iolist_5s[i].paramList[pObj->m_iolist_5s[i].paramNum - 1] );
                 }
                 else
@@ -499,11 +508,29 @@ void * DataCollecter::PostHandler( void *pThis )
 
 INT32 DataCollecter::GetIOFunctionFromType( UINT32 type )
 {
-    for( UINT32 i = 0; i < sizeof( functionlist ) / sizeof( IOFunctionList ); i++ )
+    IOFunctionList *pFuncList = NULL;
+    UINT32 funclist_len = 0;
+
+    /// maybe many protocol
+    if( m_protocol_id == SIEMENSCNC )
     {
-        if( type == functionlist[i].functionNum )
+        pFuncList = functionlist_siemens;
+        funclist_len = sizeof( functionlist_siemens ) / sizeof( IOFunctionList );
+    }
+    else
+    {
+        LOG( ERROR ) << "Protocol not support!";
+    }
+
+    if( pFuncList != NULL )
+    {
+        for( UINT32 i = 0; i < funclist_len; i++ )
         {
-            return i;
+            if( type == pFuncList[i].functionNum )
+            {
+                LOG( INFO ) << "function is " << pFuncList[i].funcName;
+                return i;
+            }
         }
     }
 
