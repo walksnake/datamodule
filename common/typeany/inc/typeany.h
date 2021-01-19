@@ -241,7 +241,7 @@ public:
 
 
     /// normal datatype
-    BOOLEAN IsSimpleDateType( TYPEANY_ID tid );
+    static BOOLEAN IsSimpleDateType( TYPEANY_ID tid );
 
     /// free memory
     void AllFree();
@@ -261,7 +261,7 @@ public:
     BOOLEAN Insert( TYPEANY_ID teid, const void * pstream );
 
     /// get value as param in
-    const void* ParamIn() const;
+    const void * ParamIn() const;
 
     /// get value as param out
     void* ParamOut();

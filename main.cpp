@@ -20,13 +20,14 @@ using json = nlohmann::json;
 
 INITIALIZE_EASYLOGGINGPP
 
-#endif 
+#endif
 
 #if ELPP_FEATURE_CRASH_LOG
-void myCrashHandler(int sig) {
-    LOG(ERROR) << "Woops! Crashed!";     
+void myCrashHandler( int sig )
+{
+    LOG( ERROR ) << "Woops! Crashed!";
     // FOLLOWING LINE IS ABSOLUTELY NEEDED AT THE END IN ORDER TO ABORT APPLICATION
-    el::Helpers::crashAbort(sig);
+    el::Helpers::crashAbort( sig );
 }
 
 #endif
@@ -35,37 +36,40 @@ void easylogginginit()
 {
     // 加载配置文件，构造一个配置器对象
     el::Configurations conf( "/home/fchuanlin/datamodule/doc/log.conf" );
-		// 重新配置一个单一日志记录器
+    // 重新配置一个单一日志记录器
     el::Loggers::reconfigureLogger( "default", conf );
     // 用配置文件配置所有的日志记录器
     el::Loggers::reconfigureAllLoggers( conf );
-    
+
 #if ELPP_FEATURE_CRASH_LOG
-		el:: Helpers::setCrashHandler(myCrashHandler);
+    el:: Helpers::setCrashHandler( myCrashHandler );
 #endif
 }
 
 
 int main( int argc, char * argv[] )
 {
+    BOOLEAN bret = FALSE;
+
     easylogginginit();
-
     LOG( INFO ) << "Start DataModule! ";
-
     /// 开启采集线程
     DataCollecter *pDC = new DataCollecter();
     pDC->Init();
     if( argc > 1 )
     {
         /// 读取配置文件
-        pDC->InitIOListByJson( ( const CHAR * )argv[1] );
+        bret = pDC->InitIOListByJson( ( const CHAR * )argv[1] );
     }
     else
     {
-        pDC->InitIOListByJson( ( const CHAR * )"get_param.json" );
+        bret = pDC->InitIOListByJson( ( const CHAR * )"get_param.json" );
     }
 
-    pDC->Start();
+    if( bret )
+    {
+        pDC->Start();
+    }
 
     return 0;
 }

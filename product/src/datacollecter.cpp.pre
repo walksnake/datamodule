@@ -15,9 +15,12 @@
 
 #include "../inc/datacollecter.h"
 #include "../inc/functionlist.h"
+#include <cstdint>
 #include <cstdio>
+#include <cstring>
 #include <functional>
 #include <string>
+#include <sys/types.h>
 #include <vector>
 
 
@@ -118,7 +121,7 @@ BOOLEAN DataCollecter::InitIOListByJson( const CHAR *fileName )
 #if 0
                 m_protocol_cxt = ( VOID * )siemenscnc_828d_new( ( const char * ) m_ipaddr.data(), m_port );
                 ///connect
-                if( siemenscnc_connect( ( siemenscnc_t * )m_protocol_cxt ) > 0 )
+                if( siemenscnc_connect( ( siemenscnc_t * )m_protocol_cxt ) >= 0 )
                 {
                     m_connect = TRUE;
                     LOG( INFO ) << "siemenscnc connect success!";
@@ -129,12 +132,20 @@ BOOLEAN DataCollecter::InitIOListByJson( const CHAR *fileName )
                     LOG( ERROR ) << "siemenscnc connect fail!";
                 }
 #endif
-                m_connect = TRUE;
             }
             else
             {
                 LOG( ERROR ) << "protocol not support !";
             }
+        }
+
+        m_connect = TRUE;
+
+        /// connect failed, return
+        if( FALSE == m_connect )
+        {
+            fjson.close();
+            return FALSE;
         }
 
         for( UINT32 len = 0; len < jsoncfg["listGet"].size(); len++ )
@@ -184,6 +195,7 @@ void DataCollecter::InitFuncList( vector<IOFunctionList> *funclist, json tmpjson
     for( UINT32 len = 0; len < tmpjson["list"].size() ; len++ )
     {
         UINT32 functionNum = tmpjson["list"][len]["type"];
+        UINT32 key = tmpjson["list"][len]["id"];
         FLOAT freq = tmpjson["frequency"] ;
         string regName = to_string( tmpjson["list"][len]["name"] ) ;
         INT32 funcIndex = GetIOFunctionFromType( functionNum ) ;
@@ -193,18 +205,20 @@ void DataCollecter::InitFuncList( vector<IOFunctionList> *funclist, json tmpjson
         }
         else
         {
-            FormatParamList( funclist, funcIndex, regName );
+            FormatParamList( funclist, funcIndex, key, regName );
             LOG( INFO ) << "frequency = " << freq << "s:  regName = " << regName << " functionNum = " << functionNum << " ok!";
         }
     }
 }
 
 
-VOID DataCollecter::FormatParamList( vector<IOFunctionList> *funclist, INT32 funcIndex, string regName )
+VOID DataCollecter::FormatParamList( vector<IOFunctionList> *funclist, INT32 funcIndex, UINT32 key, string regName )
 {
     IOFunctionList *tempFunc = new IOFunctionList;
     tempFunc = ( IOFunctionList * )&functionlist_siemens[funcIndex];
 
+    /// return json ID
+    tempFunc->Key = key;
     /// this is common
     /// Max paramlist size - 8
     VOID **paramList = new VOID *[8];
@@ -212,26 +226,102 @@ VOID DataCollecter::FormatParamList( vector<IOFunctionList> *funclist, INT32 fun
     for( UINT32 i = 0; i < tempFunc->paramNum; i++ )
     {
         ///得到每个参数的类型
-        OCTET datatye = ( tempFunc->datatype & ( ( TYPE_BASE_MASK ) << ( i * 4 ) ) ) >> ( i * 4 );
+        OCTET datatye = ( tempFunc->paramtype & ( ( TYPE_BASE_MASK ) << ( i * 4 ) ) ) >> ( i * 4 );
         if( 0 == i )
         {
             /// The first param is protocol cxt
             TypeAny * param1 =  new TypeAny( m_protocol_cxt, datatye );
-            tempFunc->paramList[i] = ( void * )param1;
+            tempFunc->paramList[i] = ( void * )( param1->v.m_void );
         }
         else
         {
             /// all param is pointer, the maxsize is 8 bytes
             OCTET * ptr = new OCTET[8];
-            TypeAny * parami =  new TypeAny( ptr, datatye );
-            tempFunc->paramList[i] = ( void * )parami;
+            if( TypeAny::IsSimpleDateType( datatye ) )
+            {
+                TypeAny * parami =  new TypeAny( *ptr, datatye );
+                tempFunc->paramList[i] = ( void * )parami;
+            }
+            else
+            {
+                TypeAny * parami =  new TypeAny( ptr, datatye );
+                tempFunc->paramList[i] = ( void * )parami;
+            }
         }
         LOG( INFO ) << "Type of param [" << i << "] is " << type_base_str[datatye];
     }
+
+    /// 根据regname得到输入的参数列表，统一为int类型，int转ushort或者uint8的位宽足够
+    FillParamInput( tempFunc->returnpos, tempFunc->paramNum, regName, tempFunc->paramList );
+
     funclist->push_back( *tempFunc );
 }
 
-INT32 DataCollecter::JobFunctionCall( pJobFunc JobFunc, UINT32 paramNum, void **paramList )
+
+INT32 DataCollecter::FillParamInput( UINT32 retpos, UINT32 paramNum, string regName, void **paramList )
+{
+    /// regName, test value
+    //
+    //
+    //
+    //
+    //
+    INT32 *param1 = new INT32( 111 );
+    INT32 *param2 = new INT32( 222 );
+    INT32 *param3 = new INT32( 333 );
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    switch ( paramNum )
+    {
+        case 2:
+            break;
+        case 3:
+            if( retpos == paramNum )
+            {
+                paramList[1] = param1;
+            }
+            break;
+        case 4:
+            if( retpos == paramNum )
+            {
+                paramList[1] = param1;
+                paramList[2] = param2;
+            }
+            else
+            {
+                paramList[1] = param1;
+            }
+            break;
+        case 5:
+            if( retpos == paramNum )
+            {
+                paramList[1] = param1;
+                paramList[2] = param2;
+                paramList[2] = param3;
+            }
+            else
+            {
+                paramList[1] = param1;
+                paramList[2] = param2;
+            }
+            break;
+        case 6:
+            break;
+        case 7:
+            break;
+        default:
+            break;
+    }
+
+    return Lret_success;
+}
+
+INT32 DataCollecter::JobFunctionCall( pJobFunc JobFunc, UINT32 retpos, UINT32 paramNum, void **paramList )
 {
     INT32 *ret = NULL;
 
@@ -241,13 +331,35 @@ INT32 DataCollecter::JobFunctionCall( pJobFunc JobFunc, UINT32 paramNum, void **
             ret = ( ( INT32 * )( JobFunc( paramList[0], paramList[1] ) ) );
             break;
         case 3:
-            ret = ( ( INT32 * )( JobFunc( paramList[0], paramList[1], paramList[2] ) ) );
+            if( retpos == paramNum )
+            {
+                ret = ( ( INT32 * )( JobFunc( paramList[0], *( int * )paramList[1], paramList[2] ) ) );
+            }
+            else
+            {
+                ret = ( ( INT32 * )( JobFunc( paramList[0], paramList[1], paramList[2] ) ) );
+            }
             break;
         case 4:
-            ret = ( ( INT32 * )( JobFunc( paramList[0], paramList[1], paramList[2], paramList[3] ) ) );
+            if( retpos == paramNum )
+            {
+
+                ret = ( ( INT32 * )( JobFunc( paramList[0], *( int * )paramList[1], *( int * )paramList[2], paramList[3] ) ) );
+            }
+            else
+            {
+                ret = ( ( INT32 * )( JobFunc( paramList[0], *( int * )paramList[1], paramList[2], paramList[3] ) ) );
+            }
             break;
         case 5:
-            ret = ( ( INT32 * )( JobFunc( paramList[0], paramList[1], paramList[2], paramList[3], paramList[4] ) ) );
+            if( retpos == paramNum )
+            {
+                ret = ( ( INT32 * )( JobFunc( paramList[0], *( int * )paramList[1], *( int * )paramList[2], *( int * )paramList[3], paramList[4] ) ) );
+            }
+            else
+            {
+                ret = ( ( INT32 * )( JobFunc( paramList[0], *( int * )paramList[1], *( int * )paramList[2], paramList[3], paramList[4] ) ) );
+            }
             break;
         case 6:
             ret = ( ( INT32 * )( JobFunc( paramList[0], paramList[1], paramList[2], paramList[3], paramList[4], paramList[5] ) ) );
@@ -306,21 +418,7 @@ void * DataCollecter::TimerProcessFast( void *pThis )
 
         if( TRUE == pObj->m_timeout_fast->CheckTimeout( TIMEOUT_TYPE_Fast ) )
         {
-            for( UINT32 i = 0; i < pObj->m_iolist_100ms.size(); i++ )
-            {
-                pObj->JobFunctionCall( pObj->m_iolist_100ms[i].func, pObj->m_iolist_100ms[i].paramNum, pObj->m_iolist_100ms[i].paramList );
-                if( pObj->m_iolist_100ms[i].paramNum > pObj->m_iolist_100ms[i].returnpos )
-                {
-                    cout << pObj->m_iolist_100ms[i].paramList[pObj->m_iolist_100ms[i].paramNum - 2];
-                    cout << pObj->m_iolist_100ms[i].paramList[pObj->m_iolist_100ms[i].paramNum - 1];
-                }
-                else
-                {
-                    cout << pObj->m_iolist_100ms[i].paramList[pObj->m_iolist_100ms[i].paramNum - 1];
-                }
-
-            }
-
+            pObj->LoopFuncList( pObj->m_iolist_100ms );
             /// reset timeout
             pObj->m_timeout_fast->StopTimeout( TIMEOUT_TYPE_Fast );
             pObj->m_timeout_fast->StartTimeout( TIMEOUT_TYPE_Fast, 10 );
@@ -380,20 +478,7 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
 
         if( TRUE == pObj->m_timeout_slow->CheckTimeout( TIMEOUT_TYPE_1S ) )
         {
-            for( UINT32 i = 0; i < pObj->m_iolist_1s.size(); i++ )
-            {
-                pObj->JobFunctionCall( pObj->m_iolist_1s[i].func, pObj->m_iolist_1s[i].paramNum, pObj->m_iolist_1s[i].paramList );
-                if( pObj->m_iolist_1s[i].paramNum > pObj->m_iolist_1s[i].returnpos )
-                {
-                    cout <<  pObj->m_iolist_1s[i].paramList[pObj->m_iolist_1s[i].paramNum - 2];
-                    cout <<  pObj->m_iolist_1s[i].paramList[pObj->m_iolist_1s[i].paramNum - 1];
-                }
-                else
-                {
-                    cout <<  pObj->m_iolist_1s[i].paramList[pObj->m_iolist_1s[i].paramNum - 1];
-                }
-            }
-
+            pObj->LoopFuncList( pObj->m_iolist_1s );
             /// reset timeout
             pObj->m_timeout_slow->StopTimeout( TIMEOUT_TYPE_1S );
             pObj->m_timeout_slow->StartTimeout( TIMEOUT_TYPE_1S, 100 );
@@ -401,26 +486,8 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
         }
         if( TRUE == pObj->m_timeout_slow->CheckTimeout( TIMEOUT_TYPE_5S ) )
         {
-            for( UINT32 i = 0; i < pObj->m_iolist_5s.size(); i++ )
-            {
-                pObj->JobFunctionCall( pObj->m_iolist_5s[i].func, pObj->m_iolist_5s[i].paramNum, pObj->m_iolist_5s[i].paramList );
-                if( pObj->m_iolist_5s[i].paramNum > pObj->m_iolist_5s[i].returnpos )
-                {
-                    LOG( INFO ) << "value = 0x" << ( CHAR * )(pObj->m_iolist_5s[i].paramList[pObj->m_iolist_5s[i].paramNum - 2]) ;
-                    LOG( INFO ) << "len = "  << *( ( int * )pObj->m_iolist_5s[i].paramList[pObj->m_iolist_5s[i].paramNum - 1] );
-                }
-                else
-                {
-                    LOG( INFO ) << "value = " <<  *( ( int * )pObj->m_iolist_5s[i].paramList[pObj->m_iolist_5s[i].paramNum - 1] );
-                }
 
-#if 0
-                //// HTTP Post
-                RestClient::Response resp = RestClient::post( "http://192.168.0.23:9080/ping", "application/x-www-form-urlencoded", "{\"foo\":\"test\"}" );
-
-                cout << resp.body;
-#endif
-            }
+            pObj->LoopFuncList( pObj->m_iolist_5s );
             /// reset timeout
             pObj->m_timeout_slow->StopTimeout( TIMEOUT_TYPE_5S );
             pObj->m_timeout_slow->StartTimeout( TIMEOUT_TYPE_5S, 510 );
@@ -428,10 +495,7 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
         }
         if( TRUE == pObj->m_timeout_slow->CheckTimeout( TIMEOUT_TYPE_10S ) )
         {
-            for( UINT32 i = 0; i < pObj->m_iolist_10s.size(); i++ )
-            {
-                pObj->JobFunctionCall( pObj->m_iolist_10s[i].func, pObj->m_iolist_10s[i].paramNum, pObj->m_iolist_10s[i].paramList );
-            }
+            pObj->LoopFuncList( pObj->m_iolist_10s );
             /// reset timeout
             pObj->m_timeout_slow->StopTimeout( TIMEOUT_TYPE_10S );
             pObj->m_timeout_slow->StartTimeout( TIMEOUT_TYPE_10S, 1020 );
@@ -439,10 +503,7 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
         }
         if( TRUE == pObj->m_timeout_slow->CheckTimeout( TIMEOUT_TYPE_30S ) )
         {
-            for( UINT32 i = 0; i < pObj->m_iolist_30s.size(); i++ )
-            {
-                pObj->JobFunctionCall( pObj->m_iolist_30s[i].func, pObj->m_iolist_30s[i].paramNum, pObj->m_iolist_30s[i].paramList );
-            }
+            pObj->LoopFuncList( pObj->m_iolist_30s );
             /// reset timeout
             pObj->m_timeout_slow->StopTimeout( TIMEOUT_TYPE_30S );
             pObj->m_timeout_slow->StartTimeout( TIMEOUT_TYPE_30S, 3030 );
@@ -450,10 +511,7 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
         }
         if( TRUE == pObj->m_timeout_slow->CheckTimeout( TIMEOUT_TYPE_60S ) )
         {
-            for( UINT32 i = 0; i < pObj->m_iolist_60s.size(); i++ )
-            {
-                pObj->JobFunctionCall( pObj->m_iolist_60s[i].func, pObj->m_iolist_60s[i].paramNum, pObj->m_iolist_60s[i].paramList );
-            }
+            pObj->LoopFuncList( pObj->m_iolist_60s );
             /// reset timeout
             pObj->m_timeout_slow->StopTimeout( TIMEOUT_TYPE_60S );
             pObj->m_timeout_slow->StartTimeout( TIMEOUT_TYPE_60S, 6040 );
@@ -505,6 +563,43 @@ void * DataCollecter::PostHandler( void *pThis )
 
     return NULL;
 }
+
+VOID DataCollecter::LoopFuncList( vector<IOFunctionList> funclist )
+{
+    for( UINT32 i = 0; i < funclist.size(); i++ )
+    {
+        KeyValue *tempRtnStr = new KeyValue();
+        tempRtnStr->key = to_string( funclist[i].Key );
+
+        OCTET datatye = ( funclist[i].paramtype & ( ( TYPE_BASE_MASK ) << ( i * 4 ) ) ) >> ( i * 4 );
+
+        JobFunctionCall( funclist[i].func, funclist[i].returnpos, funclist[i].paramNum, funclist[i].paramList );
+        if( funclist[i].paramNum > funclist[i].returnpos )
+        {
+            LOG( INFO ) <<  ( CHAR * )( funclist[i].paramList[funclist[i].paramNum - 2] );
+            LOG( INFO ) <<  *( ( u_int16_t * )( funclist[i].paramList[funclist[i].paramNum - 1] ) );
+            tempRtnStr->value = *( char * )( funclist[i].paramList[funclist[i].paramNum - 2] );
+        }
+        else
+        {
+            if( datatye == TYPE_BASE_BUFF_PTR )
+            {
+                LOG( INFO ) <<  ( CHAR * )( funclist[i].paramList[funclist[i].paramNum - 2] );
+                tempRtnStr->value = *( char * )( funclist[i].paramList[funclist[i].paramNum - 2] );
+            }
+            else if( datatye == TYPE_BASE_FLOAT )
+            {
+                LOG( INFO ) <<  "value" << *( FLOAT * )( funclist[i].paramList[funclist[i].paramNum - 1] );
+                tempRtnStr->value = to_string( *( FLOAT * )( funclist[i].paramList[funclist[i].paramNum - 1] ));
+            }
+                                else if( datatye == TYPE_BASE_DOUBLE )
+            {
+                LOG( INFO ) <<  "value" << *( DOUBLE * )( funclist[i].paramList[funclist[i].paramNum - 1] );
+            }
+        }
+    }
+}
+
 
 INT32 DataCollecter::GetIOFunctionFromType( UINT32 type )
 {

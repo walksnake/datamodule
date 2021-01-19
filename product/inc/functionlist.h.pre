@@ -43,7 +43,7 @@ typedef enum DATATYPE
 
 typedef enum PROTOCOL
 {
-	SIEMENSCNC  = 54,
+    SIEMENSCNC  = 54,
 } PROTOCOL_E;
 
 extern "C"
@@ -404,7 +404,7 @@ extern "C"
         },
         {
             32,
-            _SIEMENSCNC_R_VAR ,
+            _SIEMENSCNC_R_VAR,
             3,
             3,
             ( TYPE_BASE_DOUBLE << 8 ) | ( TYPE_BASE_USHORT << 4 ) | TYPE_BASE_VOID,
@@ -418,7 +418,7 @@ extern "C"
             _SIEMENSCNC_S_R_P_PARAM,
             6,
             5,
-            ( TYPE_BASE_USHORT << 20 ) | ( TYPE_BASE_BUFF_PTR << 16 ) | (TYPE_BASE_USHORT << 12) | ( TYPE_BASE_USHORT << 8 ) | ( TYPE_BASE_OCTET << 4 ) | TYPE_BASE_VOID,
+            ( TYPE_BASE_USHORT << 20 ) | ( TYPE_BASE_BUFF_PTR << 16 ) | ( TYPE_BASE_USHORT << 12 ) | ( TYPE_BASE_USHORT << 8 ) | ( TYPE_BASE_OCTET << 4 ) | TYPE_BASE_VOID,
             "",
             NULL,
             ( pJobFunc )siemenscnc_read_s_r_p_param,
@@ -429,7 +429,7 @@ extern "C"
             _SIEMENSCNC_GENERAL_MACHINE_PARAM,
             5,
             4,
-            ( TYPE_BASE_USHORT << 16 ) | (TYPE_BASE_BUFF_PTR << 12) | ( TYPE_BASE_USHORT << 8 ) | ( TYPE_BASE_USHORT << 4 ) | TYPE_BASE_VOID,
+            ( TYPE_BASE_USHORT << 16 ) | ( TYPE_BASE_BUFF_PTR << 12 ) | ( TYPE_BASE_USHORT << 8 ) | ( TYPE_BASE_USHORT << 4 ) | TYPE_BASE_VOID,
             "",
             NULL,
             ( pJobFunc )siemenscnc_read_general_machine_param,
@@ -440,7 +440,7 @@ extern "C"
             _SIEMENSCNC_CHANNEL_MACHINE_PARAM,
             5,
             4,
-            ( TYPE_BASE_USHORT << 16 ) | (TYPE_BASE_BUFF_PTR << 12) | ( TYPE_BASE_USHORT << 8 ) | ( TYPE_BASE_USHORT << 4 ) | TYPE_BASE_VOID,
+            ( TYPE_BASE_USHORT << 16 ) | ( TYPE_BASE_BUFF_PTR << 12 ) | ( TYPE_BASE_USHORT << 8 ) | ( TYPE_BASE_USHORT << 4 ) | TYPE_BASE_VOID,
             "",
             NULL,
             ( pJobFunc )siemenscnc_read_channel_machine_param,
@@ -451,7 +451,7 @@ extern "C"
             _SIEMENSCNC_AXIS_MACHINE_PARAM,
             6,
             5,
-            ( TYPE_BASE_USHORT << 20 ) | ( TYPE_BASE_BUFF_PTR << 16 ) | (TYPE_BASE_USHORT << 12) | ( TYPE_BASE_USHORT << 8 ) | ( TYPE_BASE_OCTET << 4 ) | TYPE_BASE_VOID,
+            ( TYPE_BASE_USHORT << 20 ) | ( TYPE_BASE_BUFF_PTR << 16 ) | ( TYPE_BASE_USHORT << 12 ) | ( TYPE_BASE_USHORT << 8 ) | ( TYPE_BASE_OCTET << 4 ) | TYPE_BASE_VOID,
             "",
             NULL,
             ( pJobFunc )siemenscnc_read_axis_machine_param,
@@ -462,7 +462,7 @@ extern "C"
             _SIEMENSCNC_CONTROL_UNIT_PARAM,
             5,
             4,
-            ( TYPE_BASE_USHORT << 16 ) | (TYPE_BASE_BUFF_PTR << 12) | ( TYPE_BASE_USHORT << 8 ) | ( TYPE_BASE_USHORT << 4 ) | TYPE_BASE_VOID,
+            ( TYPE_BASE_USHORT << 16 ) | ( TYPE_BASE_BUFF_PTR << 12 ) | ( TYPE_BASE_USHORT << 8 ) | ( TYPE_BASE_USHORT << 4 ) | TYPE_BASE_VOID,
             "",
             NULL,
             ( pJobFunc )siemenscnc_read_control_unit_param,
@@ -473,13 +473,13 @@ extern "C"
             _SIEMENSCNC_POWER_UNIT_PARAM,
             5,
             4,
-            ( TYPE_BASE_USHORT << 16 ) | (TYPE_BASE_BUFF_PTR << 12) | ( TYPE_BASE_USHORT << 8 ) | ( TYPE_BASE_USHORT << 4 ) | TYPE_BASE_VOID,
+            ( TYPE_BASE_USHORT << 16 ) | ( TYPE_BASE_BUFF_PTR << 12 ) | ( TYPE_BASE_USHORT << 8 ) | ( TYPE_BASE_USHORT << 4 ) | TYPE_BASE_VOID,
             "",
             NULL,
             ( pJobFunc )siemenscnc_read_power_unit_param,
             "siemenscnc_read_power_unit_param"
         }
-    };
+            };
 }
 
 #endif

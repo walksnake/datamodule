@@ -174,9 +174,9 @@ extern "C"
         {
             11,
             _SIEMENSCNC_AXIS_NAME,
+            4,
             3,
-            2,
-            ( TYPE_BASE_USHORT << 8 ) | ( TYPE_BASE_BUFF_PTR << 4 ) | TYPE_BASE_VOID,
+            ( TYPE_BASE_USHORT << 12 ) | ( TYPE_BASE_BUFF_PTR << 8 )| ( TYPE_BASE_OCTET << 4 )  | TYPE_BASE_VOID,
             "",
             NULL,
             ( pJobFunc )siemenscnc_read_axis_name,

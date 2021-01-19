@@ -32,29 +32,85 @@ void TypeAny::AllCopy( const TypeAny& in_val )
  * @param[in]  teid  typebase + type extend
  * @param[in]  pstream source data pointer
  *
- * @returns  
+ * @returns
  */
 BOOLEAN TypeAny::Insert( TYPEANY_ID teid, const void * pstream )
 {
-	return TRUE;
+    return TRUE;
 }
 
 /// get value as param in
-const void* TypeAny::ParamIn() const
+const void * TypeAny::ParamIn() const
 {
-	return v.m_buff_ptr;	
+    if( m_typeany_id == TYPE_BASE_NULL )
+    {
+        return NULL;
+
+    }
+    else if( m_typeany_id == TYPE_BASE_OCTET )
+    {
+        return &(v.m_octet);
+    }
+    else if( m_typeany_id == TYPE_BASE_CHAR )
+    {
+        return &(v.m_char);
+    }
+    else if( m_typeany_id == TYPE_BASE_SHORT )
+    {
+        return &(v.m_short);
+    }
+    else if( m_typeany_id == TYPE_BASE_USHORT )
+    {
+        return &(v.m_ushort);
+    }
+    else if( m_typeany_id == TYPE_BASE_INT )
+    {
+        return &(v.m_int);
+    }
+    else if( m_typeany_id == TYPE_BASE_UINT )
+    {
+        return &(v.m_uint);
+    }
+    else if( m_typeany_id == TYPE_BASE_INT64 )
+    {
+        return &(v.m_int64);
+    }
+    else if( m_typeany_id == TYPE_BASE_UINT64 )
+    {
+        return &(v.m_int64);
+    }
+    else if( m_typeany_id == TYPE_BASE_FLOAT )
+    {
+        return &(v.m_float);
+    }
+    else if( m_typeany_id == TYPE_BASE_DOUBLE )
+    {
+        return &(v.m_double);
+    }
+    else if( m_typeany_id == TYPE_BASE_BOOLEAN )
+    {
+        return &(v.m_boolean);
+    }
+    else if( m_typeany_id == TYPE_BASE_BUFF_PTR )
+    {
+        return v.m_buff_ptr;
+    }
+    else
+    {
+        return v.m_void;
+    }
 }
 
 /// get value as param out
 void* TypeAny::ParamOut()
 {
-	return v.m_buff_ptr;	
+    return v.m_buff_ptr;
 }
 
 /// get value as param in/out
 void* TypeAny::ParamInOut()
 {
-	return v.m_buff_ptr;	
+    return v.m_buff_ptr;
 }
 
 
@@ -63,7 +119,7 @@ void* TypeAny::ParamInOut()
  *
  * @param[in]  tid
  *
- * @returns  
+ * @returns
  */
 BOOLEAN TypeAny::IsSimpleDateType( TYPEANY_ID tid )
 {
