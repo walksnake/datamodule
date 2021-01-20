@@ -28,6 +28,8 @@
 DataCollecter* DataCollecter::m_pInstance_s = NULL;
 
 #define TYPE_BASE_MASK  0xf
+UINT32 G_LOG_ENABLE = 0;
+UINT32 G_DEBUG_LOG_ENABLE = 1;
 
 /**
  * @brief  construct
@@ -92,6 +94,13 @@ INT8 DataCollecter::Stop()
 }
 
 
+/**
+ * @brief  init function list by json file
+ *
+ * @param[in]  fileName
+ *
+ * @returns
+ */
 BOOLEAN DataCollecter::InitIOListByJson( const CHAR *fileName )
 {
     ifstream fjson( ( const char * )fileName );
@@ -99,15 +108,15 @@ BOOLEAN DataCollecter::InitIOListByJson( const CHAR *fileName )
     fjson >> jsoncfg;
     if( ( string )jsoncfg["command"] == "get" )
     {
-        LOG( INFO ) << "get" << endl;
-        LOG( INFO ) << jsoncfg["device"] << endl;
-        LOG( INFO ) << jsoncfg["listGet"] << endl;
+        LOG_IF( G_LOG_ENABLE, INFO ) << "get" << endl;
+        LOG_IF( G_LOG_ENABLE, INFO ) << jsoncfg["device"] << endl;
+        LOG_IF( G_LOG_ENABLE, INFO ) << jsoncfg["listGet"] << endl;
 
 
         /// Init connect
         if( jsoncfg["device"]["interface"] == 2 )
         {
-            LOG( INFO ) << jsoncfg["device"]["ip"] << "-" << jsoncfg["device"]["port"];
+            LOG_IF( G_LOG_ENABLE, INFO ) << jsoncfg["device"]["ip"] << "-" << jsoncfg["device"]["port"];
 
             /// get string
             string ip = jsoncfg["device"]["ip"];
@@ -125,7 +134,7 @@ BOOLEAN DataCollecter::InitIOListByJson( const CHAR *fileName )
                 if( siemenscnc_connect( ( siemenscnc_t * )m_protocol_cxt ) >= 0 )
                 {
                     m_connect = TRUE;
-                    LOG( INFO ) << "siemenscnc connect success!";
+                    LOG_IF( G_LOG_ENABLE, INFO ) << "siemenscnc connect success!";
                 }
                 else
                 {
@@ -152,7 +161,7 @@ BOOLEAN DataCollecter::InitIOListByJson( const CHAR *fileName )
         for( UINT32 len = 0; len < jsoncfg["listGet"].size(); len++ )
         {
             float freq = ( float )( jsoncfg["listGet"][len]["frequency"] );
-            LOG( INFO ) << "Parse frequency ->"  << freq ;
+            LOG_IF( G_LOG_ENABLE, INFO ) << "Parse frequency ->"  << freq ;
 
             if( freq == 0.1 )
             {
@@ -182,15 +191,23 @@ BOOLEAN DataCollecter::InitIOListByJson( const CHAR *fileName )
     }
     else
     {
-        LOG( INFO ) << jsoncfg["device"] << endl;
-        LOG( INFO ) << jsoncfg["listSet"].count( jsoncfg["listSet"] ) << endl;
-        LOG( INFO ) << jsoncfg["listSet"] << endl;
+        LOG_IF( G_LOG_ENABLE, INFO ) << jsoncfg["device"] << endl;
+        LOG_IF( G_LOG_ENABLE, INFO ) << jsoncfg["listSet"].count( jsoncfg["listSet"] ) << endl;
+        LOG_IF( G_LOG_ENABLE, INFO ) << jsoncfg["listSet"] << endl;
     }
     fjson.close();
 
     return TRUE;
 }
 
+
+
+/**
+ * @brief  for funciton list
+ *
+ * @param[in]  funclist
+ * @param[in]  tmpjson
+ */
 void DataCollecter::InitFuncList( vector<IOFunctionList> *funclist, json tmpjson )
 {
     for( UINT32 len = 0; len < tmpjson["list"].size() ; len++ )
@@ -207,12 +224,20 @@ void DataCollecter::InitFuncList( vector<IOFunctionList> *funclist, json tmpjson
         else
         {
             FormatParamList( funclist, funcIndex, key, regName );
-            LOG( INFO ) << "frequency = " << freq << "s:  regName = " << regName << " functionNum = " << functionNum << " ok!";
+            LOG_IF( G_LOG_ENABLE, INFO ) << "frequency = " << freq << "s:  regName = " << regName << " functionNum = " << functionNum << " ok!";
         }
     }
 }
 
 
+/**
+ * @brief  format the param list
+ *
+ * @param[in]  funclist
+ * @param[in]  funcIndex
+ * @param[in]  key
+ * @param[in]  regName
+ */
 VOID DataCollecter::FormatParamList( vector<IOFunctionList> *funclist, INT32 funcIndex, UINT32 key, string regName )
 {
     IOFunctionList *tempFunc = new IOFunctionList;
@@ -249,7 +274,7 @@ VOID DataCollecter::FormatParamList( vector<IOFunctionList> *funclist, INT32 fun
                 tempFunc->paramList[i] = ( void * )parami;
             }
         }
-        LOG( INFO ) << "Type of param [" << i << "] is " << type_base_str[datatye];
+        LOG_IF( G_LOG_ENABLE, INFO ) << "Type of param [" << i << "] is " << type_base_str[datatye];
     }
 
     /// 根据regname得到输入的参数列表，统一为int类型，int转ushort或者uint8的位宽足够
@@ -259,24 +284,24 @@ VOID DataCollecter::FormatParamList( vector<IOFunctionList> *funclist, INT32 fun
 }
 
 
+/**
+ * @brief  Fill the input param, param is prase from regName
+ *
+ * @param[in]  retpos
+ * @param[in]  paramNum
+ * @param[in]  regName
+ * @param[in]  paramList
+ *
+ * @returns
+ */
 INT32 DataCollecter::FillParamInput( UINT32 retpos, UINT32 paramNum, string regName, void **paramList )
 {
     /// regName, test value
-    //
-    //
-    //
-    //
-    //
-    INT32 *param1 = new INT32( 111 );
-    INT32 *param2 = new INT32( 222 );
-    INT32 *param3 = new INT32( 333 );
-    //
-    //
-    //
-    //
-    //
-    //
-    //
+    INT32 *param1 = new INT32( 0 );
+    INT32 *param2 = new INT32( 0 );
+    INT32 *param3 = new INT32( 0 );
+    INT32 *param4 = new INT32( 0 );
+
     switch ( paramNum )
     {
         case 2:
@@ -303,7 +328,7 @@ INT32 DataCollecter::FillParamInput( UINT32 retpos, UINT32 paramNum, string regN
             {
                 paramList[1] = param1;
                 paramList[2] = param2;
-                paramList[2] = param3;
+                paramList[3] = param3;
             }
             else
             {
@@ -312,6 +337,20 @@ INT32 DataCollecter::FillParamInput( UINT32 retpos, UINT32 paramNum, string regN
             }
             break;
         case 6:
+            if( retpos == paramNum )
+            {
+                paramList[1] = param1;
+                paramList[2] = param2;
+                paramList[3] = param3;
+                paramList[4] = param4;
+            }
+            else
+            {
+                paramList[1] = param1;
+                paramList[2] = param2;
+                paramList[3] = param3;
+            }
+
             break;
         case 7:
             break;
@@ -322,6 +361,17 @@ INT32 DataCollecter::FillParamInput( UINT32 retpos, UINT32 paramNum, string regN
     return Lret_success;
 }
 
+
+/**
+ * @brief  common call function
+ *
+ * @param[in]  JobFunc
+ * @param[in]  retpos
+ * @param[in]  paramNum
+ * @param[in]  paramList
+ *
+ * @returns
+ */
 INT32 DataCollecter::JobFunctionCall( pJobFunc JobFunc, UINT32 retpos, UINT32 paramNum, void **paramList )
 {
     INT32 *ret = NULL;
@@ -332,7 +382,7 @@ INT32 DataCollecter::JobFunctionCall( pJobFunc JobFunc, UINT32 retpos, UINT32 pa
             ret = ( ( INT32 * )( JobFunc( paramList[0], paramList[1] ) ) );
             break;
         case 3:
-            if( retpos == paramNum )
+            if( retpos == paramNum )/// one input param
             {
                 ret = ( ( INT32 * )( JobFunc( paramList[0], *( int * )paramList[1], paramList[2] ) ) );
             }
@@ -342,7 +392,7 @@ INT32 DataCollecter::JobFunctionCall( pJobFunc JobFunc, UINT32 retpos, UINT32 pa
             }
             break;
         case 4:
-            if( retpos == paramNum )
+            if( retpos == paramNum )/// two input param
             {
 
                 ret = ( ( INT32 * )( JobFunc( paramList[0], *( int * )paramList[1], *( int * )paramList[2], paramList[3] ) ) );
@@ -353,7 +403,7 @@ INT32 DataCollecter::JobFunctionCall( pJobFunc JobFunc, UINT32 retpos, UINT32 pa
             }
             break;
         case 5:
-            if( retpos == paramNum )
+            if( retpos == paramNum )/// three input param
             {
                 ret = ( ( INT32 * )( JobFunc( paramList[0], *( int * )paramList[1], *( int * )paramList[2], *( int * )paramList[3], paramList[4] ) ) );
             }
@@ -363,7 +413,14 @@ INT32 DataCollecter::JobFunctionCall( pJobFunc JobFunc, UINT32 retpos, UINT32 pa
             }
             break;
         case 6:
-            ret = ( ( INT32 * )( JobFunc( paramList[0], paramList[1], paramList[2], paramList[3], paramList[4], paramList[5] ) ) );
+            if( retpos == paramNum )/// four input param
+            {
+                ret = ( ( INT32 * )( JobFunc( paramList[0], *( int * )paramList[1], *( int * )paramList[2], *( int * )paramList[3], *( int * )paramList[4], paramList[5] ) ) );
+            }
+            else
+            {
+                ret = ( ( INT32 * )( JobFunc( paramList[0], *( int * )paramList[1], *( int * )paramList[2], *( int * )paramList[3], paramList[4], paramList[5] ) ) );
+            }
             break;
         case 7:
             ret = ( ( INT32 * )( JobFunc( paramList[0], paramList[1], paramList[2], paramList[3], paramList[4], paramList[5], paramList[6] ) ) );
@@ -392,7 +449,7 @@ INT32 DataCollecter::JobFunctionCall( pJobFunc JobFunc, UINT32 retpos, UINT32 pa
  */
 void * DataCollecter::TimerProcessFast( void *pThis )
 {
-    LOG( INFO ) << "TimerProcess create!";
+    LOG_IF( G_LOG_ENABLE, INFO ) << "TimerProcess create!";
     sleep( 1 );
     if( NULL == pThis )
     {
@@ -423,7 +480,7 @@ void * DataCollecter::TimerProcessFast( void *pThis )
             /// reset timeout
             pObj->m_timeout_fast->StopTimeout( TIMEOUT_TYPE_Fast );
             pObj->m_timeout_fast->StartTimeout( TIMEOUT_TYPE_Fast, 10 );
-            LOG( INFO ) << "reset Fast counter";
+            LOG_IF( G_LOG_ENABLE, INFO ) << "reset Fast counter";
         }
 
         if( pObj->m_thread_fast_stop )
@@ -445,7 +502,7 @@ void * DataCollecter::TimerProcessFast( void *pThis )
  */
 void * DataCollecter::TimerProcessSlow( void *pThis )
 {
-    LOG( INFO ) << "TimerProcessSlow create!";
+    LOG_IF( G_LOG_ENABLE, INFO ) << "TimerProcessSlow create!";
     sleep( 2 );
     if( NULL == pThis )
     {
@@ -483,7 +540,7 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
             /// reset timeout
             pObj->m_timeout_slow->StopTimeout( TIMEOUT_TYPE_1S );
             pObj->m_timeout_slow->StartTimeout( TIMEOUT_TYPE_1S, 100 );
-            LOG( INFO ) << "reset 1s counter";
+            LOG_IF( G_LOG_ENABLE, INFO ) << "reset 1s counter";
         }
         if( TRUE == pObj->m_timeout_slow->CheckTimeout( TIMEOUT_TYPE_5S ) )
         {
@@ -492,7 +549,7 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
             /// reset timeout
             pObj->m_timeout_slow->StopTimeout( TIMEOUT_TYPE_5S );
             pObj->m_timeout_slow->StartTimeout( TIMEOUT_TYPE_5S, 510 );
-            LOG( INFO ) << "reset 5s counter";
+            LOG_IF( G_LOG_ENABLE, INFO ) << "reset 5s counter";
         }
         if( TRUE == pObj->m_timeout_slow->CheckTimeout( TIMEOUT_TYPE_10S ) )
         {
@@ -500,7 +557,7 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
             /// reset timeout
             pObj->m_timeout_slow->StopTimeout( TIMEOUT_TYPE_10S );
             pObj->m_timeout_slow->StartTimeout( TIMEOUT_TYPE_10S, 1020 );
-            LOG( INFO ) << "reset 10s counter";
+            LOG_IF( G_LOG_ENABLE, INFO ) << "reset 10s counter";
         }
         if( TRUE == pObj->m_timeout_slow->CheckTimeout( TIMEOUT_TYPE_30S ) )
         {
@@ -508,15 +565,16 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
             /// reset timeout
             pObj->m_timeout_slow->StopTimeout( TIMEOUT_TYPE_30S );
             pObj->m_timeout_slow->StartTimeout( TIMEOUT_TYPE_30S, 3030 );
-            LOG( INFO ) << "reset 30s counter";
+            LOG_IF( G_LOG_ENABLE, INFO ) << "reset 30s counter";
         }
         if( TRUE == pObj->m_timeout_slow->CheckTimeout( TIMEOUT_TYPE_60S ) )
         {
+            pObj->PrintAllList();
             pObj->LoopFuncList( pObj->m_iolist_60s );
             /// reset timeout
             pObj->m_timeout_slow->StopTimeout( TIMEOUT_TYPE_60S );
             pObj->m_timeout_slow->StartTimeout( TIMEOUT_TYPE_60S, 6040 );
-            LOG( INFO ) << "reset 60s counter";
+            LOG_IF( G_LOG_ENABLE, INFO ) << "reset 60s counter";
         }
 
         if( pObj-> m_thread_slow_stop )
@@ -529,9 +587,17 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
     return NULL;
 }
 
+
+/**
+ * @brief  for post json string
+ *
+ * @param[in]  pThis
+ *
+ * @returns
+ */
 void * DataCollecter::PostHandler( void *pThis )
 {
-    LOG( INFO ) << "PostHandler create!";
+    LOG_IF( G_LOG_ENABLE, INFO ) << "PostHandler create!";
     sleep( 3 );
     if( NULL == pThis )
     {
@@ -546,7 +612,7 @@ void * DataCollecter::PostHandler( void *pThis )
     {
         sem_wait( &( pObj->m_sem_post ) );
 
-        LOG( INFO ) << "PostHandler";
+        LOG_IF( G_LOG_ENABLE, INFO ) << "PostHandler";
 
 #if 0
         //// HTTP Post
@@ -565,48 +631,64 @@ void * DataCollecter::PostHandler( void *pThis )
     return NULL;
 }
 
+
+/**
+ * @brief  loop funclist
+ *
+ * @param[in]  funclist
+ */
 VOID DataCollecter::LoopFuncList( vector<IOFunctionList> funclist )
 {
     for( UINT32 i = 0; i < funclist.size(); i++ )
     {
-        KeyValue *tempRtnStr = new KeyValue();
-        tempRtnStr->key = to_string( funclist[i].Key );
+        KeyValue tempRtnStr;
+        tempRtnStr.key = to_string( funclist[i].Key );
 
-        OCTET datatye = ( funclist[i].paramtype & ( ( TYPE_BASE_MASK ) << ( i * 4 ) ) ) >> ( i * 4 );
+        OCTET datatye = ( funclist[i].paramtype & ( ( TYPE_BASE_MASK ) << ( ( funclist[i].paramNum - 1 ) * 4 ) ) ) >> ( ( funclist[i].paramNum - 1 ) * 4 );
 
         JobFunctionCall( funclist[i].func, funclist[i].returnpos, funclist[i].paramNum, funclist[i].paramList );
         if( funclist[i].paramNum > funclist[i].returnpos )
         {
-            LOG( INFO ) <<  ( CHAR * )( funclist[i].paramList[funclist[i].paramNum - 2] );
-            LOG( INFO ) <<  *( ( u_int16_t * )( funclist[i].paramList[funclist[i].paramNum - 1] ) );
-            tempRtnStr->value = string(( char * )( funclist[i].paramList[funclist[i].paramNum - 2] ));
+            LOG_IF( G_LOG_ENABLE, INFO ) <<  ( CHAR * )( funclist[i].paramList[funclist[i].paramNum - 2] );
+            LOG_IF( G_LOG_ENABLE, INFO ) <<  *( ( u_int16_t * )( funclist[i].paramList[funclist[i].paramNum - 1] ) );
+            tempRtnStr.value = string( ( char * )( funclist[i].paramList[funclist[i].paramNum - 2] ) );
         }
         else
         {
             if( datatye == TYPE_BASE_BUFF_PTR )
             {
-                LOG( INFO ) <<  ( CHAR * )( funclist[i].paramList[funclist[i].paramNum - 2] );
-                tempRtnStr->value = string(( char * )( funclist[i].paramList[funclist[i].paramNum - 2] ));
+                LOG_IF( G_LOG_ENABLE, INFO ) <<  ( CHAR * )( funclist[i].paramList[funclist[i].paramNum - 2] );
+                tempRtnStr.value = string( ( char * )( funclist[i].paramList[funclist[i].paramNum - 2] ) );
             }
             else if( datatye == TYPE_BASE_FLOAT )
             {
-                LOG( INFO ) <<  "value" << *( FLOAT * )( funclist[i].paramList[funclist[i].paramNum - 1] );
-                tempRtnStr->value = to_string( *( FLOAT * )( funclist[i].paramList[funclist[i].paramNum - 1] ) );
+                LOG_IF( G_LOG_ENABLE, INFO ) <<  "value" << *( FLOAT * )( funclist[i].paramList[funclist[i].paramNum - 1] );
+                tempRtnStr.value = to_string( *( FLOAT * )( funclist[i].paramList[funclist[i].paramNum - 1] ) );
             }
             else if( datatye == TYPE_BASE_DOUBLE )
             {
-                LOG( INFO ) <<  "value" << *( DOUBLE * )( funclist[i].paramList[funclist[i].paramNum - 1] );
-                tempRtnStr->value = to_string( *( DOUBLE * )( funclist[i].paramList[funclist[i].paramNum - 1] ) );
+                LOG_IF( G_LOG_ENABLE, INFO ) <<  "value" << *( DOUBLE * )( funclist[i].paramList[funclist[i].paramNum - 1] );
+                tempRtnStr.value = to_string( *( DOUBLE * )( funclist[i].paramList[funclist[i].paramNum - 1] ) );
+            }
+            else
+            {
+                LOG_IF( G_LOG_ENABLE, INFO ) <<  "value" << *( OCTET * )( funclist[i].paramList[funclist[i].paramNum - 1] );
+                tempRtnStr.value = to_string( *( OCTET * )( funclist[i].paramList[funclist[i].paramNum - 1] ) );
             }
         }
 
-				cout << "{" << endl;
-				cout << "    " << tempRtnStr->key << ":" << tempRtnStr->value << endl;
-				cout << "}" << endl;
+        cout << "{\"" + tempRtnStr.key + "\"" + ":" + "\"" + tempRtnStr.value + "\"}," << endl;
     }
 }
 
 
+/**
+ * @brief  get index from function num - type
+ *
+ * @param[in]  type
+ *
+ * @returns
+ */
 INT32 DataCollecter::GetIOFunctionFromType( UINT32 type )
 {
     IOFunctionList *pFuncList = NULL;
@@ -629,7 +711,7 @@ INT32 DataCollecter::GetIOFunctionFromType( UINT32 type )
         {
             if( type == pFuncList[i].functionNum )
             {
-                LOG( INFO ) << "function is " << pFuncList[i].funcName;
+                LOG_IF( G_LOG_ENABLE, INFO ) << "function is " << pFuncList[i].funcName;
                 return i;
             }
         }
@@ -638,6 +720,121 @@ INT32 DataCollecter::GetIOFunctionFromType( UINT32 type )
     /// invalid index
     return -1;
 }
+
+
+//////////////////////////////////////////////////////DEBUG/////////////////////////////////////////////////////////////////
+/**
+ * @brief  print function list
+ *
+ * @param[in]  funclist
+ */
+VOID DataCollecter::PrintFuncList( vector<IOFunctionList> funclist )
+{
+
+    LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) <<   "-----------------------------------------------------------------";
+    for( UINT32 i = 0; i < funclist.size(); i++ )
+    {
+        LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) <<   "----------------------------" << i + 1 << "------------------------";
+        LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) <<   "funcName:" << funclist[i].funcName;
+        for( UINT32 type_index = 0; type_index < funclist[i].paramNum; type_index++ )
+        {
+            OCTET datatye = ( funclist[i].paramtype & ( ( TYPE_BASE_MASK ) << ( type_index * 4 ) ) ) >> ( type_index * 4 );
+
+            LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) << "Type of param [" << type_index << "] is " << type_base_str[datatye];
+        }
+
+        LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) << "functionNum:" << funclist[i].functionNum;
+        LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) << "paramNum:" << funclist[i].paramNum;
+        LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) << "returnPos:" << funclist[i].returnpos;
+        LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) << "paramtype:" << hex << funclist[i].paramtype;
+        LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) << "regName:" << funclist[i].regName;
+        LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) << "Key:" << dec << funclist[i].Key;
+    }
+    LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) <<   "-----------------------------------------------------------------";
+}
+
+
+VOID DataCollecter::PrintAllList()
+{
+    LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) <<   "period of 100ms function list:";
+    if( m_iolist_100ms.size() > 0 )
+    {
+        PrintFuncList( m_iolist_100ms );
+    }
+    else
+    {
+        LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) <<   "NULL";
+    }
+
+    LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) <<   "period of 1s function list:";
+    if( m_iolist_1s.size() > 0 )
+    {
+        PrintFuncList( m_iolist_1s );
+    }
+    else
+    {
+        LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) <<   "NULL";
+    }
+
+    LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) <<   "period of 5s function list:";
+    if( m_iolist_5s.size() > 0 )
+    {
+        PrintFuncList( m_iolist_5s );
+    }
+    else
+    {
+        LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) <<   "NULL";
+    }
+    LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) <<   "period of 10s function list:";
+    if( m_iolist_10s.size() > 0 )
+    {
+        PrintFuncList( m_iolist_10s );
+    }
+    else
+    {
+        LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) <<   "NULL";
+    }
+    LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) <<   "period of 30s function list:";
+    if( m_iolist_30s.size() > 0 )
+    {
+        PrintFuncList( m_iolist_30s );
+    }
+    else
+    {
+        LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) <<   "NULL";
+    }
+    LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) <<   "period of 60s function list:";
+    if( m_iolist_60s.size() > 0 )
+    {
+        PrintFuncList( m_iolist_60s );
+    }
+    else
+    {
+        LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) <<   "NULL";
+    }
+}
+
+VOID DataCollecter::SetLogEnable()
+{
+    G_LOG_ENABLE = 1;
+}
+
+
+VOID DataCollecter::SetLogDisable()
+{
+    G_LOG_ENABLE = 0;
+}
+
+VOID DataCollecter::SetDebugLogEnable()
+{
+    G_DEBUG_LOG_ENABLE = 1;
+}
+
+VOID DataCollecter::SetDebugLogDisable()
+{
+    G_DEBUG_LOG_ENABLE = 0;
+}
+
 
 /* --------------------------------------------------------------------------*/
 /**

@@ -37,7 +37,7 @@ typedef struct IOFunctionList
     UINT32 functionNum;                             ///< 功能码，即是json中的type
     UINT32 paramNum;                            ///< 参数个数
     UINT32 returnpos;                           ///< 返回值的位置
-    UINT32 datatype;                            ///< 数据类型按照最多8个参数排列8 x 4bits = 32bits
+    UINT32 paramtype;                            ///< 数据类型按照最多8个参数排列8 x 4bits = 32bits
     ///< [31:28][27:24][23:20][19:16][15:12][11:8][7:4][3:0]
     string regName;                                                         ///< 采集函数的输入参数, 按照目前的规律，
     ///< 第一个参数是cxt，
@@ -46,6 +46,7 @@ typedef struct IOFunctionList
     VOID **paramList;                               ///< 参数列表
     pJobFunc func;                              ///< 对应函数
     string funcName;                                                        ///< function name
+    UINT32 Key;
 } IOFunctionList_s;
 
 
@@ -68,7 +69,7 @@ typedef enum
 typedef struct KeyValue
 {
     string key;
-    TypeAny value;
+    string value;
 } KeyValue_s;
 
 
@@ -108,9 +109,11 @@ public:
 
     BOOLEAN InitIOListByJson( const CHAR *fileName );
     void InitFuncList( vector<IOFunctionList> *funclist, json tmpjson );
-    VOID FormatParamList( vector<IOFunctionList> *funclist, INT32 funcIndex, string regName );
+    VOID FormatParamList( vector<IOFunctionList> *funclist, INT32 funcIndex, UINT32 key, string regName );
     INT32 GetIOFunctionFromType( UINT32 type );
-    INT32 JobFunctionCall( pJobFunc JobFunc, UINT32 paramNum, VOID **paramList );
+    INT32 JobFunctionCall( pJobFunc JobFunc, UINT32 retpos, UINT32 paramNum, VOID **paramList );
+    INT32 FillParamInput( UINT32 retpos, UINT32 paramNum, string regName, void **paramList );
+    VOID LoopFuncList( vector<IOFunctionList> funclist );
 public:
     static void * TimerProcessFast( void *pThis );
     static void * TimerProcessSlow( void *pThis );
@@ -141,7 +144,7 @@ public:
     vector<KeyValue> m_cur_data;
     vector<KeyValue> m_his_data;
 
-		UINT32 m_protocol_id;
+    UINT32 m_protocol_id;
     VOID *m_protocol_cxt;
     string m_ipaddr;
     UINT16 m_port;
@@ -166,6 +169,14 @@ private:
     BOOLEAN m_thread_fast_stop;
     BOOLEAN m_thread_slow_stop;
     BOOLEAN m_thread_post_stop;
+public:
+    VOID PrintFuncList( vector<IOFunctionList> funclist );
+		VOID PrintAllList();
+		VOID SetLogEnable();
+		VOID SetLogDisable();
+VOID DataCollecter::SetDebugLogEnable()
+VOID DataCollecter::SetDebugLogDisable()
+
 };
 
 #endif

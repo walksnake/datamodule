@@ -46,7 +46,7 @@ typedef struct IOFunctionList
     VOID **paramList;                               ///< 参数列表
     pJobFunc func;                              ///< 对应函数
     string funcName;                                                        ///< function name
-		UINT32 Key;
+    UINT32 Key;
 } IOFunctionList_s;
 
 
@@ -112,8 +112,8 @@ public:
     VOID FormatParamList( vector<IOFunctionList> *funclist, INT32 funcIndex, UINT32 key, string regName );
     INT32 GetIOFunctionFromType( UINT32 type );
     INT32 JobFunctionCall( pJobFunc JobFunc, UINT32 retpos, UINT32 paramNum, VOID **paramList );
-		INT32 FillParamInput( UINT32 retpos, UINT32 paramNum, string regName, void **paramList );
-		VOID LoopFuncList(vector<IOFunctionList> funclist);
+    INT32 FillParamInput( UINT32 retpos, UINT32 paramNum, string regName, void **paramList );
+    VOID LoopFuncList( vector<IOFunctionList> funclist );
 public:
     static void * TimerProcessFast( void *pThis );
     static void * TimerProcessSlow( void *pThis );
@@ -169,6 +169,13 @@ private:
     BOOLEAN m_thread_fast_stop;
     BOOLEAN m_thread_slow_stop;
     BOOLEAN m_thread_post_stop;
+public:
+    VOID PrintFuncList( vector<IOFunctionList> funclist );
+    VOID PrintAllList();
+    VOID SetLogEnable();
+    VOID SetLogDisable();
+    VOID SetDebugLogEnable();
+    VOID SetDebugLogDisable();
 };
 
 #endif

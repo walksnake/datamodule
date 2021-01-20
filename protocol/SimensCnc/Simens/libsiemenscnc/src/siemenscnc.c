@@ -340,7 +340,7 @@ int siemenscnc_read_manufacture_data( siemenscnc_t *ctx, uint8_t *dst, uint16_t 
 int siemenscnc_read_process_number( siemenscnc_t *ctx, double *dst ) //加工数量
 {
 #if PROTOCOL_SIM_TEST
-    *dst = 12345;
+    *dst = 1111;
     return 0;
 #else
     int rc;
@@ -410,7 +410,7 @@ int siemenscnc_read_process_number( siemenscnc_t *ctx, double *dst ) //加工数
 int siemenscnc_read_process_set_number( siemenscnc_t *ctx, double *dst ) //设定的加工数量
 {
 #if PROTOCOL_SIM_TEST
-    *dst = 12345;
+    *dst = 2222;
     return 0;
 #else
     int rc;
@@ -480,7 +480,7 @@ int siemenscnc_read_process_set_number( siemenscnc_t *ctx, double *dst ) //设�
 int siemenscnc_read_run_time( siemenscnc_t *ctx, double *dst ) //循环时间,一次自动运行起动时间的累计值
 {
 #if PROTOCOL_SIM_TEST
-    *dst = 12345;
+    *dst = 3333;
     return 0;
 #else
     int rc;
@@ -550,7 +550,7 @@ int siemenscnc_read_run_time( siemenscnc_t *ctx, double *dst ) //循环时间,�
 int siemenscnc_read_remain_time( siemenscnc_t *ctx, double *dst ) //剩余时间
 {
 #if PROTOCOL_SIM_TEST
-    *dst = 12345;
+    *dst = 6666;
     return 0;
 #else
     int rc;
@@ -704,7 +704,7 @@ int siemenscnc_read_operate_mode( siemenscnc_t *ctx, uint8_t *dst ) //操作模�
 int siemenscnc_read_status( siemenscnc_t *ctx, uint8_t *dst ) //运行状态
 {
 #if PROTOCOL_SIM_TEST
-    *dst = 10;
+    *dst = 20;
     return 0;
 #else
     int rc;
