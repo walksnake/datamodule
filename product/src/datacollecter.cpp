@@ -28,9 +28,9 @@
 
 DataCollecter* DataCollecter::m_pInstance_s = NULL;
 
-#define TYPE_BASE_MASK  0xf
 UINT32 G_LOG_ENABLE = 1;
 UINT32 G_DEBUG_LOG_ENABLE = 1;
+UINT32 G_POST_LOG_ENABLE = 1;
 
 /**
  * @brief  construct
@@ -64,6 +64,12 @@ BOOLEAN DataCollecter::Init()
 
     m_protocol_cxt = NULL;
     m_connect = FALSE;
+
+    m_cur_data = new char[MAX_JSON_LEN];
+    m_his_data = new char[MAX_JSON_LEN];
+    memset( m_cur_data, 0, MAX_JSON_LEN );
+    memset( m_his_data, 0, MAX_JSON_LEN );
+
     return TRUE;
 }
 
@@ -553,7 +559,14 @@ void * DataCollecter::TimerProcessFast( void *pThis )
 
         if( TRUE == pObj->m_timeout_fast->CheckTimeout( TIMEOUT_TYPE_Fast ) )
         {
+            pthread_mutex_lock( &( pObj->m_mutex_post ) );
+
             pObj->LoopFuncList( pObj->m_iolist_100ms );
+
+            ///change pointer
+            pObj->m_his_data = pObj->m_cur_data;
+            pthread_mutex_unlock( &( pObj->m_mutex_post ) );
+            sem_post( &( pObj->m_sem_post ) );
             /// reset timeout
             pObj->m_timeout_fast->StopTimeout( TIMEOUT_TYPE_Fast );
             pObj->m_timeout_fast->StartTimeout( TIMEOUT_TYPE_Fast, 10 );
@@ -613,7 +626,13 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
 
         if( TRUE == pObj->m_timeout_slow->CheckTimeout( TIMEOUT_TYPE_1S ) )
         {
+            pthread_mutex_lock( &( pObj->m_mutex_post ) );
             pObj->LoopFuncList( pObj->m_iolist_1s );
+            ///change pointer
+            pObj->m_his_data = pObj->m_cur_data;
+            pthread_mutex_unlock( &( pObj->m_mutex_post ) );
+            sem_post( &( pObj->m_sem_post ) );
+
             /// reset timeout
             pObj->m_timeout_slow->StopTimeout( TIMEOUT_TYPE_1S );
             pObj->m_timeout_slow->StartTimeout( TIMEOUT_TYPE_1S, 100 );
@@ -621,8 +640,13 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
         }
         if( TRUE == pObj->m_timeout_slow->CheckTimeout( TIMEOUT_TYPE_5S ) )
         {
-
+            pthread_mutex_lock( &( pObj->m_mutex_post ) );
             pObj->LoopFuncList( pObj->m_iolist_5s );
+            ///change pointer
+            pObj->m_his_data = pObj->m_cur_data;
+            pthread_mutex_unlock( &( pObj->m_mutex_post ) );
+            sem_post( &( pObj->m_sem_post ) );
+
             /// reset timeout
             pObj->m_timeout_slow->StopTimeout( TIMEOUT_TYPE_5S );
             pObj->m_timeout_slow->StartTimeout( TIMEOUT_TYPE_5S, 510 );
@@ -630,7 +654,13 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
         }
         if( TRUE == pObj->m_timeout_slow->CheckTimeout( TIMEOUT_TYPE_10S ) )
         {
+            pthread_mutex_lock( &( pObj->m_mutex_post ) );
             pObj->LoopFuncList( pObj->m_iolist_10s );
+            ///change pointer
+            pObj->m_his_data = pObj->m_cur_data;
+            pthread_mutex_unlock( &( pObj->m_mutex_post ) );
+            sem_post( &( pObj->m_sem_post ) );
+
             /// reset timeout
             pObj->m_timeout_slow->StopTimeout( TIMEOUT_TYPE_10S );
             pObj->m_timeout_slow->StartTimeout( TIMEOUT_TYPE_10S, 1020 );
@@ -638,7 +668,13 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
         }
         if( TRUE == pObj->m_timeout_slow->CheckTimeout( TIMEOUT_TYPE_30S ) )
         {
+            pthread_mutex_lock( &( pObj->m_mutex_post ) );
             pObj->LoopFuncList( pObj->m_iolist_30s );
+            ///change pointer
+            pObj->m_his_data = pObj->m_cur_data;
+            pthread_mutex_unlock( &( pObj->m_mutex_post ) );
+            sem_post( &( pObj->m_sem_post ) );
+
             /// reset timeout
             pObj->m_timeout_slow->StopTimeout( TIMEOUT_TYPE_30S );
             pObj->m_timeout_slow->StartTimeout( TIMEOUT_TYPE_30S, 3030 );
@@ -646,12 +682,19 @@ void * DataCollecter::TimerProcessSlow( void *pThis )
         }
         if( TRUE == pObj->m_timeout_slow->CheckTimeout( TIMEOUT_TYPE_60S ) )
         {
-            pObj->PrintAllList();
+            pthread_mutex_lock( &( pObj->m_mutex_post ) );
             pObj->LoopFuncList( pObj->m_iolist_60s );
+            ///change pointer
+            pObj->m_his_data = pObj->m_cur_data;
+            pthread_mutex_unlock( &( pObj->m_mutex_post ) );
+            sem_post( &( pObj->m_sem_post ) );
+
             /// reset timeout
             pObj->m_timeout_slow->StopTimeout( TIMEOUT_TYPE_60S );
             pObj->m_timeout_slow->StartTimeout( TIMEOUT_TYPE_60S, 6040 );
             LOG_IF( G_LOG_ENABLE, INFO ) << "reset 60s counter";
+
+            pObj->PrintAllList();
         }
 
         if( pObj-> m_thread_slow_stop )
@@ -687,16 +730,31 @@ void * DataCollecter::PostHandler( void *pThis )
 
     while( TRUE )
     {
+        /// 1MS
+        usleep( 1000 );
         sem_wait( &( pObj->m_sem_post ) );
 
-        LOG_IF( G_LOG_ENABLE, INFO ) << "PostHandler";
+        if( strlen( pObj->m_his_data ) < 1 )
+        {
+            continue;
+        }
+        pthread_mutex_lock( &( pObj->m_mutex_post ) );
+        LOG_IF( G_POST_LOG_ENABLE, INFO ) << "PostHandler-->" << "Data-->" << pObj->m_his_data;
+
+        //// HTTP Post
+        string urlstr = "http://192.168.0.23:9080/ping";
+        string tabstr = "application/x-www-form-urlencoded";
+        string datastr = pObj->m_his_data;
 
 #if 0
-        //// HTTP Post
-        RestClient::Response resp = RestClient::post( "http://192.168.0.23:9080/ping", "application/x-www-form-urlencoded", "{\"foo\":\"test\"}" );
-
+        RestClient::Response resp = RestClient::post( urlstr, tabstr, datastr );
         cout << resp.body;
 #endif
+
+        /// clear history data
+        memset( pObj->m_his_data, 0, MAX_JSON_LEN );
+
+        pthread_mutex_unlock( &( pObj->m_mutex_post ) );
 
         if( pObj->m_thread_post_stop )
         {
@@ -754,7 +812,8 @@ VOID DataCollecter::LoopFuncList( vector<IOFunctionList> funclist )
             }
         }
 
-        cout << "{\"" + tempRtnStr.key + "\"" + ":" + "\"" + tempRtnStr.value + "\"}," << endl;
+        string tmpstr = "{\"" + tempRtnStr.key + "\"" + ":" + "\"" + tempRtnStr.value + "\"},";
+        strcat( m_cur_data, tmpstr.data() );
     }
 }
 

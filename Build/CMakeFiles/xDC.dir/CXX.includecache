@@ -715,6 +715,8 @@ fstream
 /home/fchuanlin/datamodule/feature/log/inc/easylogging.h
 ../../common/typeany/inc/typeany.h
 /home/fchuanlin/datamodule/common/typeany/inc/typeany.h
+../../thirdparty/restclient/include/restclient-cpp/restclient.h
+/home/fchuanlin/datamodule/thirdparty/restclient/include/restclient-cpp/restclient.h
 ../../include/json.hpp
 /home/fchuanlin/datamodule/include/json.hpp
 cstdint

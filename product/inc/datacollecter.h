@@ -19,6 +19,8 @@
 #include "../../include/normal_typedef.h"
 #include "../../feature/log/inc/easylogging.h"
 #include "../../common/typeany/inc/typeany.h"
+#include "../../thirdparty/restclient/include/restclient-cpp/restclient.h"
+
 /// JSON
 #include "../../include/json.hpp"
 #include <cstdint>
@@ -73,6 +75,8 @@ typedef struct KeyValue
 } KeyValue_s;
 
 
+#define TYPE_BASE_MASK  0xf
+#define MAX_JSON_LEN  1000
 
 /**
  * @brief  this class is only for timeout period
@@ -143,8 +147,8 @@ public:
     std::vector<IOFunctionList> m_iolist_60s;
 
     /// report data
-    vector<KeyValue> m_cur_data;
-    vector<KeyValue> m_his_data;
+    char *m_cur_data;
+    char *m_his_data;
 
     UINT32 m_protocol_id;
     VOID *m_protocol_cxt;

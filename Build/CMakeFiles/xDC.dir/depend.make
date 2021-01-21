@@ -46,6 +46,7 @@ CMakeFiles/xDC.dir/main.cpp.o: ../protocol/SimensCnc/Simens/libsiemenscnc/inc/si
 CMakeFiles/xDC.dir/main.cpp.o: ../protocol/SimensCnc/Simens/libsiemenscnc/inc/siemenscnc_tcp_private.h
 CMakeFiles/xDC.dir/main.cpp.o: ../thirdparty/restclient/include/restclient-cpp/restclient.h
 
+CMakeFiles/xDC.dir/product/src/datacollecter.cpp.o: .././thirdparty/restclient/include/restclient-cpp/version.h
 CMakeFiles/xDC.dir/product/src/datacollecter.cpp.o: ../common/typeany/inc/typeany.h
 CMakeFiles/xDC.dir/product/src/datacollecter.cpp.o: ../feature/log/inc/easylogging.h
 CMakeFiles/xDC.dir/product/src/datacollecter.cpp.o: ../include/json.hpp
@@ -60,4 +61,5 @@ CMakeFiles/xDC.dir/product/src/datacollecter.cpp.o: ../protocol/SimensCnc/Simens
 CMakeFiles/xDC.dir/product/src/datacollecter.cpp.o: ../protocol/SimensCnc/Simens/libsiemenscnc/inc/siemenscnc.h
 CMakeFiles/xDC.dir/product/src/datacollecter.cpp.o: ../protocol/SimensCnc/Simens/libsiemenscnc/inc/siemenscnc_private.h
 CMakeFiles/xDC.dir/product/src/datacollecter.cpp.o: ../protocol/SimensCnc/Simens/libsiemenscnc/inc/siemenscnc_tcp_private.h
+CMakeFiles/xDC.dir/product/src/datacollecter.cpp.o: ../thirdparty/restclient/include/restclient-cpp/restclient.h
 
