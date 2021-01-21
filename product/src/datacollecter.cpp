@@ -20,6 +20,7 @@
 #include <cstdio>
 #include <cstring>
 #include <functional>
+#include <ios>
 #include <string>
 #include <sys/types.h>
 #include <vector>
@@ -28,7 +29,7 @@
 DataCollecter* DataCollecter::m_pInstance_s = NULL;
 
 #define TYPE_BASE_MASK  0xf
-UINT32 G_LOG_ENABLE = 0;
+UINT32 G_LOG_ENABLE = 1;
 UINT32 G_DEBUG_LOG_ENABLE = 1;
 
 /**
@@ -278,12 +279,82 @@ VOID DataCollecter::FormatParamList( vector<IOFunctionList> *funclist, INT32 fun
     }
 
     /// 根据regname得到输入的参数列表，统一为int类型，int转ushort或者uint8的位宽足够
+    tempFunc->regName = regName;
     FillParamInput( tempFunc->returnpos, tempFunc->paramNum, regName, tempFunc->paramList );
 
     funclist->push_back( *tempFunc );
 }
 
 
+
+/**
+ * @brief  get input params
+ *
+ * @param[in]  regName
+ * @param[in]  axis
+ * @param[in]  address
+ * @param[in]  subaddress
+ */
+UINT8 DataCollecter::ParseParamsFromRegName( string regName, INT32 *param1, INT32 *param2, INT32 *param3 )
+{
+    UINT8 paramNum = 0;
+
+    /// remove "
+    if( regName.npos != regName.find( "\"" ) )
+    {
+        regName = regName.substr( 1, regName.length() - 2 );
+        LOG_IF( G_LOG_ENABLE, INFO ) << "regName = " << regName;
+    }
+
+    /// find :
+    if( regName.npos != regName.find( ":" ) )
+    {
+        string left_str = regName.substr( 0, regName.find( ":" ) );
+        string right_str = regName.substr( 1 + regName.find( ":" ) );
+
+        /// first get axis
+        *param1 = atoi( left_str.data() );
+        LOG_IF( G_LOG_ENABLE, INFO ) << "param1 = " << left_str;
+        paramNum++;
+        if( right_str.npos != right_str.find( "." ) )
+        {
+            string address_left_str = right_str.substr( 0, right_str.find( "." ) );
+            string address_right_str = right_str.substr( 1 + right_str.find( "." ) );
+            *param2 = atoi( address_left_str.data() );
+            paramNum++;
+            *param3 = atoi( address_right_str.data() );
+            paramNum++;
+            LOG_IF( G_LOG_ENABLE, INFO ) << "param2 = " << *param2;
+            LOG_IF( G_LOG_ENABLE, INFO ) << "param3 = " << *param3;
+        }
+        else
+        {
+            *param2 = atoi( right_str.data() );
+        }
+    }
+    else
+    {
+        if( regName.npos != regName.find( "." ) )
+        {
+            string address_left_str = regName.substr( 0, regName.find( "." ) );
+            string address_right_str = regName.substr( 1 + regName.find( "." ) );
+            *param1 = atoi( address_left_str.data() );
+            paramNum++;
+            *param2 = atoi( address_right_str.data() );
+            paramNum++;
+            LOG_IF( G_LOG_ENABLE, INFO ) << "param1 = " << *param1;
+            LOG_IF( G_LOG_ENABLE, INFO ) << "param2 = " << *param2;
+        }
+        else
+        {
+            *param1 = atoi( regName.data() );
+            LOG_IF( G_LOG_ENABLE, INFO ) << "param1 = " << *param1 ;
+            paramNum++;
+        }
+    }
+
+    return paramNum;
+}
 /**
  * @brief  Fill the input param, param is prase from regName
  *
@@ -301,6 +372,12 @@ INT32 DataCollecter::FillParamInput( UINT32 retpos, UINT32 paramNum, string regN
     INT32 *param2 = new INT32( 0 );
     INT32 *param3 = new INT32( 0 );
     INT32 *param4 = new INT32( 0 );
+
+    if( !regName.empty() )
+    {
+        UINT8 jsonParmNum = ParseParamsFromRegName( regName, param1, param2, param3 );
+        LOG_IF( G_LOG_ENABLE, INFO ) << "regName = " << regName << "-->jsonParamNum = " << ( INT32 )jsonParmNum;
+    }
 
     switch ( paramNum )
     {
@@ -386,7 +463,7 @@ INT32 DataCollecter::JobFunctionCall( pJobFunc JobFunc, UINT32 retpos, UINT32 pa
             {
                 ret = ( ( INT32 * )( JobFunc( paramList[0], *( int * )paramList[1], paramList[2] ) ) );
             }
-            else
+            else/// no input param
             {
                 ret = ( ( INT32 * )( JobFunc( paramList[0], paramList[1], paramList[2] ) ) );
             }
@@ -397,7 +474,7 @@ INT32 DataCollecter::JobFunctionCall( pJobFunc JobFunc, UINT32 retpos, UINT32 pa
 
                 ret = ( ( INT32 * )( JobFunc( paramList[0], *( int * )paramList[1], *( int * )paramList[2], paramList[3] ) ) );
             }
-            else
+            else/// one input param
             {
                 ret = ( ( INT32 * )( JobFunc( paramList[0], *( int * )paramList[1], paramList[2], paramList[3] ) ) );
             }
@@ -407,7 +484,7 @@ INT32 DataCollecter::JobFunctionCall( pJobFunc JobFunc, UINT32 retpos, UINT32 pa
             {
                 ret = ( ( INT32 * )( JobFunc( paramList[0], *( int * )paramList[1], *( int * )paramList[2], *( int * )paramList[3], paramList[4] ) ) );
             }
-            else
+            else/// two input param
             {
                 ret = ( ( INT32 * )( JobFunc( paramList[0], *( int * )paramList[1], *( int * )paramList[2], paramList[3], paramList[4] ) ) );
             }
@@ -417,7 +494,7 @@ INT32 DataCollecter::JobFunctionCall( pJobFunc JobFunc, UINT32 retpos, UINT32 pa
             {
                 ret = ( ( INT32 * )( JobFunc( paramList[0], *( int * )paramList[1], *( int * )paramList[2], *( int * )paramList[3], *( int * )paramList[4], paramList[5] ) ) );
             }
-            else
+            else/// three input param
             {
                 ret = ( ( INT32 * )( JobFunc( paramList[0], *( int * )paramList[1], *( int * )paramList[2], *( int * )paramList[3], paramList[4], paramList[5] ) ) );
             }
@@ -753,7 +830,9 @@ VOID DataCollecter::PrintFuncList( vector<IOFunctionList> funclist )
     LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) <<   "-----------------------------------------------------------------";
 }
 
-
+/**
+ * @brief  print debug log for iolist
+ */
 VOID DataCollecter::PrintAllList()
 {
     LOG_IF( G_DEBUG_LOG_ENABLE, INFO ) <<   "period of 100ms function list:";

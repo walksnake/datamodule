@@ -39,7 +39,7 @@ typedef struct IOFunctionList
     UINT32 returnpos;                           ///< 返回值的位置
     UINT32 paramtype;                            ///< 数据类型按照最多8个参数排列8 x 4bits = 32bits
     ///< [31:28][27:24][23:20][19:16][15:12][11:8][7:4][3:0]
-    string regName;                                                         ///< 采集函数的输入参数, 按照目前的规律，
+    string regName;                                                         ///< 采集函数的输入参数, 按照目前的规律X:Y.Z，
     ///< 第一个参数是cxt，
     ///< 最后一个参数如果是返回值,则类型为普通指针
     ///< 倒数第二个参数是返回值，则最后一个参数是长度信息
@@ -112,6 +112,8 @@ public:
     VOID FormatParamList( vector<IOFunctionList> *funclist, INT32 funcIndex, UINT32 key, string regName );
     INT32 GetIOFunctionFromType( UINT32 type );
     INT32 JobFunctionCall( pJobFunc JobFunc, UINT32 retpos, UINT32 paramNum, VOID **paramList );
+
+VOID DataCollecter::ParseParamsFromRegName(string regName, INT32 *param1, INT32 *param2, INT32 *param3)
     INT32 FillParamInput( UINT32 retpos, UINT32 paramNum, string regName, void **paramList );
     VOID LoopFuncList( vector<IOFunctionList> funclist );
 public:
@@ -171,12 +173,11 @@ private:
     BOOLEAN m_thread_post_stop;
 public:
     VOID PrintFuncList( vector<IOFunctionList> funclist );
-		VOID PrintAllList();
-		VOID SetLogEnable();
-		VOID SetLogDisable();
-VOID DataCollecter::SetDebugLogEnable()
-VOID DataCollecter::SetDebugLogDisable()
-
+    VOID PrintAllList();
+    VOID SetLogEnable();
+    VOID SetLogDisable();
+    VOID SetDebugLogEnable();
+    VOID SetDebugLogDisable();
 };
 
 #endif
