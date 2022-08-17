@@ -40,8 +40,8 @@
 #endif
 
 
-#include "libezsocket/ezsocket_tcp_private.h"
-#include "libezsocket/ezsocket_private.h"
+#include "ezsocket_tcp_private.h"
+#include "ezsocket_private.h"
 
 #ifdef OS_WIN32
 static int _ezsocket_tcp_init_win32(void)

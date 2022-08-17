@@ -33,9 +33,9 @@
 # include <netdb.h>
 #endif
 
-#include "libezsocket/ezsocket_new.h"
-#include "libezsocket/ezsocket_private.h"
-#include "libezsocket/ezsocket_tcp_private.h"
+#include "ezsocket_new.h"
+#include "ezsocket_private.h"
+#include "ezsocket_tcp_private.h"
 
 
 #define _EZSOCKET_HEADER_LENGTH      12

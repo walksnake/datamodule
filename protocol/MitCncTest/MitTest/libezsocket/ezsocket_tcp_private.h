@@ -1,7 +1,7 @@
 #ifndef EZSOCKET_TCP_PRIVATE_H
 #define EZSOCKET_TCP_PRIVATE_H
 
-#include "libezsocket/ezsocket.h"
+#include "ezsocket.h"
 //# include <ws2tcpip.h>
 EZSOCKET_BEGIN_DECLS
 typedef struct _ezsocket_tcp {

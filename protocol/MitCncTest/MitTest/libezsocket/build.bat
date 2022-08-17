@@ -1,0 +1,2 @@
+gcc -c ezsocket.c ezsocket_data.c ezsocket_new.c ezsocket_private.c ezsocket_tcp_private.c
+gcc -shared -o libezsocket.lib ezsocket.o ezsocket_data.o ezsocket_new.o ezsocket_private.o ezsocket_tcp_private.o

@@ -13,8 +13,8 @@
 #define ENOPROTOOPT  WSAENOPROTOOPT
 #endif
 
-#include "libezsocket/ezsocket.h"
-#include "libezsocket/ezsocket_private.h"
+#include "ezsocket.h"
+#include "ezsocket_private.h"
 
 
 
